@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PhaseForge Electrical and Power Solutions</title>
+    <meta name="robots" content="noindex" />
+    <!--
+      =====================================================================
+      GITHUB PAGES STOPGAP — do not confuse this with the real site.
+      =====================================================================
+      GitHub Pages only serves static files. With no index.html it runs
+      Jekyll, which renders README.md as the homepage — that is why the
+      repo README used to show up here.
+
+      The real PhaseForge site is a Next.js app (needs a Node server for
+      booking forms, photo uploads, notifications and the admin dashboard)
+      and MUST be hosted on a Node host such as Vercel.
+
+      1) Once your Vercel deploy is live, put its URL in REDIRECT_URL below
+         (e.g. "https://phaseforge.vercel.app") and visitors will be sent there.
+      2) Best of all, switch GitHub Pages off entirely so this repo stops
+         being published: Repo -> Settings -> Pages -> Source -> None.
+      =====================================================================
+    -->
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: radial-gradient(120% 120% at 50% 0%, #101c33 0%, #0a0f1c 55%, #070b14 100%);
+        color: #e5edff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      }
+      .card {
+        width: 100%;
+        max-width: 520px;
+        background: linear-gradient(180deg, rgba(14, 165, 233, 0.12), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(14, 165, 233, 0.3);
+        border-radius: 20px;
+        padding: 36px 32px;
+        text-align: center;
+        box-shadow: 0 30px 80px -40px rgba(14, 165, 233, 0.8);
+      }
+      .bolt { font-size: 40px; line-height: 1; }
+      h1 { font-size: 24px; margin: 14px 0 6px; letter-spacing: -0.01em; }
+      .tagline { color: #38bdf8; font-weight: 600; margin: 0 0 18px; }
+      p { color: #9fb1cf; line-height: 1.6; margin: 0 0 22px; font-size: 15px; }
+      .buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      a.btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border-radius: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+      a.primary { background: linear-gradient(135deg, #38bdf8, #2563eb); color: #04121f; }
+      a.ghost { border: 1px solid rgba(255, 255, 255, 0.18); color: #dbe6ff; }
+      a.btn:hover { transform: translateY(-2px); }
+      a.ghost:hover { border-color: rgba(56, 189, 248, 0.6); }
+      footer { margin-top: 26px; font-size: 12.5px; color: #7488a8; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="bolt" aria-hidden="true">⚡</div>
+      <h1>PhaseForge Electrical &amp; Power Solutions</h1>
+      <p class="tagline">Reliable power, expertly forged.</p>
+      <p>
+        Our new website is being deployed. In the meantime, reach us directly —
+        we handle residential, commercial and backup-power work across Accra &amp; Tema.
+      </p>
+      <div class="buttons">
+        <a class="primary" href="https://wa.me/233552813116">Chat on WhatsApp</a>
+        <a class="ghost" href="tel:+233552813116">Call +233 55 281 3116</a>
+      </div>
+      <footer>Accra &amp; Tema, Ghana · 24/7 emergency callouts</footer>
+    </main>
+
+    <script>
+      // Set this to your live Vercel URL to auto-forward visitors, e.g.
+      // var REDIRECT_URL = "https://phaseforge.vercel.app";
+      var REDIRECT_URL = "";
+      if (REDIRECT_URL) window.location.replace(REDIRECT_URL);
+    </script>
+  </body>
+</html>

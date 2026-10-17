@@ -3,6 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  // Pin the workspace root to this project. Without this, Turbopack walks up
+  // and finds an unrelated package-lock.json in the parent folder, printing:
+  // "Next.js ignored package-lock.json … because it is outside the current Git repository".
+  turbopack: {
+    root: process.cwd(),
+  },
   async headers() {
     return [
       {
