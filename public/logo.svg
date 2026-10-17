@@ -1,0 +1,15 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" role="img">
+  <title>PhaseForge Electrical &amp; Power Solutions</title>
+  <desc>Lightning bolt symbolizing electrical and power</desc>
+  <defs>
+    <linearGradient id="g" x1="40" y1="40" x2="472" y2="472" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#g)"/>
+  <g filter="url(#f1)">
+    <path d="M276 96L148 256h96l-24 160 128-160h-96l24-160z" fill="#052E16"/>
+  </g>
+  <path d="M276 96L148 256h96l-24 160 128-160h-96l24-160z" fill="#F8FAFC"/>
+</svg>

@@ -1,0 +1,59 @@
+import { z } from "zod";
+
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const phoneRe = /^[+()\-.\s\d]{7,20}$/;
+
+export const submissionTypes = ["appointment", "order", "quote", "contact"] as const;
+export const serviceCategories = ["residential", "commercial", "power", "specialty", "other"] as const;
+export const urgencyLevels = ["emergency", "this-week", "flexible"] as const;
+
+export const submissionSchema = z
+  .object({
+    type: z.enum(submissionTypes).default("appointment"),
+    name: z.string().trim().min(2, "Please enter your full name.").max(80),
+    email: z.string().trim().toLowerCase().regex(emailRe, "Enter a valid email address."),
+    phone: z
+      .string()
+      .trim()
+      .regex(phoneRe, "Enter a valid phone number.")
+      .transform((v) => v.replace(/\s+/g, " ").trim()),
+    serviceCategory: z.enum(serviceCategories).default("other"),
+    service: z.string().trim().max(120).optional().or(z.literal("")),
+    propertyType: z.string().trim().max(60).optional().or(z.literal("")),
+    address: z.string().trim().max(160).optional().or(z.literal("")),
+    city: z.string().trim().max(80).optional().or(z.literal("")),
+    latitude: z.number().min(-90).max(90).nullable().optional(),
+    longitude: z.number().min(-180).max(180).nullable().optional(),
+    preferredDate: z.string().trim().max(30).optional().or(z.literal("")),
+    preferredTime: z.string().trim().max(30).optional().or(z.literal("")),
+    urgency: z.enum(urgencyLevels).default("flexible"),
+    budget: z.string().trim().max(60).optional().or(z.literal("")),
+    details: z.string().trim().min(10, "Tell us a little more (10+ characters).").max(2000),
+    photos: z.array(z.string()).max(5).nullable().optional(),
+    referral: z.string().trim().max(80).optional().or(z.literal("")),
+    consent: z.boolean().refine((v) => v === true, "Please accept so we can contact you."),
+    // basic anti-spam honeypot: must be empty
+    company: z.string().max(0).optional().or(z.literal("")),
+  })
+  .refine(
+    (data) => data.type !== "appointment" || Boolean(data.preferredDate),
+    { message: "Please choose a preferred date.", path: ["preferredDate"] },
+  );
+
+export type SubmissionInput = z.input<typeof submissionSchema>;
+export type SubmissionData = z.output<typeof submissionSchema>;
+
+type Issue = { path: readonly (string | number | symbol)[]; message: string };
+
+export function firstError(issues: readonly Issue[]) {
+  return issues[0]?.message ?? "Something went wrong. Please check the form.";
+}
+
+export function fieldErrors(issues: readonly Issue[]) {
+  const out: Record<string, string> = {};
+  for (const issue of issues) {
+    const key = issue.path.map(String).join(".") || "form";
+    if (!out[key]) out[key] = issue.message;
+  }
+  return out;
+}

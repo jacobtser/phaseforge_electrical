@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — deep engineering navy + electric "volt" blue + forge amber */
+  --color-ink-950: #04070e;
+  --color-ink-900: #070c17;
+  --color-ink-850: #0a1120;
+  --color-ink-800: #0e1626;
+  --color-ink-700: #16213a;
+  --color-ink-600: #223050;
+  --color-ink-500: #33456b;
+
+  --color-volt-200: #bae6fd;
+  --color-volt-300: #7dd3fc;
+  --color-volt-400: #38bdf8;
+  --color-volt-500: #0ea5e9;
+  --color-volt-600: #0284c7;
+  --color-volt-700: #0369a1;
+
+  --color-forge-300: #fcd34d;
+  --color-forge-400: #fbbf24;
+  --color-forge-500: #f59e0b;
+  --color-forge-600: #d97706;
+
+  --color-mist-100: #eef4ff;
+  --color-mist-200: #d5e2f7;
+  --color-mist-400: #8ea3c8;
+  --color-mist-500: #6b7fa3;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --shadow-glow: 0 0 45px -10px rgba(14, 165, 233, 0.6);
+  --shadow-forge: 0 0 45px -10px rgba(245, 158, 11, 0.55);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-ink-950);
+    color: var(--color-mist-100);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(14, 165, 233, 0.16), transparent 60%),
+      radial-gradient(800px 520px at 92% 4%, rgba(245, 158, 11, 0.1), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--color-volt-400);
+    color: #03121f;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-volt-400);
+    outline-offset: 2px;
+  }
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, #7dd3fc 0%, #38bdf8 45%, #fbbf24 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes pf-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pf-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(245, 158, 11, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+@keyframes pf-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: pf-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.pulse-ring {
+  animation: pf-pulse-ring 2.4s infinite;
+}
+
+.marquee-track {
+  animation: pf-marquee 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    animation: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
