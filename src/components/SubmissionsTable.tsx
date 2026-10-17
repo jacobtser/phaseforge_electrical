@@ -194,10 +194,19 @@ export function SubmissionsTable({ rows: initial }: { rows: SubmissionRecord[] }
                       </p>
                       {r.photos && r.photos.length > 0 && (
                         <div className="mt-3">
-                          <div className="text-xs font-semibold uppercase tracking-wide text-mist-400 mb-2">Photos</div>
+                          <div className="text-xs font-semibold uppercase tracking-wide text-mist-400 mb-2">
+                            Photos ({r.photos.length})
+                          </div>
                           <div className="flex flex-wrap gap-2">
                             {r.photos.map((url) => (
-                              <a key={url} href={url} target="_blank" rel="noopener" className="text-xs text-volt-300 truncate max-w-xs">{url}</a>
+                              <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="block">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                  src={url}
+                                  alt="Client photo"
+                                  className="h-16 w-16 rounded-lg border border-white/10 object-cover transition-colors hover:border-volt-400/60"
+                                />
+                              </a>
                             ))}
                           </div>
                         </div>

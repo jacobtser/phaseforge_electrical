@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import clsx from "clsx";
 import { serviceGroups, site, waLink } from "@/lib/site";
+import { MAX_PHOTOS, MAX_UPLOAD_BYTES, MAX_UPLOAD_MB } from "@/lib/upload-limits";
 import {
   ArrowRightIcon,
   CalendarIcon,
@@ -120,8 +121,7 @@ export function BookingForm({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
-  const [copied, setCopied] = useState(false);
-  const [waDelivered, setWaDelivered] = useState(false);
+  const [uploadError, setUploadError] = useState("");
   const [serverError, setServerError] = useState("");
 
   const serviceOptions = useMemo(
@@ -165,6 +165,66 @@ export function BookingForm({
     } finally {
       setSubmitting(false);
     }
+  }
+
+  async function onPickPhotos(e: React.ChangeEvent<HTMLInputElement>) {
+    const input = e.target;
+    const picked = Array.from(input.files ?? []);
+    input.value = ""; // allow re-selecting the same file later
+    if (picked.length === 0) return;
+
+    setUploadError("");
+
+    const room = MAX_PHOTOS - form.photos.length;
+    if (room <= 0) {
+      setUploadError(`You can attach up to ${MAX_PHOTOS} photos. Remove one to add another.`);
+      return;
+    }
+
+    const batch = picked.slice(0, room);
+    if (picked.length > room) {
+      setUploadError(
+        `Only the first ${room} photo${room === 1 ? "" : "s"} could be added — up to ${MAX_PHOTOS} in total.`,
+      );
+    }
+
+    const tooBig = batch.find((f) => f.size > MAX_UPLOAD_BYTES);
+    if (tooBig) {
+      setUploadError(`"${tooBig.name}" is larger than ${MAX_UPLOAD_MB} MB.`);
+      return;
+    }
+
+    setUploading(true);
+    try {
+      const body = new FormData();
+      batch.forEach((f) => body.append("file", f));
+      const res = await fetch("/api/upload", { method: "POST", body });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        message?: string;
+        files?: { url: string }[];
+        failures?: { message: string }[];
+      };
+
+      if (res.ok && data.ok && data.files?.length) {
+        const urls = data.files.map((f) => f.url);
+        setForm((f) => ({ ...f, photos: [...f.photos, ...urls].slice(0, MAX_PHOTOS) }));
+        if (data.failures?.length) setUploadError(data.failures[0].message);
+      } else {
+        setUploadError(
+          data.message ?? "Couldn't upload the photo(s). Please try again or send them on WhatsApp.",
+        );
+      }
+    } catch {
+      setUploadError("Couldn't upload the photo(s). Check your connection, or send them on WhatsApp.");
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  function removePhoto(url: string) {
+    setForm((f) => ({ ...f, photos: f.photos.filter((p) => p !== url) }));
+    setUploadError("");
   }
 
   if (result) {
@@ -421,41 +481,45 @@ export function BookingForm({
             required
           />
         </Field>
-        <Field label="Photos (if possible)" htmlFor="bf-photos" className="sm:col-span-2">
+        <Field label="Photos (optional)" error={uploadError} htmlFor="bf-photos" className="sm:col-span-2">
           <input
             id="bf-photos"
             type="file"
             multiple
             accept="image/*"
-            disabled={uploading}
-            onChange={async (e) => {
-              const files = Array.from(e.target.files || []);
-              if (files.length === 0) return;
-              setUploading(true);
-              try {
-                const formData = new FormData();
-                files.forEach((f) => formData.append("file", f));
-                formData.append("upload_preset", "ml_default");
-                const res = await fetch("https://api.cloudinary.com/v1_1/demo/image/upload", {
-                  method: "POST",
-                  body: formData,
-                });
-                if (res.ok) {
-                  const data = await res.json();
-                  setForm((f) => ({ ...f, photos: [...f.photos, data.secure_url].slice(0, 5) }));
-                }
-              } catch {}
-              setUploading(false);
-            }}
-            className={inputBase}
+            disabled={uploading || form.photos.length >= MAX_PHOTOS}
+            onChange={onPickPhotos}
+            className={clsx(
+              inputBase,
+              "file:mr-3 file:rounded-lg file:border-0 file:bg-volt-500/20 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-volt-200 disabled:cursor-not-allowed disabled:opacity-60",
+            )}
           />
-          {uploading && <p className="text-xs text-mist-400 mt-1">Uploading...</p>}
+          <p className="mt-1.5 text-xs text-mist-500">
+            JPG, PNG, WebP, GIF, AVIF or HEIC · up to {MAX_UPLOAD_MB} MB each · {form.photos.length}/
+            {MAX_PHOTOS} attached.
+          </p>
+          {uploading && <p className="mt-1 text-xs text-mist-400">Uploading…</p>}
           {form.photos.length > 0 && (
-            <div className="flex gap-2 mt-2 flex-wrap">
+            <ul className="mt-3 flex flex-wrap gap-3">
               {form.photos.map((url) => (
-                <a key={url} href={url} target="_blank" rel="noopener" className="text-xs text-volt-300 truncate max-w-xs">{url}</a>
+                <li key={url} className="relative">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={url}
+                    alt="Attached photo"
+                    className="h-20 w-20 rounded-lg border border-white/10 object-cover"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => removePhoto(url)}
+                    aria-label="Remove photo"
+                    className="absolute -right-2 -top-2 grid h-5 w-5 place-items-center rounded-full bg-ink-950 text-xs leading-none text-mist-300 ring-1 ring-white/20 transition-colors hover:text-red-300"
+                  >
+                    ×
+                  </button>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </Field>
         <Field label="How did you hear about us? (referral)" error={errors.referral} htmlFor="bf-referral" className="sm:col-span-2">

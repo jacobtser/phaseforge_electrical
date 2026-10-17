@@ -10,6 +10,7 @@ The site collects quote requests, bookings and enquiries, stores them, then noti
 
 - **Marketing pages** — home, services, about, contact
 - **Booking / quote / order forms** with server-side validation (Zod)
+- **Photo attachments** — customers can attach up to 5 site photos (stored locally with zero config, or on Cloudinary when configured)
 - **Owner notifications** — WhatsApp (Meta Cloud API → CallMeBot → manual `wa.me` fallback) + email via Resend
 - **Customer confirmation email** with their reference number
 - **Admin dashboard** at `/admin` — filter, search, update status, delete, CSV export
@@ -73,6 +74,7 @@ Copy `.env.example` to `.env.local`. Everything is optional except `ADMIN_PASSWO
 | `WHATSAPP_TO` | Optional | Destination number for accepted messages |
 | `CALLMEBOT_PHONE` / `CALLMEBOT_APIKEY` | Optional | CallMeBot credentials |
 | `WHATSAPP_TOKEN` / `WHATSAPP_PHONE_NUMBER_ID` | Optional | Meta WhatsApp Cloud API credentials |
+| `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_UPLOAD_PRESET` | Optional | Send uploaded photos to your own Cloudinary account. Omit to store them locally |
 
 Generate a strong `AUTH_SECRET`:
 
@@ -102,12 +104,14 @@ src/
 │  ├─ page.tsx          # Home
 │  ├─ services/ about/ contact/ book/
 │  ├─ admin/            # Dashboard + login
-│  └─ api/              # quote + admin endpoints
+│  └─ api/              # quote, admin + upload endpoints
 ├─ components/          # Header, Footer, forms, UI bits
 └─ lib/
    ├─ site.ts           # Site config, services, nav
    ├─ validation.ts     # Zod schemas
    ├─ db.ts             # Postgres + JSON fallback store
+   ├─ uploads.ts        # Photo uploads (Cloudinary or local disk)
+   ├─ upload-limits.ts  # Shared upload limits (client + server)
    ├─ auth.ts           # Session cookie handling
    ├─ email.ts          # Resend integration
    ├─ whatsapp.ts       # WhatsApp providers
@@ -123,6 +127,8 @@ src/
 | `/services` `/about` `/contact` `/book` | Static | Marketing + booking |
 | `/admin` `/admin/login` | Dynamic | Protected dashboard |
 | `/api/quote` | Dynamic | Accepts all form submissions |
+| `/api/upload` | Dynamic | Validates and stores uploaded photos |
+| `/api/uploads/[name]` | Dynamic | Serves locally-stored photos (fallback backend) |
 | `/api/admin/*` | Dynamic | Login, logout, submissions, CSV export |
 
 ---
@@ -141,6 +147,13 @@ src/
 3. **Customer email** — confirmation with their reference number.
 
 Missing credentials simply skip the corresponding channel.
+
+**Photo uploads** — `src/lib/uploads.ts` validates every attached image (image type, max 6 MB, max 5 photos) and stores it with one of two backends:
+
+- If `CLOUDINARY_CLOUD_NAME` + `CLOUDINARY_UPLOAD_PRESET` are set, photos go to your Cloudinary account (unsigned upload preset) and the returned `secure_url` is stored.
+- Otherwise photos are written to `.data/uploads/` and served from `/api/uploads/<uuid>.<ext>` (git-ignored, **local development only** — configure Cloudinary before deploying, or the serverless filesystem will reject writes and the form will say so).
+
+The stored photo URLs are shown as thumbnails in the admin dashboard and included in the owner's WhatsApp/email notification.
 
 ---
 
