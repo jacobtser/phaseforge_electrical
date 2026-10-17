@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "PhaseForge Electrical and Power Solutions - website, appointment booking and order system with WhatsApp + email notifications.",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

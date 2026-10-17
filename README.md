@@ -225,12 +225,37 @@ Get-Process cloudflared,node -ErrorAction SilentlyContinue | Stop-Process
 
 ## Deploying for real
 
-Any Node host works (Vercel is a natural fit for Next.js). Before going live:
+> ⚠️ **Do NOT deploy this on GitHub Pages.** GitHub Pages only serves static files — it can't run Next.js API routes, and because it finds no `index.html` it falls back to Jekyll, which renders this very `README.md` as the homepage. That is why a Pages deploy shows the README instead of the site. Deleting the README doesn't fix it (Pages would just 404). Use a Node host.
 
-1. Set a real `DATABASE_URL` so submissions persist off the local machine.
-2. Set `ADMIN_PASSWORD`, `ADMIN_USERNAME` and a strong `AUTH_SECRET`.
-3. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
-4. Add `RESEND_API_KEY` and WhatsApp credentials to enable notifications.
+This app needs a Node server (for `/api/quote`, `/api/upload`, `/api/admin/*`) and a database, so it must run on a host that executes server code. Vercel is the natural fit and has a free tier.
+
+### Deploy on Vercel
+
+1. Make sure the repo is pushed to GitHub (`jacobtser/phaseforge_electrical`).
+2. Go to <https://vercel.com/new>, sign in with GitHub, and **Import** the `phaseforge_electrical` repo.
+3. Vercel auto-detects the **Next.js** preset. Leave the build settings alone — do **not** set an "Output Directory"; Vercel builds the app itself.
+4. Open **Environment Variables** and add the values below (apply to Production, Preview and Development).
+5. Click **Deploy**. First build takes ~1–2 min and you get a live `https://<project>.vercel.app` URL.
+6. Later, add your own domain under **Project → Settings → Domains**, then set `NEXT_PUBLIC_SITE_URL` to it.
+
+### Environment variables on Vercel
+
+Vercel's filesystem is **read-only**, so the zero-config JSON store and local photo uploads do **not** work there. Set at least:
+
+| Variable | Why it matters on Vercel |
+|---|---|
+| `DATABASE_URL` | **Required.** Without it the quote form returns a 500. Use a free Neon database (<https://neon.tech>) and copy the pooled connection string. |
+| `ADMIN_PASSWORD` | **Required** to sign in at `/admin`. |
+| `AUTH_SECRET` | **Required** to sign the session cookie (generate with the command above). |
+| `ADMIN_USERNAME` | Optional, defaults to `admin`. |
+| `NEXT_PUBLIC_SITE_URL` | Your production URL, e.g. `https://phaseforgeelectrical.com`. |
+| `CLOUDINARY_CLOUD_NAME` + `CLOUDINARY_UPLOAD_PRESET` | Needed for photo uploads to persist — otherwise `/api/upload` fails on Vercel. |
+| `RESEND_API_KEY`, `EMAIL_FROM`, `OWNER_EMAIL` | Enable emails. |
+| `WHATSAPP_*` / `CALLMEBOT_*` | Enable owner WhatsApp notifications. |
+
+### If you enabled GitHub Pages, turn it off
+
+**Repo → Settings → Pages → Build and deployment → Source → None → Save.** That stops `https://<user>.github.io/<repo>/` from serving the README. Your real site then lives at the Vercel URL.
 
 ---
 
