@@ -31,7 +31,11 @@ const MAX_HISTORY = 12;
 function cleanReply(value: string): string {
   return value
     .replace(/\*\*(.*?)\*\*/g, "$1")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1 ($2)")
+    .replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      (_match: string, label: string, href: string) =>
+        label.trim() === href.trim() ? href.trim() : `${label.trim()} (${href.trim()})`,
+    )
     .replace(/`([^`]+)`/g, "$1")
     .replace(/^#{1,6}\s+/gm, "")
     .replace(/^\s*[*-]\s+/gm, "• ")
