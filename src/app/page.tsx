@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { site, serviceGroups } from "@/lib/site";
-import { iconByName, ArrowRightIcon, BoltIcon, CheckIcon, ClockIcon, PhoneIcon, ShieldIcon, SparkIcon, WhatsAppIcon, WrenchIcon } from "@/components/Icons";
+import { site, serviceGroups, waLink } from "@/lib/site";
+import { iconByName, ArrowRightIcon, BoltIcon, CheckIcon, ClockIcon, PhoneIcon, ShieldIcon, SparkIcon, WhatsAppIcon, WrenchIcon, CartIcon } from "@/components/Icons";
 import { Reveal } from "@/components/Reveal";
+import { ShopSection } from "@/components/ShopSection";
+import { SolarEvContact } from "@/components/SolarEvContact";
 
 const FEATURES = [
   { icon: ShieldIcon, title: "Licensed & compliant", text: "Work carried out to recognised electrical safety codes, with clear documentation." },
@@ -79,6 +81,12 @@ export default function HomePage() {
                   >
                     <PhoneIcon className="h-4 w-4 text-volt-400" /> {site.phones[0].label}
                   </a>
+                  <Link
+                    href="/shop"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-6 py-3.5 font-semibold text-white transition-colors hover:border-forge-400/60"
+                  >
+                    <CartIcon className="h-4 w-4 text-forge-400" /> Shop materials
+                  </Link>
                 </div>
               </Reveal>
               <Reveal delay={320}>
@@ -152,6 +160,16 @@ export default function HomePage() {
             );
           })}
         </div>
+      </section>
+
+      {/* Shop */}
+      <ShopSection />
+
+      {/* Solar & EV specialist */}
+      <section className="mx-auto max-w-7xl px-4 pt-16">
+        <Reveal>
+          <SolarEvContact compact />
+        </Reveal>
       </section>
 
       {/* Features */}
@@ -269,7 +287,7 @@ export default function HomePage() {
                     Book a visit <ArrowRightIcon className="h-4 w-4" />
                   </Link>
                   <a
-                    href={`https://wa.me/${site.whatsapp}`}
+                    href={waLink("Hello PhaseForge, I'd like to discuss an electrical job.")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 font-bold text-[#052e16] transition-transform hover:-translate-y-0.5"

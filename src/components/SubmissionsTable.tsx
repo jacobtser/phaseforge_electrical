@@ -30,19 +30,33 @@ export function SubmissionsTable({ rows: initial }: { rows: SubmissionRecord[] }
   const [busyId, setBusyId] = useState<string | null>(null);
 
   async function setStatus(id: string, status: SubmissionStatus) {
+    const previous = rows.find((row) => row.id === id)?.status;
+    if (!previous || previous === status) return;
+
     setBusyId(id);
-    setRows((r) => r.map((row) => (row.id === id ? { ...row, status } : row)));
-    const res = await fetch("/api/admin/submissions", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, status }),
-    });
-    setBusyId(null);
-    if (!res.ok) {
+    setRows((current) => current.map((row) => (row.id === id ? { ...row, status } : row)));
+    try {
+      const res = await fetch("/api/admin/submissions", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, status }),
+      });
+      if (!res.ok) throw new Error("Status update failed");
+      const data = (await res.json().catch(() => null)) as {
+        row?: SubmissionRecord;
+      } | null;
+      const updated = data?.row;
+      if (updated) {
+        setRows((current) => current.map((row) => (row.id === id ? updated : row)));
+      }
+    } catch {
+      setRows((current) =>
+        current.map((row) => (row.id === id ? { ...row, status: previous } : row)),
+      );
+    } finally {
+      setBusyId(null);
       router.refresh();
-      return;
     }
-    router.refresh();
   }
 
   async function remove(id: string) {
@@ -99,6 +113,11 @@ export function SubmissionsTable({ rows: initial }: { rows: SubmissionRecord[] }
                     {r.urgency === "emergency" && (
                       <span className="rounded bg-red-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-red-300">
                         Emergency
+                      </span>
+                    )}
+                    {r.referral && (
+                      <span className="rounded bg-volt-500/10 px-1.5 py-0.5 text-[10px] text-volt-300">
+                        via {r.referral}
                       </span>
                     )}
                   </div>
@@ -176,13 +195,20 @@ export function SubmissionsTable({ rows: initial }: { rows: SubmissionRecord[] }
                       <Row label="Email" value={r.email} />
                       <Row label="Property" value={r.propertyType} />
                       <Row label="Address" value={[r.address, r.city].filter(Boolean).join(", ")} />
-                      <Row label="Location" value={r.latitude && r.longitude ? `${r.latitude.toFixed(5)}, ${r.longitude.toFixed(5)}` : null} />
+                      <Row
+                        label="Location"
+                        value={
+                          r.latitude != null && r.longitude != null
+                            ? `${r.latitude.toFixed(5)}, ${r.longitude.toFixed(5)}`
+                            : null
+                        }
+                      />
                       <Row
                         label="Preferred"
                         value={[r.preferredDate, r.preferredTime].filter(Boolean).join(" ")}
                       />
                       <Row label="Budget" value={r.budget} />
-                      <Row label="Referral" value={r.referral} />
+                      <Row label="How they heard" value={r.referral} />
                       <Row label="Received" value={new Date(r.createdAt).toLocaleString()} />
                     </dl>
                     <div>

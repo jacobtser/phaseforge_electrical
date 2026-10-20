@@ -15,13 +15,31 @@ export type WhatsAppResult = {
  *   2. CallMeBot (free)         -> CALLMEBOT_PHONE + CALLMEBOT_APIKEY
  *   3. Manual fallback          -> returns a wa.me deep link the UI can offer
  */
-export async function sendOwnerWhatsApp(text: string): Promise<WhatsAppResult> {
-  const to = (process.env.WHATSAPP_TO || site.whatsapp).replace(/[^\d]/g, "");
+export async function sendOwnerWhatsApp(
+  text: string,
+  toOverride?: string,
+): Promise<WhatsAppResult> {
+  const to = (toOverride || process.env.WHATSAPP_TO || site.whatsapp).replace(/[^\d]/g, "");
   const waLink = `https://wa.me/${to}?text=${encodeURIComponent(text)}`;
 
   const token = process.env.WHATSAPP_TOKEN;
   const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
-  if (token && phoneNumberId) {
+  const cbPhone = process.env.CALLMEBOT_PHONE;
+  const cbKey = process.env.CALLMEBOT_APIKEY;
+  const provider = (process.env.WHATSAPP_PROVIDER || "").trim().toLowerCase();
+
+  const metaConfigured = Boolean(token && phoneNumberId);
+  const callMeBotConfigured = Boolean(cbPhone && cbKey);
+  const tryMeta =
+    provider === "meta" ? metaConfigured : provider === "callmebot" ? false : metaConfigured;
+  const tryCallMeBot =
+    provider === "callmebot"
+      ? callMeBotConfigured
+      : provider === "meta"
+        ? false
+        : !metaConfigured && callMeBotConfigured;
+
+  if (tryMeta && token && phoneNumberId) {
     try {
       const res = await fetch(
         `https://graph.facebook.com/v21.0/${phoneNumberId}/messages`,
@@ -49,9 +67,7 @@ export async function sendOwnerWhatsApp(text: string): Promise<WhatsAppResult> {
     }
   }
 
-  const cbPhone = process.env.CALLMEBOT_PHONE;
-  const cbKey = process.env.CALLMEBOT_APIKEY;
-  if (cbPhone && cbKey) {
+  if (tryCallMeBot && cbPhone && cbKey) {
     try {
       const url =
         `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(cbPhone)}` +

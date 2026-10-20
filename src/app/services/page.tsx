@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site, serviceGroups } from "@/lib/site";
-import { iconByName, ArrowRightIcon, BoltIcon, CheckIcon, PhoneIcon } from "@/components/Icons";
+import { isSolarOrEvRequest, site, serviceGroups, solarEvWaLink } from "@/lib/site";
+import {
+  iconByName,
+  ArrowRightIcon,
+  BoltIcon,
+  CheckIcon,
+  PhoneIcon,
+  WhatsAppIcon,
+} from "@/components/Icons";
 import { Reveal } from "@/components/Reveal";
+import { SolarEvContact } from "@/components/SolarEvContact";
 
 export const metadata: Metadata = {
   title: "Electrical Services in Accra & Tema",
@@ -70,7 +78,20 @@ export default function ServicesPage() {
                     {g.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm text-mist-200">
                         <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-forge-400" />
-                        {item}
+                        <span className="flex-1">{item}</span>
+                        {isSolarOrEvRequest(item) && (
+                          <a
+                            href={solarEvWaLink(
+                              `Hello PhaseForge, I'd like to ask about ${item.toLowerCase()}.`,
+                            )}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`WhatsApp about ${item}`}
+                            className="inline-flex shrink-0 items-center gap-1 text-[11px] font-semibold text-forge-300 hover:text-forge-200"
+                          >
+                            <WhatsAppIcon className="h-3.5 w-3.5" /> WhatsApp
+                          </a>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -86,6 +107,12 @@ export default function ServicesPage() {
           })}
         </div>
       </div>
+
+      <section className="mx-auto max-w-7xl px-4 pb-8">
+        <Reveal>
+          <SolarEvContact />
+        </Reveal>
+      </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-20">
         <Reveal>

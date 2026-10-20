@@ -186,6 +186,10 @@ export async function listSubmissions(opts?: {
           OR email ILIKE ${"%" + (q ?? "") + "%"}
           OR phone ILIKE ${"%" + (q ?? "") + "%"}
           OR ref ILIKE ${"%" + (q ?? "") + "%"}
+          OR referral ILIKE ${"%" + (q ?? "") + "%"}
+          OR source ILIKE ${"%" + (q ?? "") + "%"}
+          OR service ILIKE ${"%" + (q ?? "") + "%"}
+          OR city ILIKE ${"%" + (q ?? "") + "%"}
           OR details ILIKE ${"%" + (q ?? "") + "%"}
         )
       ORDER BY created_at DESC
@@ -201,7 +205,7 @@ export async function listSubmissions(opts?: {
   const q = opts?.q?.trim().toLowerCase();
   if (q) {
     rows = rows.filter((r) =>
-      [r.name, r.email, r.phone, r.ref, r.details, r.service, r.city]
+      [r.name, r.email, r.phone, r.ref, r.referral, r.source, r.details, r.service, r.city]
         .filter(Boolean)
         .some((v) => String(v).toLowerCase().includes(q)),
     );

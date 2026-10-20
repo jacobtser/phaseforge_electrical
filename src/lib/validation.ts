@@ -11,11 +11,20 @@ export const submissionSchema = z
   .object({
     type: z.enum(submissionTypes).default("appointment"),
     name: z.string().trim().min(2, "Please enter your full name.").max(80),
-    email: z.string().trim().toLowerCase().regex(emailRe, "Enter a valid email address."),
+    email: z
+      .string()
+      .trim()
+      .toLowerCase()
+      .max(254, "Enter a valid email address.")
+      .regex(emailRe, "Enter a valid email address."),
     phone: z
       .string()
       .trim()
       .regex(phoneRe, "Enter a valid phone number.")
+      .refine(
+        (v) => v.replace(/\D/g, "").length >= 7,
+        "Enter a valid phone number.",
+      )
       .transform((v) => v.replace(/\s+/g, " ").trim()),
     serviceCategory: z.enum(serviceCategories).default("other"),
     service: z.string().trim().max(120).optional().or(z.literal("")),
@@ -38,6 +47,10 @@ export const submissionSchema = z
   .refine(
     (data) => data.type !== "appointment" || Boolean(data.preferredDate),
     { message: "Please choose a preferred date.", path: ["preferredDate"] },
+  )
+  .refine(
+    (data) => data.type === "contact" || Boolean(data.referral),
+    { message: "Please tell us how you heard about us.", path: ["referral"] },
   );
 
 export type SubmissionInput = z.input<typeof submissionSchema>;

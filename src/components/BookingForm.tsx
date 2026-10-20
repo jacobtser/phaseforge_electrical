@@ -37,6 +37,19 @@ const URGENCY = [
   { value: "flexible", label: "I'm flexible" },
 ];
 
+const REFERRAL_OPTIONS = [
+  "Google search",
+  "Facebook",
+  "Instagram",
+  "TikTok",
+  "WhatsApp",
+  "Friend or family referral",
+  "Returning customer",
+  "Saw our van / job site",
+  "Walk-in",
+  "Other",
+];
+
 const TYPE_CARDS = [
   { value: "appointment", label: "Book a visit", hint: "Schedule an on-site assessment", icon: CalendarIcon },
   { value: "order", label: "Order a service", hint: "Request a job to be carried out", icon: ClipboardIcon },
@@ -143,6 +156,11 @@ export function BookingForm({
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!isContact && !form.referral.trim()) {
+      setErrors({ referral: "Please tell us how you heard about us." });
+      document.getElementById("bf-referral")?.focus();
+      return;
+    }
     setSubmitting(true);
     setServerError("");
     setErrors({});
@@ -522,14 +540,27 @@ export function BookingForm({
             </ul>
           )}
         </Field>
-        <Field label="How did you hear about us? (referral)" error={errors.referral} htmlFor="bf-referral" className="sm:col-span-2">
+        <Field label="How did you hear about us?" error={errors.referral} htmlFor="bf-referral" className="sm:col-span-2">
           <input
             id="bf-referral"
             className={inputBase}
-            placeholder="e.g. Google, Facebook, WhatsApp, Referral (name)"
+            list="bf-referral-list"
+            autoComplete="off"
+            placeholder="Start typing, or pick an option"
             value={form.referral}
             onChange={(e) => set("referral", e.target.value)}
+            required={!isContact}
           />
+          <datalist id="bf-referral-list">
+            {REFERRAL_OPTIONS.map((option) => (
+              <option key={option} value={option} />
+            ))}
+          </datalist>
+          <p className="mt-1.5 text-xs text-mist-500">
+            {isContact
+              ? "Optional — it helps us understand where our customers find us."
+              : "This helps us know which channels are reaching customers like you."}
+          </p>
         </Field>
       </div>
 

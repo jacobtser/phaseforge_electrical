@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { Logo } from "./Logo";
+import { CartButton } from "./CartButton";
 import { MenuIcon, CloseIcon, PhoneIcon, BoltIcon } from "./Icons";
 import { nav, site } from "@/lib/site";
 
@@ -75,6 +76,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <CartButton />
             <a
               href={`tel:${site.phones[0].tel}`}
               className="hidden items-center gap-2 rounded-lg border border-white/10 px-3.5 py-2 text-sm font-medium text-mist-100 transition-colors hover:border-volt-400/50 hover:text-white sm:inline-flex"
@@ -120,6 +122,13 @@ export function Header() {
               className="mt-1 rounded-lg bg-gradient-to-br from-volt-400 to-volt-600 px-3 py-2.5 text-center text-base font-bold text-ink-950"
             >
               Book a visit
+            </Link>
+            <Link
+              href="/cart"
+              onClick={() => setOpen(false)}
+              className="rounded-lg border border-white/10 px-3 py-2.5 text-center text-base font-medium text-mist-100 hover:bg-white/5"
+            >
+              Cart
             </Link>
           </nav>
         </div>

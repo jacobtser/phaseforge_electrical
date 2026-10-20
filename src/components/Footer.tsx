@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { site, serviceGroups, nav } from "@/lib/site";
-import { MailIcon, MapPinIcon, PhoneIcon, WhatsAppIcon } from "./Icons";
+import { site, serviceGroups, nav, solarEvWaLink } from "@/lib/site";
+import { MailIcon, MapPinIcon, PhoneIcon, SunIcon, WhatsAppIcon } from "./Icons";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -72,6 +72,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/payment" className="text-mist-400 transition-colors hover:text-volt-300">
+                Payment information
+              </Link>
+            </li>
+            <li>
               <Link
                 href="/admin/login"
                 className="text-mist-500 transition-colors hover:text-mist-300"
@@ -94,6 +99,19 @@ export function Footer() {
                   </a>
                 ))}
               </span>
+            </li>
+            <li className="flex gap-2.5">
+              <SunIcon className="mt-0.5 h-4 w-4 shrink-0 text-forge-400" />
+              <a
+                href={solarEvWaLink(
+                  "Hello PhaseForge, I'd like to speak with your solar & EV specialist.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-forge-300"
+              >
+                Solar &amp; EV: {site.solarEv.label}
+              </a>
             </li>
             <li className="flex gap-2.5">
               <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-400" />

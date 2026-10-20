@@ -16,16 +16,23 @@ const HEADERS = [
   "propertyType",
   "address",
   "city",
+  "latitude",
+  "longitude",
   "preferredDate",
   "preferredTime",
   "urgency",
   "budget",
+  "referral",
   "details",
+  "photos",
+  "source",
   "createdAt",
 ];
 
 function csvCell(value: unknown): string {
-  const s = value == null ? "" : String(value);
+  let s = value == null ? "" : String(value);
+  // Guard against spreadsheet formula injection when the CSV is opened in Excel.
+  if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
   return `"${s.replace(/"/g, '""').replace(/\r?\n/g, " ")}"`;
 }
 

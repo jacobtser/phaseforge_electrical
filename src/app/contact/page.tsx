@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { site, waLink } from "@/lib/site";
+import { site, solarEvWaLink, waLink } from "@/lib/site";
 import { BookingForm } from "@/components/BookingForm";
 import { ClockIcon, MailIcon, MapPinIcon, PhoneIcon, WhatsAppIcon } from "@/components/Icons";
 import { Reveal } from "@/components/Reveal";
@@ -47,9 +47,19 @@ export default function ContactPage() {
                   href={waLink(`Hello ${site.shortName}, I have a question.`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-mist-200 hover:text-[#25D366]"
+                  className="block text-mist-200 hover:text-[#25D366]"
                 >
                   Chat with us now
+                </a>
+                <a
+                  href={solarEvWaLink(
+                    "Hello PhaseForge, I'd like to speak with your solar & EV specialist.",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-forge-300 hover:text-forge-200"
+                >
+                  Solar &amp; EV specialist: {site.solarEv.label}
                 </a>
               </ContactCard>
 

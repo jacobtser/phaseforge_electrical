@@ -102,7 +102,7 @@ export default async function AdminPage({
           <input
             name="q"
             defaultValue={q}
-            placeholder="Search name, phone, ref…"
+            placeholder="Search name, phone, ref, source…"
             className="w-56 rounded-lg border border-white/10 bg-ink-900/70 px-3 py-1.5 text-sm text-white placeholder:text-mist-500 focus:border-volt-400/70 focus:outline-none"
           />
           <button
@@ -115,7 +115,7 @@ export default async function AdminPage({
       </div>
 
       <div className="mt-5">
-        <SubmissionsTable rows={rows} />
+        <SubmissionsTable key={`${status}:${q}`} rows={rows} />
       </div>
     </div>
   );

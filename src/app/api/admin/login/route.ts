@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createSession, verifyCredentials } from "@/lib/auth";
+import { createSession, isAuthConfigured, verifyCredentials } from "@/lib/auth";
 
 export const runtime = "nodejs";
 
@@ -14,12 +14,12 @@ export async function POST(req: Request) {
   const username = (body.username ?? "").trim();
   const password = body.password ?? "";
 
-  if (!process.env.ADMIN_PASSWORD) {
+  if (!process.env.ADMIN_PASSWORD || !isAuthConfigured()) {
     return NextResponse.json(
       {
         ok: false,
         message:
-          "Admin login is not configured yet. Set ADMIN_PASSWORD (and AUTH_SECRET) in your environment.",
+          "Admin login is not configured yet. Set ADMIN_PASSWORD and AUTH_SECRET in your environment.",
       },
       { status: 503 },
     );

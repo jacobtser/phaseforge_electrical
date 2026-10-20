@@ -1,5 +1,5 @@
 import type { SubmissionRecord } from "./types";
-import { site } from "./site";
+import { isSolarOrEvRequest, site } from "./site";
 import { sendOwnerWhatsApp } from "./whatsapp";
 import { ownerEmail, sendMail } from "./email";
 
@@ -21,20 +21,24 @@ function line(label: string, value?: string | null) {
 }
 
 export function ownerWhatsAppText(r: SubmissionRecord): string {
+  const hasGps = r.latitude != null && r.longitude != null;
   const rows = [
     `NEW ${typeLabel[r.type] ?? r.type}`,
     `Ref: ${r.ref}`,
+    isSolarOrEvRequest(r.serviceCategory, r.service, r.details)
+      ? `Route: Solar & EV specialist (${site.solarEv.label})`
+      : null,
     line("Name", r.name),
     line("Phone", r.phone),
     line("Email", r.email),
     line("Service", [r.serviceCategory, r.service].filter(Boolean).join(" / ")),
     line("Property", r.propertyType),
     line("Address", [r.address, r.city].filter(Boolean).join(", ")),
-    r.latitude && r.longitude ? `Location (GPS): https://maps.google.com/?q=${r.latitude},${r.longitude}` : null,
+    hasGps ? `Location (GPS): https://maps.google.com/?q=${r.latitude},${r.longitude}` : null,
     line("Preferred", [r.preferredDate, r.preferredTime].filter(Boolean).join(" ")),
     line("Urgency", r.urgency),
     line("Budget", r.budget),
-    line("Referral", r.referral),
+    line("How they heard about us", r.referral),
     r.photos && r.photos.length ? `Photos (${r.photos.length}): ${r.photos.join(" ")}` : null,
     "",
     "Details:",
@@ -44,7 +48,11 @@ export function ownerWhatsAppText(r: SubmissionRecord): string {
 }
 
 function ownerHtml(r: SubmissionRecord): string {
-  const rows: [string, string][] = [
+  const gpsHtml =
+    r.latitude != null && r.longitude != null
+      ? `${r.latitude.toFixed(6)}, ${r.longitude.toFixed(6)} <a href="https://maps.google.com/?q=${r.latitude},${r.longitude}" style="color:#38bdf8">Open in Maps</a>`
+      : null;
+  const rows: [string, string, boolean?][] = [
     ["Reference", r.ref],
     ["Type", typeLabel[r.type] ?? r.type],
     ["Name", r.name],
@@ -53,11 +61,15 @@ function ownerHtml(r: SubmissionRecord): string {
     ["Service", [r.serviceCategory, r.service].filter(Boolean).join(" / ") || "—"],
     ["Property", r.propertyType || "—"],
     ["Address", [r.address, r.city].filter(Boolean).join(", ") || "—"],
-    ["Location", r.latitude && r.longitude ? `${r.latitude.toFixed(6)}, ${r.longitude.toFixed(6)} <a href=\"https://maps.google.com/?q=${r.latitude},${r.longitude}\" style=\"color:#38bdf8\">Open in Maps</a>` : "—"],
+    [
+      "Location",
+      gpsHtml ?? "—",
+      Boolean(gpsHtml),
+    ],
     ["Preferred", [r.preferredDate, r.preferredTime].filter(Boolean).join(" ") || "—"],
     ["Urgency", r.urgency],
     ["Budget", r.budget || "—"],
-    ["Referral", r.referral || "—"],
+    ["How they heard about us", r.referral || "—"],
     ["Photos", r.photos && r.photos.length ? `${r.photos.length} attached` : "—"],
   ];
   return `<!doctype html><html><body style="margin:0;background:#0a0f1c;font-family:Arial,Helvetica,sans-serif;color:#e5edff">
@@ -69,10 +81,10 @@ function ownerHtml(r: SubmissionRecord): string {
     <table style="width:100%;border-collapse:collapse;margin-top:18px;background:#0f172a;border-radius:12px;overflow:hidden">
       ${rows
         .map(
-          ([k, v], i) =>
+          ([k, v, isHtml], i) =>
             `<tr style="background:${i % 2 ? "#0f172a" : "#111c33"}">
               <td style="padding:10px 14px;color:#8ea3c8;font-size:13px;width:38%">${k}</td>
-              <td style="padding:10px 14px;color:#eaf1ff;font-size:14px">${escapeHtml(v)}</td>
+              <td style="padding:10px 14px;color:#eaf1ff;font-size:14px">${isHtml ? v : escapeHtml(v)}</td>
             </tr>`,
         )
         .join("")}
@@ -127,9 +139,10 @@ function escapeHtml(s: string): string {
 
 export async function dispatchNotifications(r: SubmissionRecord): Promise<DispatchResult> {
   const text = ownerWhatsAppText(r);
+  const solarOrEv = isSolarOrEvRequest(r.serviceCategory, r.service, r.details);
 
   const [whatsapp, ownerMail, customerMail] = await Promise.all([
-    sendOwnerWhatsApp(text),
+    sendOwnerWhatsApp(text, solarOrEv ? site.solarEv.whatsapp : undefined),
     sendMail({
       to: ownerEmail(),
       replyTo: r.email,

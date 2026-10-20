@@ -13,6 +13,20 @@ export const site = {
   ],
   whatsapp: process.env.NEXT_PUBLIC_OWNER_WHATSAPP || "233552813116",
   whatsappAlt: "233245909523",
+  /** Solar & EV enquiries have their own WhatsApp line. */
+  solarEv: {
+    whatsapp: process.env.NEXT_PUBLIC_SOLAR_WHATSAPP || "233592760553",
+    label: "+233 59 276 0553",
+  },
+  /** Payment details shown after an order/quote is confirmed. */
+  payments: {
+    mobileMoney: {
+      label: "+233 59 276 0553",
+      tel: "+233592760553",
+      whatsapp: process.env.NEXT_PUBLIC_PAYMENT_WHATSAPP || "233592760553",
+    },
+    methods: ["Mobile Money", "Bank transfer", "Cash on delivery / pickup"],
+  },
   location: "Accra & Tema, Ghana",
   serviceArea: "Accra and Tema environs",
   emergency: "24/7 emergency callouts",
@@ -111,10 +125,25 @@ export const serviceGroups: ServiceGroup[] = [
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/shop", label: "Shop" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function waLink(message: string, number: string = site.whatsapp) {
-  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  const to = number.replace(/\D/g, "");
+  return `https://wa.me/${to}?text=${encodeURIComponent(message)}`;
+}
+
+/** WhatsApp link for solar, inverter, battery and EV-charging enquiries. */
+export function solarEvWaLink(message: string) {
+  return waLink(message, site.solarEv.whatsapp);
+}
+
+/** True when a request relates to solar/backup power or EV charging. */
+export function isSolarOrEvRequest(...values: Array<string | null | undefined>) {
+  const text = values.filter(Boolean).join(" ").toLowerCase();
+  return /solar|photovoltaic|inverter|battery|backup power|ev\b|electric vehicle|ev charger|ev charging/.test(
+    text,
+  );
 }

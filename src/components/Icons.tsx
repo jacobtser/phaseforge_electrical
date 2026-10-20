@@ -172,6 +172,68 @@ export const WhatsAppIcon = (p: IconProps) => (
   </svg>
 );
 
+export const CartIcon = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M3 4h2.2l2.2 11.2a1.6 1.6 0 0 0 1.6 1.3h8.6a1.6 1.6 0 0 0 1.6-1.3L21 8H6" />
+    <circle cx="9.5" cy="20" r="1.4" />
+    <circle cx="17.5" cy="20" r="1.4" />
+  </Base>
+);
+
+export const MinusIcon = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M5 12h14" />
+  </Base>
+);
+
+export const PlusIcon = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M12 5v14M5 12h14" />
+  </Base>
+);
+
+export const StarIcon = (p: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>
+    <path d="m12 2.5 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.3l-5.8 3.1 1.1-6.5L2.6 9.3l6.5-.9L12 2.5Z" />
+  </svg>
+);
+
+export const SunIcon = (p: IconProps) => (
+  <Base {...p}>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" />
+  </Base>
+);
+
+export const BriefcaseIcon = (p: IconProps) => (
+  <Base {...p}>
+    <rect x="3" y="7" width="18" height="13" rx="2" />
+    <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18" />
+  </Base>
+);
+
+export const BoxIcon = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M12 3 3.5 7.5v9L12 21l8.5-4.5v-9L12 3Z" />
+    <path d="M3.5 7.5 12 12l8.5-4.5M12 12v9" />
+  </Base>
+);
+
+export const TagIcon = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M3 12.5V4a1 1 0 0 1 1-1h8.5L21 11.5 12.5 20 3 12.5Z" />
+    <circle cx="8" cy="8" r="1.4" />
+  </Base>
+);
+
+export const TruckIcon = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M2 6h12v11H2zM14 9h4.2L22 12.2V17h-8" />
+    <circle cx="6.5" cy="18.5" r="1.6" />
+    <circle cx="17.5" cy="18.5" r="1.6" />
+  </Base>
+);
+
 export const iconByName = {
   home: HomeIcon,
   building: BuildingIcon,

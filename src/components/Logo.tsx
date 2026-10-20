@@ -13,6 +13,7 @@ export function Logo({
   const mark = (
     <span className="inline-flex items-center gap-2.5">
       <span className="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-volt-400 to-volt-600 shadow-[0_0_24px_-6px_rgba(14,165,233,0.8)] overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element -- inline SVG logo in /public */}
         <img src="/logo-mark.svg" alt="" className="h-9 w-9" aria-hidden="true" />
         <span className="absolute inset-0 rounded-xl ring-1 ring-white/20" />
       </span>

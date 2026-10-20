@@ -6,11 +6,19 @@ import crypto from "node:crypto";
 const COOKIE_NAME = "pf_admin";
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 7; // 7 days
 
-function secretKey(): Uint8Array {
-  const raw =
-    process.env.AUTH_SECRET ||
-    "phaseforge-dev-secret-change-me-in-production-0123456789";
-  return new TextEncoder().encode(raw);
+function secretKey(): Uint8Array | null {
+  const raw = process.env.AUTH_SECRET?.trim();
+  if (raw) return new TextEncoder().encode(raw);
+
+  // Never fall back to a known secret in production: that would let anyone
+  // forge an admin session cookie. Local development keeps a throwaway key.
+  if (process.env.NODE_ENV === "production") return null;
+  return new TextEncoder().encode("phaseforge-dev-secret-change-me-in-production-0123456789");
+}
+
+/** True when session signing is safe to use in this environment. */
+export function isAuthConfigured(): boolean {
+  return secretKey() !== null;
 }
 
 export type AdminSession = { user: string };
@@ -26,12 +34,14 @@ export function verifyCredentials(username: string, password: string): boolean {
 }
 
 export async function createSession(user: string): Promise<void> {
+  const key = secretKey();
+  if (!key) throw new Error("AUTH_SECRET must be set in production.");
   const token = await new SignJWT({ role: "admin" })
     .setProtectedHeader({ alg: "HS256" })
     .setSubject(user)
     .setIssuedAt()
     .setExpirationTime(`${MAX_AGE_SECONDS}s`)
-    .sign(secretKey());
+    .sign(key);
 
   const store = await cookies();
   store.set(COOKIE_NAME, token, {
@@ -44,11 +54,13 @@ export async function createSession(user: string): Promise<void> {
 }
 
 export async function getSession(): Promise<AdminSession | null> {
+  const key = secretKey();
+  if (!key) return null;
   const store = await cookies();
   const token = store.get(COOKIE_NAME)?.value;
   if (!token) return null;
   try {
-    const { payload } = await jwtVerify(token, secretKey());
+    const { payload } = await jwtVerify(token, key);
     return { user: String(payload.sub || "admin") };
   } catch {
     return null;
