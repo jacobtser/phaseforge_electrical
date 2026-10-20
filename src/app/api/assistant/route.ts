@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { askAssistant, localFallbackReply } from "@/lib/assistant";
+import { recordKnowledgeGap } from "@/lib/db";
+import { loadKnowledge } from "@/lib/knowledge";
 import { assistantRequestSchema, firstError } from "@/lib/validation";
 
 export const runtime = "nodejs";
@@ -50,12 +52,24 @@ export async function POST(req: Request) {
     );
   }
 
-  const result = await askAssistant(parsed.data.messages, parsed.data.page);
+  const knowledge = await loadKnowledge();
+  const result = await askAssistant(parsed.data.messages, parsed.data.page, knowledge);
 
   if (!result.ok) {
-    const fallback = localFallbackReply(parsed.data.messages);
+    const fallback = localFallbackReply(parsed.data.messages, knowledge);
     if (fallback) {
-      return NextResponse.json({ ok: true, reply: fallback });
+      if (!fallback.matched) {
+        const question =
+          [...parsed.data.messages]
+            .reverse()
+            .find((message) => message.role === "user")?.content ?? "";
+        if (question) {
+          await recordKnowledgeGap(question).catch((error) => {
+            console.error("[assistant] could not record knowledge gap", error);
+          });
+        }
+      }
+      return NextResponse.json({ ok: true, reply: fallback.reply });
     }
     return NextResponse.json(
       { ok: false, message: result.message },

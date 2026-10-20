@@ -115,6 +115,15 @@ export const assistantRequestSchema = z.object({
 
 export type AssistantRequest = z.output<typeof assistantRequestSchema>;
 
+export const assistantFeedbackSchema = z.object({
+  question: z.string().trim().min(1, "Missing question.").max(1200),
+  answer: z.string().trim().max(4000).optional(),
+  helpful: z.boolean(),
+  page: z.string().trim().max(200).optional(),
+});
+
+export type AssistantFeedback = z.output<typeof assistantFeedbackSchema>;
+
 type Issue = { path: readonly (string | number | symbol)[]; message: string };
 
 export function firstError(issues: readonly Issue[]) {

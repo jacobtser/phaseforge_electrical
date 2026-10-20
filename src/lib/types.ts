@@ -88,6 +88,30 @@ export type NewOrder = Omit<
   "id" | "status" | "paystackReference" | "paidAt" | "createdAt" | "updatedAt"
 >;
 
+/* ----------------------------- Assistant knowledge ------------------------ */
+
+export type KnowledgeRecord = {
+  id: string;
+  question: string;
+  answer: string;
+  keywords: string[];
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type KnowledgeGapStatus = "open" | "answered" | "dismissed";
+
+export type KnowledgeGapRecord = {
+  id: string;
+  question: string;
+  questionKey: string;
+  status: KnowledgeGapStatus;
+  count: number;
+  answer: string | null;
+  createdAt: string;
+  lastSeenAt: string;
+};
+
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
 export function makeRef(): string {

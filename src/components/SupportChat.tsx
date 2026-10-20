@@ -15,13 +15,14 @@ type Message = { role: "user" | "assistant"; content: string };
 
 const INITIAL_MESSAGE: Message = {
   role: "assistant",
-  content: `Hi, I'm the ${site.shortName} AI assistant. Ask me about products, prices, delivery, payments or booking an electrician. For an urgent fault, call ${site.phones[0].label}.`,
+  content: `Hi, I'm the ${site.shortName} AI assistant. Ask me about products, prices, delivery, payments or booking an electrician. Our team reviews anything I can't answer. For an urgent fault, call ${site.phones[0].label}.`,
 };
 
 const SUGGESTIONS = [
+  "How much are MCBs?",
+  "Who owns PhaseForge?",
   "What solar backup do I need?",
   "Do you deliver to Tema?",
-  "How do I pay?",
   "I need an electrician",
 ];
 
@@ -44,6 +45,9 @@ export function SupportChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [feedback, setFeedback] = useState<
+    Record<number, "sending" | "sent" | "error">
+  >({});
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -113,6 +117,34 @@ export function SupportChat() {
     }
   }
 
+  async function sendFeedback(index: number, answer: string, helpful: boolean) {
+    if (feedback[index] === "sending" || feedback[index] === "sent") return;
+
+    let question = "";
+    for (let i = index - 1; i >= 0; i--) {
+      if (messages[i]?.role === "user") {
+        question = messages[i].content;
+        break;
+      }
+    }
+    if (!question) return;
+
+    setFeedback((current) => ({ ...current, [index]: "sending" }));
+    try {
+      const res = await fetch("/api/assistant/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question, answer, helpful, page: pathname }),
+      });
+      setFeedback((current) => ({
+        ...current,
+        [index]: res.ok ? "sent" : "error",
+      }));
+    } catch {
+      setFeedback((current) => ({ ...current, [index]: "error" }));
+    }
+  }
+
   const helpHref = waLink(
     `Hello ${site.shortName}, I was chatting with your AI assistant and need help from a person.`,
   );
@@ -159,8 +191,8 @@ export function SupportChat() {
               <div
                 key={`${message.role}-${index}`}
                 className={clsx(
-                  "flex",
-                  message.role === "user" ? "justify-end" : "justify-start",
+                  "flex flex-col",
+                  message.role === "user" ? "items-end" : "items-start",
                 )}
               >
                 <div
@@ -173,6 +205,37 @@ export function SupportChat() {
                 >
                   {message.content}
                 </div>
+
+                {message.role === "assistant" && index > 0 && (
+                  <div className="mt-1 flex min-h-[18px] flex-wrap items-center gap-2 pl-1 text-[10px] text-mist-500">
+                    {feedback[index] === "sent" ? (
+                      <span>Thanks — noted.</span>
+                    ) : feedback[index] === "sending" ? (
+                      <span>Saving…</span>
+                    ) : (
+                      <>
+                        <span>Helpful?</span>
+                        <button
+                          type="button"
+                          onClick={() => void sendFeedback(index, message.content, true)}
+                          className="font-semibold text-mist-300 transition-colors hover:text-volt-300"
+                        >
+                          Yes
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => void sendFeedback(index, message.content, false)}
+                          className="font-semibold text-mist-300 transition-colors hover:text-volt-300"
+                        >
+                          Not quite
+                        </button>
+                      </>
+                    )}
+                    {feedback[index] === "error" && (
+                      <span className="text-red-300">Couldn&apos;t save that.</span>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
 
