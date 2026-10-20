@@ -41,6 +41,42 @@ export async function sendOwnerWhatsApp(
 
   if (tryMeta && token && phoneNumberId) {
     try {
+      const templateName = process.env.WHATSAPP_TEMPLATE_NAME?.trim();
+      const templateLanguage = process.env.WHATSAPP_TEMPLATE_LANGUAGE?.trim() || "en";
+      const payload = templateName
+        ? {
+            messaging_product: "whatsapp",
+            to,
+            type: "template",
+            template: {
+              name: templateName,
+              language: { code: templateLanguage },
+              components: [
+                {
+                  type: "body",
+                  parameters: [
+                    {
+                      type: "text",
+                      // Template parameters cannot contain newlines or tabs.
+                      text:
+                        text
+                          .replace(/[\r\n\t]+/g, " | ")
+                          .replace(/\s{2,}/g, " ")
+                          .trim()
+                          .slice(0, 900) || "New PhaseForge alert",
+                    },
+                  ],
+                },
+              ],
+            },
+          }
+        : {
+            messaging_product: "whatsapp",
+            to,
+            type: "text",
+            text: { preview_url: false, body: text },
+          };
+
       const res = await fetch(
         `https://graph.facebook.com/v21.0/${phoneNumberId}/messages`,
         {
@@ -49,12 +85,7 @@ export async function sendOwnerWhatsApp(
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            messaging_product: "whatsapp",
-            to,
-            type: "text",
-            text: { preview_url: false, body: text },
-          }),
+          body: JSON.stringify(payload),
         },
       );
       if (!res.ok) {
