@@ -56,6 +56,65 @@ export const submissionSchema = z
 export type SubmissionInput = z.input<typeof submissionSchema>;
 export type SubmissionData = z.output<typeof submissionSchema>;
 
+export const checkoutFulfilmentOptions = [
+  "delivery-accra",
+  "delivery-nationwide",
+  "pickup",
+] as const;
+
+export const checkoutSchema = z.object({
+  items: z
+    .array(
+      z.object({
+        slug: z.string().trim().min(1).max(120),
+        qty: z.number().int().min(1).max(999),
+      }),
+    )
+    .min(1, "Your cart is empty.")
+    .max(50, "Too many different items in one order."),
+  customer: z.object({
+    name: z.string().trim().min(2, "Please enter your full name.").max(80),
+    email: z
+      .string()
+      .trim()
+      .toLowerCase()
+      .max(254, "Enter a valid email address.")
+      .regex(emailRe, "Enter a valid email address."),
+    phone: z
+      .string()
+      .trim()
+      .regex(phoneRe, "Enter a valid phone number.")
+      .refine(
+        (v) => v.replace(/\D/g, "").length >= 7,
+        "Enter a valid phone number.",
+      )
+      .transform((v) => v.replace(/\s+/g, " ").trim()),
+    location: z.string().trim().max(160).optional().or(z.literal("")),
+  }),
+  fulfilment: z.enum(checkoutFulfilmentOptions),
+});
+
+export type CheckoutData = z.output<typeof checkoutSchema>;
+
+export const assistantRequestSchema = z.object({
+  messages: z
+    .array(
+      z.object({
+        role: z.enum(["user", "assistant"]),
+        content: z.string().trim().min(1, "Message cannot be empty.").max(1200),
+      }),
+    )
+    .min(1)
+    .max(16)
+    .refine(
+      (messages) => messages[messages.length - 1]?.role === "user",
+      "The last message must be from the customer.",
+    ),
+  page: z.string().trim().max(200).optional(),
+});
+
+export type AssistantRequest = z.output<typeof assistantRequestSchema>;
+
 type Issue = { path: readonly (string | number | symbol)[]; message: string };
 
 export function firstError(issues: readonly Issue[]) {

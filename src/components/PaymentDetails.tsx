@@ -34,7 +34,8 @@ export function PaymentDetails({
       </div>
 
       <p className="mt-2 text-sm leading-relaxed text-mist-300">
-        Pay only after we confirm stock and the final amount. Send Mobile Money to:
+        At cart checkout you can pay securely by card or Mobile Money through Paystack. For
+        WhatsApp orders, pay the confirmed amount to:
       </p>
 
       <a

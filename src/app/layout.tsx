@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { SupportChat } from "@/components/SupportChat";
 import { CartProvider } from "@/lib/cart";
 import { site } from "@/lib/site";
 
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </CartProvider>
         <WhatsAppFloat />
+        <SupportChat />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

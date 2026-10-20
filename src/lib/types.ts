@@ -47,6 +47,47 @@ export type NewSubmission = Omit<
   "id" | "ref" | "status" | "createdAt" | "updatedAt"
 >;
 
+/* --------------------------------- Orders --------------------------------- */
+
+export type OrderStatus = "pending" | "paid" | "failed";
+
+export type OrderItem = {
+  slug: string;
+  name: string;
+  brand: string;
+  category: string;
+  unit: string;
+  qty: number;
+  /** Unit price in pesewas (GHS × 100). */
+  unitPricePesewas: number;
+  /** Line total in pesewas. */
+  lineTotalPesewas: number;
+};
+
+export type OrderRecord = {
+  id: string;
+  reference: string;
+  status: OrderStatus;
+  /** Total charged, in pesewas. */
+  amount: number;
+  currency: "GHS";
+  email: string;
+  name: string;
+  phone: string;
+  location: string | null;
+  fulfilment: string;
+  items: OrderItem[];
+  paystackReference: string | null;
+  paidAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type NewOrder = Omit<
+  OrderRecord,
+  "id" | "status" | "paystackReference" | "paidAt" | "createdAt" | "updatedAt"
+>;
+
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
 export function makeRef(): string {

@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+export const dynamic = "force-dynamic";
+
 const statusLabels: Record<string, string> = {
   all: "All",
   new: "New",
@@ -54,6 +56,12 @@ export default async function AdminPage({
           >
             Export CSV
           </a>
+          <Link
+            href="/admin/orders"
+            className="rounded-lg border border-volt-400/30 bg-volt-500/10 px-3.5 py-2 text-sm font-semibold text-volt-200 transition-colors hover:border-volt-400/60"
+          >
+            Shop orders
+          </Link>
           <LogoutButton />
         </div>
       </div>

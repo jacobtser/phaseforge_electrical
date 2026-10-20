@@ -25,7 +25,12 @@ export const site = {
       tel: "+233592760553",
       whatsapp: process.env.NEXT_PUBLIC_PAYMENT_WHATSAPP || "233592760553",
     },
-    methods: ["Mobile Money", "Bank transfer", "Cash on delivery / pickup"],
+    methods: [
+      "Card / Mobile Money via Paystack",
+      "Mobile Money",
+      "Bank transfer",
+      "Cash on delivery / pickup",
+    ],
   },
   location: "Accra & Tema, Ghana",
   serviceArea: "Accra and Tema environs",

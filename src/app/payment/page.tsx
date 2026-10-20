@@ -8,22 +8,22 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Payment Information",
   description:
-    "How to pay PhaseForge Electrical in Ghana — Mobile Money to +233 59 276 0553, bank transfer or cash on delivery/pickup after your order or quote is confirmed.",
+    "Pay PhaseForge Electrical online by card or Mobile Money through Paystack, or by Mobile Money, bank transfer or cash after your order is confirmed.",
   alternates: { canonical: "/payment" },
 };
 
 const STEPS = [
   {
-    title: "We confirm the amount",
-    text: "Send your order request or quote. We check stock, delivery and the final total first — no payment is taken up front.",
+    title: "Choose your items or send a request",
+    text: "Add items to your cart for instant online checkout, or send an order or quote request on WhatsApp.",
   },
   {
-    title: "You pay by Mobile Money",
-    text: "Send the exact confirmed amount to +233 59 276 0553. Use your order or quote reference as the payment reference.",
+    title: "Pay securely",
+    text: "Pay by card or Mobile Money through Paystack at checkout. For WhatsApp orders, we confirm stock and the final amount first, then arrange payment.",
   },
   {
-    title: "Send us the receipt",
-    text: "Send the payment confirmation on WhatsApp so we can match it to your order and arrange delivery or pickup.",
+    title: "We prepare your order",
+    text: "We confirm the payment, arrange delivery or pickup, and keep you updated on WhatsApp.",
   },
 ];
 
@@ -38,12 +38,12 @@ export default function PaymentPage() {
               Payments
             </p>
             <h1 className="mt-3 font-display text-4xl font-extrabold text-white sm:text-5xl">
-              Simple, confirmed payments
+              Simple, secure payments
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-mist-300">
-              We confirm stock and the final amount before you pay. Mobile Money details are below;
-              bank transfer and cash on delivery or pickup can be arranged when we confirm your
-              order.
+              Pay online by card or Mobile Money through Paystack at cart checkout. Prefer a manual
+              transfer? We also accept Mobile Money, bank transfer and cash after we confirm your
+              WhatsApp order.
             </p>
           </Reveal>
         </div>
@@ -57,6 +57,31 @@ export default function PaymentPage() {
 
           <Reveal delay={100}>
             <div className="space-y-5">
+              <div className="rounded-2xl border border-emerald-400/25 bg-emerald-500/10 p-6 sm:p-7">
+                <h2 className="flex items-center gap-2 font-display text-xl font-extrabold text-white">
+                  <ShieldIcon className="h-5 w-5 text-emerald-300" /> Pay online with Paystack
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-mist-300">
+                  Card and Mobile Money payments are handled securely by Paystack. You&apos;ll be
+                  redirected to Paystack&apos;s checkout and brought back to a payment confirmation
+                  page when the payment is complete.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link
+                    href="/shop"
+                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-volt-400 to-volt-600 px-4 py-2.5 text-sm font-bold text-ink-950"
+                  >
+                    Shop and pay online <ArrowRightIcon className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/cart"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:border-emerald-400/60"
+                  >
+                    Go to cart
+                  </Link>
+                </div>
+              </div>
+
               <div className="rounded-2xl border border-white/10 bg-ink-900/60 p-6 sm:p-7">
                 <h2 className="font-display text-xl font-extrabold text-white">
                   How payment works
@@ -82,8 +107,9 @@ export default function PaymentPage() {
                 </h2>
                 <ul className="mt-4 space-y-2.5 text-sm text-mist-300">
                   {[
-                    "Only pay after we confirm your order and final amount.",
-                    "Always use the Mobile Money number shown on this page.",
+                    "Online payments are processed by Paystack — we never see your card details.",
+                    "For manual payments, only pay after we confirm your order and final amount.",
+                    "Always use the Mobile Money number shown on this page for manual payments.",
                     "Keep your payment receipt and order reference until delivery is complete.",
                     "Never send money to a number that has not been confirmed by our team.",
                   ].map((item) => (

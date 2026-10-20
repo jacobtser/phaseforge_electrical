@@ -15,6 +15,7 @@ import {
   CheckIcon,
   MailIcon,
   PhoneIcon,
+  ShieldIcon,
   TrashIcon,
   TruckIcon,
   WhatsAppIcon,
@@ -26,11 +27,22 @@ const FULFILMENT_OPTIONS = [
   { id: "pickup", label: "Pickup from workshop", note: site.location },
 ] as const;
 
-export function CartContents() {
+export function CartContents({
+  paystackEnabled = false,
+}: {
+  paystackEnabled?: boolean;
+}) {
   const { ready, subtotal, clear, remove, setQty } = useCart();
   const lines = useCartLines();
   const [fulfilment, setFulfilment] = useState<string>(FULFILMENT_OPTIONS[0].id);
-  const [details, setDetails] = useState({ name: "", phone: "", location: "" });
+  const [details, setDetails] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    location: "",
+  });
+  const [paying, setPaying] = useState(false);
+  const [payError, setPayError] = useState("");
 
   if (!ready) {
     return (
@@ -73,6 +85,7 @@ export function CartContents() {
 
   const quoteOnlyLines = lines.filter((l) => l.product.price === null);
   const detailsComplete = details.name.trim() !== "" && details.phone.trim() !== "";
+  const canPayOnline = paystackEnabled && quoteOnlyLines.length === 0;
   const hasSolar = lines.some((l) => l.product.category === "solar");
   const orderWhatsApp = hasSolar ? site.solarEv.whatsapp : site.whatsapp;
 
@@ -99,9 +112,57 @@ export function CartContents() {
     parts.push("", `Fulfilment: ${fulfil?.label ?? "Delivery"}`);
     if (details.name.trim()) parts.push(`Name: ${details.name.trim()}`);
     if (details.phone.trim()) parts.push(`Phone: ${details.phone.trim()}`);
+    if (details.email.trim()) parts.push(`Email: ${details.email.trim()}`);
     if (details.location.trim()) parts.push(`Location: ${details.location.trim()}`);
     return parts.join("\n");
   };
+
+  async function payWithPaystack() {
+    setPayError("");
+
+    if (!details.name.trim() || !details.email.trim() || !details.phone.trim()) {
+      setPayError("Enter your name, email and phone number to pay online.");
+      return;
+    }
+
+    setPaying(true);
+    try {
+      const res = await fetch("/api/paystack/initialize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: lines.map(({ item }) => ({ slug: item.slug, qty: item.qty })),
+          customer: {
+            name: details.name.trim(),
+            email: details.email.trim(),
+            phone: details.phone.trim(),
+            location: details.location.trim(),
+          },
+          fulfilment,
+        }),
+      });
+
+      const data = (await res.json().catch(() => null)) as {
+        ok?: boolean;
+        message?: string;
+        authorizationUrl?: string;
+      } | null;
+
+      if (!res.ok || !data?.ok || !data.authorizationUrl) {
+        setPayError(
+          data?.message ??
+            "We couldn't start the payment. Please try again or send your order on WhatsApp.",
+        );
+        return;
+      }
+
+      window.location.assign(data.authorizationUrl);
+    } catch {
+      setPayError("Network error. Please try again or send your order on WhatsApp.");
+    } finally {
+      setPaying(false);
+    }
+  }
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.4fr_0.9fr] lg:items-start">
@@ -275,6 +336,19 @@ export function CartContents() {
           </label>
           <label className="block">
             <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-mist-400">
+              Email {paystackEnabled && <span className="normal-case text-mist-500">(required for online payment)</span>}
+            </span>
+            <input
+              type="email"
+              value={details.email}
+              onChange={(e) => setDetails((d) => ({ ...d, email: e.target.value }))}
+              placeholder="kwame@example.com"
+              autoComplete="email"
+              className="w-full rounded-xl border border-white/10 bg-ink-950/70 px-3.5 py-2.5 text-sm text-white placeholder:text-mist-500 focus:border-volt-400/60 focus:outline-none"
+            />
+          </label>
+          <label className="block">
+            <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-mist-400">
               Location / landmark
             </span>
             <input
@@ -288,20 +362,58 @@ export function CartContents() {
         </div>
 
         {/* Actions */}
-        <a
-          href={waLink(orderMessage(), orderWhatsApp)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3.5 font-bold text-[#052e16] transition-transform hover:-translate-y-0.5"
-        >
-          <WhatsAppIcon className="h-5 w-5" />{" "}
-          {hasSolar ? "Send order to Solar & EV specialist" : "Send order via WhatsApp"}
-        </a>
-        {!detailsComplete && (
-          <p className="mt-2 text-center text-xs text-mist-500">
-            Tip: add your name and phone so we can confirm your order faster.
-          </p>
+        {paystackEnabled && (
+          <div className="mt-6">
+            {canPayOnline ? (
+              <>
+                <button
+                  type="button"
+                  onClick={payWithPaystack}
+                  disabled={paying}
+                  aria-busy={paying}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-volt-400 to-volt-600 px-5 py-3.5 font-bold text-ink-950 transition-transform hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
+                >
+                  <ShieldIcon className="h-5 w-5" />
+                  {paying ? "Opening Paystack…" : `Pay ${formatGHS(subtotal)} securely`}
+                </button>
+                <p className="mt-2 text-center text-xs leading-relaxed text-mist-500">
+                  Card or Mobile Money via Paystack. You&apos;ll be redirected to Paystack&apos;s
+                  secure checkout.
+                </p>
+              </>
+            ) : (
+              <p className="rounded-xl border border-forge-400/20 bg-forge-500/10 px-3 py-2.5 text-xs leading-relaxed text-forge-200">
+                This cart includes items priced on request. Send the order on WhatsApp so we can
+                confirm those prices before payment.
+              </p>
+            )}
+            {payError && (
+              <p
+                role="alert"
+                className="mt-2 rounded-lg border border-red-400/25 bg-red-500/10 px-3 py-2 text-xs leading-relaxed text-red-200"
+              >
+                {payError}
+              </p>
+            )}
+          </div>
         )}
+
+        <div className={paystackEnabled ? "mt-6 border-t border-white/10 pt-5" : "mt-6"}>
+          <a
+            href={waLink(orderMessage(), orderWhatsApp)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3.5 font-bold text-[#052e16] transition-transform hover:-translate-y-0.5"
+          >
+            <WhatsAppIcon className="h-5 w-5" />{" "}
+            {hasSolar ? "Send order to Solar & EV specialist" : "Send order via WhatsApp"}
+          </a>
+          {!detailsComplete && (
+            <p className="mt-2 text-center text-xs text-mist-500">
+              Tip: add your name and phone so we can confirm your order faster.
+            </p>
+          )}
+        </div>
 
         {hasSolar && (
           <p className="mt-3 rounded-lg border border-forge-400/20 bg-forge-500/10 px-3 py-2 text-xs leading-relaxed text-forge-200">
@@ -311,12 +423,21 @@ export function CartContents() {
         )}
 
         <p className="mt-4 text-xs leading-relaxed text-mist-500">
-          This is an <strong className="text-mist-300">order request</strong>, not a payment. Our
-          team confirms stock and the final amount on WhatsApp, then agrees the payment method
-          (mobile money, bank transfer or cash on delivery/pickup).
+          {canPayOnline ? (
+            <>
+              Pay online securely through Paystack, or send an order request on WhatsApp. We
+              confirm stock and delivery before dispatch.
+            </>
+          ) : (
+            <>
+              This is an <strong className="text-mist-300">order request</strong>, not a payment.
+              Our team confirms stock and the final amount on WhatsApp, then agrees the payment
+              method (mobile money, bank transfer or cash on delivery/pickup).
+            </>
+          )}
         </p>
 
-        <PaymentDetails compact className="mt-5" />
+        {!canPayOnline && <PaymentDetails compact className="mt-5" />}
 
         <ul className="mt-5 space-y-2.5 border-t border-white/10 pt-5 text-sm text-mist-300">
           <li className="flex items-center gap-2.5">
