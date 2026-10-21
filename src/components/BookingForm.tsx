@@ -82,6 +82,7 @@ type FormState = {
 type Result = {
   ref: string;
   whatsapp: { delivered: boolean; channel: string; waLink: string };
+  sms?: { delivered: boolean; channel: string };
   email: { ownerSent: boolean; customerSent: boolean };
 };
 
@@ -648,13 +649,18 @@ function SuccessPanel({
   isContact: boolean;
   onReset: () => void;
 }) {
-  const emailNote =
-    result.email.customerSent && result.email.ownerSent
-      ? "A confirmation has been emailed to you, and our team has been notified."
-      : result.email.ownerSent
-        ? "Our team has been notified by email. Keep your reference handy."
-        : "Your request is logged. Our team will follow up shortly.";
+  const smsDelivered = result.sms?.delivered ?? false;
   const waDelivered = result.whatsapp.delivered;
+  const channelNote = smsDelivered
+    ? "Our team has been alerted by SMS."
+    : waDelivered
+      ? "Our team has been alerted on WhatsApp."
+      : result.email.ownerSent
+        ? "Our team has been notified by email."
+        : "Your request is logged. Our team will follow up shortly.";
+  const emailNote = result.email.customerSent
+    ? "A confirmation has been emailed to you."
+    : "Your request has been received.";
   const waFallbackText = waLink(
     `Hello PhaseForge, I just submitted a request. My reference is ${result.ref}.`,
   );
@@ -677,9 +683,7 @@ function SuccessPanel({
       <ul className="mt-5 space-y-2.5 text-sm text-mist-300">
         <li className="flex gap-2.5">
           <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-300" />
-          {waDelivered
-            ? `Our team was notified on WhatsApp (${result.whatsapp.channel}) and email.`
-            : "Our team has been notified by email."}
+          {channelNote}
         </li>
         <li className="flex gap-2.5">
           <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-300" />
@@ -699,7 +703,11 @@ function SuccessPanel({
           className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-2.5 font-semibold text-[#052e16] transition-transform hover:-translate-y-0.5"
         >
           <WhatsAppIcon className="h-5 w-5" />
-          {waDelivered ? "Open WhatsApp" : "Send details on WhatsApp"}
+          {waDelivered
+            ? "Open WhatsApp"
+            : smsDelivered
+              ? "Also send on WhatsApp"
+              : "Send details on WhatsApp"}
         </a>
         <button
           type="button"
