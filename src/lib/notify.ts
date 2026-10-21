@@ -2,10 +2,12 @@ import type { OrderRecord, SubmissionRecord } from "./types";
 import { formatGHS } from "./products";
 import { isSolarOrEvRequest, site } from "./site";
 import { sendOwnerWhatsApp } from "./whatsapp";
+import { sendOwnerSms } from "./sms";
 import { ownerEmail, sendMail } from "./email";
 
 export type DispatchResult = {
   whatsapp: { ok: boolean; channel: string; waLink: string };
+  sms: { ok: boolean; channel: string; to: string };
   ownerEmail: { ok: boolean; skipped?: boolean };
   customerEmail: { ok: boolean; skipped?: boolean };
 };
@@ -305,8 +307,9 @@ export async function notifyOrderPaid(order: OrderRecord): Promise<void> {
   const hasSolar = order.items.some((item) => item.category === "solar");
   const ownerText = orderOwnerText(order);
 
-  const [whatsapp, ownerMail, customerMail] = await Promise.all([
+  const [whatsapp, sms, ownerMail, customerMail] = await Promise.all([
     sendOwnerWhatsApp(ownerText, hasSolar ? site.solarEv.whatsapp : undefined),
+    sendOwnerSms(ownerText, hasSolar ? site.solarEv.whatsapp : undefined),
     sendMail({
       to: ownerEmail(),
       replyTo: order.email,
@@ -326,6 +329,9 @@ export async function notifyOrderPaid(order: OrderRecord): Promise<void> {
   if (!whatsapp.ok && whatsapp.channel !== "manual") {
     console.warn("[notify] paid-order WhatsApp failed", whatsapp.detail);
   }
+  if (!sms.ok && sms.channel !== "none") {
+    console.warn("[notify] paid-order SMS failed", sms.detail);
+  }
   if (!ownerMail.ok && !ownerMail.skipped) {
     console.warn("[notify] paid-order owner email failed", ownerMail.detail);
   }
@@ -338,8 +344,9 @@ export async function dispatchNotifications(r: SubmissionRecord): Promise<Dispat
   const text = ownerWhatsAppText(r);
   const solarOrEv = isSolarOrEvRequest(r.serviceCategory, r.service, r.details);
 
-  const [whatsapp, ownerMail, customerMail] = await Promise.all([
+  const [whatsapp, sms, ownerMail, customerMail] = await Promise.all([
     sendOwnerWhatsApp(text, solarOrEv ? site.solarEv.whatsapp : undefined),
+    sendOwnerSms(text, solarOrEv ? site.solarEv.whatsapp : undefined),
     sendMail({
       to: ownerEmail(),
       replyTo: r.email,
@@ -357,6 +364,7 @@ export async function dispatchNotifications(r: SubmissionRecord): Promise<Dispat
 
   return {
     whatsapp: { ok: whatsapp.ok, channel: whatsapp.channel, waLink: whatsapp.waLink },
+    sms: { ok: sms.ok, channel: sms.channel, to: sms.to },
     ownerEmail: { ok: ownerMail.ok, skipped: ownerMail.skipped },
     customerEmail: { ok: customerMail.ok, skipped: customerMail.skipped },
   };

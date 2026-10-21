@@ -82,6 +82,10 @@ export async function POST(req: Request) {
           channel: notifyResult.whatsapp.channel,
           waLink: (notifyResult.whatsapp as { waLink?: string }).waLink ?? "",
         },
+        sms: {
+          delivered: notifyResult.sms.ok,
+          channel: notifyResult.sms.channel,
+        },
         email: {
           ownerSent: notifyResult.ownerEmail.ok,
           customerSent: notifyResult.customerEmail.ok,
