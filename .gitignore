@@ -27,6 +27,9 @@ yarn-error.log*
 # local dev data store (used when DATABASE_URL is not set)
 /.data/
 
+# temporary local secret handoff (never commit)
+/.secrets/
+
 # vercel
 .vercel
 
