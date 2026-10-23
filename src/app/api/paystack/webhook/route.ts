@@ -1,5 +1,5 @@
 import { after, NextResponse } from "next/server";
-import { getOrderByReference, markOrderPaid } from "@/lib/db";
+import { getOrderByReference, markOrderFailed, markOrderPaid } from "@/lib/db";
 import { notifyOrderPaid } from "@/lib/notify";
 import {
   paystackConfigured,
@@ -37,19 +37,31 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, message: "Invalid payload." }, { status: 400 });
   }
 
-  if (event.event !== "charge.success") {
-    return NextResponse.json({ received: true });
-  }
-
   const tx = event.data;
   if (!tx?.reference) {
     return NextResponse.json({ received: true });
   }
-  if (tx.status && tx.status !== "success") {
+
+  const reference = String(tx.reference);
+
+  // A declined card or cancelled Mobile Money prompt should not leave the
+  // order sitting as "pending" forever. Never downgrade an order already paid.
+  if (event.event === "charge.failed") {
+    try {
+      await markOrderFailed(reference);
+    } catch (err) {
+      console.error("[paystack webhook] could not mark order failed", err);
+    }
     return NextResponse.json({ received: true });
   }
 
-  const reference = String(tx.reference);
+  if (event.event !== "charge.success") {
+    return NextResponse.json({ received: true });
+  }
+
+  if (tx.status && tx.status !== "success") {
+    return NextResponse.json({ received: true });
+  }
 
   try {
     const order = await getOrderByReference(reference);

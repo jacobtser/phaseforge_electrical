@@ -7,12 +7,17 @@ export function PaymentDetails({
   compact = false,
   className,
   showDetailsLink = true,
+  onlinePayments = false,
 }: {
   compact?: boolean;
   className?: string;
   showDetailsLink?: boolean;
+  onlinePayments?: boolean;
 }) {
   const momo = site.payments.mobileMoney;
+  const paymentMethods = onlinePayments
+    ? site.payments.methods
+    : site.payments.methods.filter((method) => !/paystack/i.test(method));
   const waHref = waLink(
     "Hello PhaseForge, I've made a payment. My order/reference is: ",
     momo.whatsapp,
@@ -34,8 +39,9 @@ export function PaymentDetails({
       </div>
 
       <p className="mt-2 text-sm leading-relaxed text-mist-300">
-        At cart checkout you can pay securely by card or Mobile Money through Paystack. For
-        WhatsApp orders, pay the confirmed amount to:
+        {onlinePayments
+          ? "At cart checkout you can pay securely by card or Mobile Money through Paystack. For WhatsApp or manual orders, pay the confirmed amount to:"
+          : "We confirm stock and the final amount first. Then pay the confirmed amount to:"}
       </p>
 
       <a
@@ -89,7 +95,7 @@ export function PaymentDetails({
 
       {!compact && (
         <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-white/10 pt-3 text-xs text-mist-400">
-          {site.payments.methods.map((method) => (
+          {paymentMethods.map((method) => (
             <li key={method} className="inline-flex items-center gap-1.5">
               <CheckIcon className="h-3.5 w-3.5 text-forge-400" /> {method}
             </li>

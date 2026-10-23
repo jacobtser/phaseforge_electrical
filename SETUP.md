@@ -8,7 +8,10 @@ automatic owner alerts stay disabled until their keys are added.
 ## 1. Paystack (online payments)
 
 Paystack must be created under the business owner's identity. The site uses
-Paystack hosted checkout, so only the **secret key** is needed.
+Paystack **hosted checkout**, so only the secret key is needed — card and Mobile
+Money details are entered on Paystack's page and never touch this site.
+
+### Create and activate the account
 
 1. Create a Ghana account at <https://paystack.com/gh>.
 2. Complete the business profile and compliance details.
@@ -17,19 +20,47 @@ Paystack hosted checkout, so only the **secret key** is needed.
    - **Registered Business:** certificate of registration/incorporation, the
      relevant registration form, and TIN.
 3. Add a settlement bank account or mobile money account.
-4. In Paystack, open **Settings → API Keys & Webhooks**.
-5. Copy the **test secret key** (`sk_test_...`).
-6. Set the **test webhook URL** to:
-   `https://phaseforge-electrical.vercel.app/api/paystack/webhook`
-7. In Vercel, open **Project → Settings → Environment Variables** and add:
-   - `PAYSTACK_SECRET_KEY` = the test secret key
-   - Environments: Production, Preview, Development
-8. Redeploy the project after adding the key.
-9. Run a test checkout. When Paystack activates the account, repeat steps 5–8
-   with the **live secret key** (`sk_live_...`) and the live webhook URL.
+4. Wait for Paystack to approve the account for **live** payments. Test mode
+   works before approval; live mode does not.
 
-Never commit the secret key. Checkout stays hidden while the key is absent, and
-WhatsApp/manual ordering continues to work.
+### Add the keys
+
+1. In Paystack, open **Settings → API Keys & Webhooks**.
+2. Copy the **secret key**. Test keys start `sk_test_`; live keys start
+   `sk_live_`. Never use a public key here and never commit the secret.
+3. In Vercel, open **Project → Settings → Environment Variables** and add:
+   - `PAYSTACK_SECRET_KEY` = the secret key
+   - Environments: Production, Preview, Development
+4. Set the webhook URL to:
+   `https://phaseforge-electrical.vercel.app/api/paystack/webhook`
+   (or `https://phaseforgeelectrical.com/api/paystack/webhook` once the custom
+   domain works).
+5. Redeploy the project after adding or changing the key.
+
+The payment return URL is built automatically from `NEXT_PUBLIC_SITE_URL`, so
+customers always come back to the canonical domain. On localhost it returns to
+the local dev server.
+
+### Test, then go live
+
+1. With a test key, add a product to the cart, complete the checkout form and
+   pay with a Paystack test card or test Mobile Money number.
+2. Confirm the order shows as **paid** in `/admin/orders`, and that the return
+   page shows the same reference and amount.
+3. When Paystack activates the account, replace the test key with the live key
+   and redeploy. Run one small live transaction and refund it from the Paystack
+   dashboard.
+
+A test key is intentionally ignored on the live site. If you need to test on
+Vercel before activation, add `PAYSTACK_ALLOW_TEST_MODE=true`; remove it when
+the live key is in place.
+
+Checkout stays hidden while no valid key is configured, and WhatsApp/manual
+ordering continues to work.
+
+Paid orders are always recorded in `/admin/orders`. Owner SMS/email alerts also
+need the Arkesel and Resend keys in sections 2 and 5; without them the payment
+still succeeds but nobody is notified automatically.
 
 ## 2. Arkesel SMS (owner alerts)
 
@@ -71,8 +102,33 @@ Studio key if the assistant falls back too often.
 - **Meta WhatsApp:** add `WHATSAPP_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID`, and an
   approved `WHATSAPP_TEMPLATE_NAME` (`phaseforge_owner_alert`, body
   `PhaseForge alert: {{1}}`). SMS remains the primary owner alert channel.
-- **Custom domain:** point `phaseforgeelectrical.com` at the Vercel project and
+- **Custom domain:** point `phaseforge-electrical.com` at the Vercel project and
   set `NEXT_PUBLIC_SITE_URL` to the custom domain, then redeploy.
+
+## 6. Owner verification before launch
+
+The public site was aligned with
+`PhaseForge_Complete_Developer_Implementation_and_Testing_Specification.pdf`.
+The following details come from that document and **must be confirmed by the
+owner before launch** (spec section 5, "Business identity" / "Credentials and
+claims"):
+
+- **Business name:** "PhaseForge Electrical & Power".
+- **Slogan:** "POWER DONE RIGHT, every single time."
+- **Email:** `info@phaseforge-electrical.com` (note the hyphen). Confirm the
+  mailbox exists and is monitored.
+- **Emergency line:** `+233 24 722 7789`. The site labels it "call to check
+  availability" rather than promising 24/7 cover. If a genuine 24/7 rota is
+  staffed, the wording in `src/lib/site.ts` (`emergency`, `hours`) can be
+  upgraded.
+- **Service areas:** Kasoa, Tema, Kpone, East Legon and wider Greater Accra.
+  Confirm dispatch capacity before advertising any area.
+- **Service categories:** the six approved categories in
+  `src/lib/site.ts` (`serviceGroups`).
+- **Credentials and claims:** the site deliberately avoids claims that cannot be
+  verified — no "licensed/insured", no job counts, no years of experience, no
+  customer testimonials. If the business holds a verified licence, insurance
+  policy, or documented review set, add it to `src/lib/site.ts` and the pages.
 
 ## Environment variable checklist
 
@@ -87,6 +143,7 @@ Required for production:
 Payments:
 
 - `PAYSTACK_SECRET_KEY`
+- `PAYSTACK_ALLOW_TEST_MODE` (only while intentionally testing on Vercel; leave unset/false in normal use)
 
 Owner alerts:
 

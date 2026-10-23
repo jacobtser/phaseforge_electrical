@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { createOrder, markOrderFailed } from "@/lib/db";
-import { initializePaystackTransaction, paystackConfigured } from "@/lib/paystack";
+import {
+  initializePaystackTransaction,
+  paystackCallbackUrl,
+  paystackConfigured,
+} from "@/lib/paystack";
 import { getProduct } from "@/lib/products";
 import type { OrderItem } from "@/lib/types";
 import { makeRef } from "@/lib/types";
@@ -160,13 +164,30 @@ export async function POST(req: Request) {
       email: order.email,
       amount: order.amount,
       reference: order.reference,
-      callbackUrl: `${new URL(req.url).origin}/payment/callback`,
+      callbackUrl: paystackCallbackUrl(req.url),
       metadata: {
         order_reference: order.reference,
         customer_name: order.name,
         customer_phone: order.phone,
         fulfilment: order.fulfilment,
         items: order.items.map((item) => `${item.slug} × ${item.qty}`),
+        custom_fields: [
+          {
+            display_name: "Order reference",
+            variable_name: "order_reference",
+            value: order.reference,
+          },
+          {
+            display_name: "Phone",
+            variable_name: "customer_phone",
+            value: order.phone,
+          },
+          {
+            display_name: "Fulfilment",
+            variable_name: "fulfilment",
+            value: order.fulfilment,
+          },
+        ],
       },
     });
 

@@ -1,47 +1,68 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
-import { ArrowRightIcon, CheckIcon, ClockIcon, MapPinIcon, ShieldIcon, SparkIcon, WrenchIcon } from "@/components/Icons";
+import {
+  ArrowRightIcon,
+  CheckIcon,
+  ClockIcon,
+  MapPinIcon,
+  ShieldIcon,
+  SparkIcon,
+  WrenchIcon,
+} from "@/components/Icons";
 import { Reveal } from "@/components/Reveal";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "PhaseForge Electrical and Power Solutions is a licensed electrical contractor serving Accra and Tema with safety-first residential, commercial and backup-power expertise.",
+    "PhaseForge Electrical & Power is a Ghanaian electrical contractor serving Greater Accra with safety-first residential, commercial and backup-power expertise.",
   alternates: { canonical: "/about" },
 };
 
 const VALUES = [
-  { icon: ShieldIcon, title: "Safety without compromise", text: "Every job is done to recognised electrical codes, tested and documented." },
+  { icon: ShieldIcon, title: "Safety without compromise", text: "Work carried out to recognised electrical safety practices, tested and documented." },
   { icon: WrenchIcon, title: "Craftsmanship", text: "Neat, durable work using quality materials — built to last, not to patch." },
-  { icon: ClockIcon, title: "Respect for your time", text: "We show up when we say we will and keep you updated throughout." },
-  { icon: SparkIcon, title: "Practical innovation", text: "Energy-efficient, future-ready solutions like EV chargers and smart backup power." },
+  { icon: ClockIcon, title: "Respect for your time", text: "We agree a time, keep you updated and explain the work before we start." },
+  { icon: SparkIcon, title: "Practical innovation", text: "Energy-saving upgrades such as LED retrofits, solar and smart backup power." },
+];
+
+const AREAS = [
+  "Kasoa and the western corridor",
+  "East Legon, Spintex and Madina",
+  "Tema and the industrial area",
+  "Kpone and wider Greater Accra",
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(60%_70%_at_50%_0%,#000_25%,transparent_100%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:py-20">
-          <Reveal className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-volt-400">About us</p>
-            <h1 className="mt-3 font-display text-4xl font-extrabold text-white sm:text-5xl">
-              Electrical expertise you can build on
-            </h1>
-            <p className="mt-5 text-lg leading-relaxed text-mist-300">
-              {site.name} is a licensed electrical contractor based in {site.location}. We specialise
-              in residential and commercial electrical work, power solutions and specialty services —
-              delivered with the care and precision your property deserves.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About us"
+        title="Electrical expertise you can build on"
+        lede={
+          <>
+            {site.name} is a Ghanaian electrical contractor based in {site.location}. We specialise
+            in residential and commercial electrical work, power solutions and testing — delivered
+            with the care and precision your property deserves.
+          </>
+        }
+        actions={
+          <>
+            <Link href="/book" className="btn btn-primary">
+              Work with us <ArrowRightIcon className="h-4 w-4" />
+            </Link>
+            <Link href="/services" className="btn btn-secondary">
+              See our services
+            </Link>
+          </>
+        }
+      />
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      <section className="shell section">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <h2 className="font-display text-3xl font-extrabold text-white">Our story</h2>
+            <h2 className="section-title">Our story</h2>
             <div className="mt-4 space-y-4 text-mist-300">
               <p>
                 PhaseForge was founded on a simple belief: electrical work should be safe, honest and
@@ -49,26 +70,21 @@ export default function AboutPage() {
                 nuisance tripping and unreliable power. We exist to fix that.
               </p>
               <p>
-                From full home rewires and panel upgrades to backup generators, EV chargers and
-                preventive maintenance programs, our team brings a problem-solving mindset to every
-                job — big or small.
+                From full home rewires and distribution-board work to backup generators, solar and
+                preventive maintenance, we bring a problem-solving mindset to every job — big or
+                small.
               </p>
               <p>
-                We serve homeowners, landlords, restaurants, offices, warehouses and facilities across{" "}
-                {site.serviceArea}, with 24/7 emergency response when it matters most.
+                We serve homeowners, landlords, restaurants, offices, warehouses and facilities
+                across {site.serviceArea}. Not sure whether your location is covered? Call and
+                we&apos;ll confirm straight away.
               </p>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href="/book"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-volt-400 to-volt-600 px-6 py-3.5 font-bold text-ink-950 transition-transform hover:-translate-y-0.5"
-              >
+              <Link href="/book" className="btn btn-primary">
                 Work with us <ArrowRightIcon className="h-4 w-4" />
               </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-6 py-3.5 font-semibold text-white transition-colors hover:border-volt-400/60"
-              >
+              <Link href="/services" className="btn btn-secondary">
                 See our services
               </Link>
             </div>
@@ -77,7 +93,7 @@ export default function AboutPage() {
           <Reveal delay={120}>
             <div className="grid gap-4 sm:grid-cols-2">
               {VALUES.map((v) => (
-                <div key={v.title} className="rounded-2xl border border-white/10 bg-ink-900/60 p-6">
+                <div key={v.title} className="card h-full">
                   <v.icon className="h-6 w-6 text-volt-400" />
                   <h3 className="mt-4 font-bold text-white">{v.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-mist-400">{v.text}</p>
@@ -88,42 +104,50 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/5 bg-ink-900/40">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:grid-cols-3">
-          {site.stats.map((s, i) => (
+      <section className="section-alt">
+        <div className="shell grid gap-8 py-16 sm:grid-cols-3">
+          {[
+            { value: "6", label: "Service categories covered" },
+            { value: "GHS", label: "Local pricing and materials" },
+            { value: site.location, label: "Where we operate" },
+          ].map((s, i) => (
             <Reveal key={s.label} delay={i * 70} className="text-center">
-              <div className="font-display text-4xl font-extrabold text-white">{s.value}</div>
+              <div className="font-display text-2xl font-extrabold text-volt-300 sm:text-3xl">
+                {s.value}
+              </div>
               <div className="mt-2 text-sm text-mist-400">{s.label}</div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      <section className="shell section">
         <div className="grid gap-8 lg:grid-cols-2">
-          <Reveal>
-            <div className="h-full rounded-2xl border border-white/10 bg-ink-900/60 p-8">
-              <MapPinIcon className="h-7 w-7 text-forge-400" />
+          <Reveal className="h-full">
+            <div className="card card-p8 h-full">
+              <span className="icon-chip-forge">
+                <MapPinIcon className="h-7 w-7" />
+              </span>
               <h2 className="mt-4 font-display text-2xl font-extrabold text-white">Where we work</h2>
               <p className="mt-3 text-mist-300">
-                We cover {site.serviceArea} and surrounding areas. Not sure if you&apos;re in range?
-                Give us a call — we&apos;ll let you know straight away.
+                We cover {site.serviceArea} and surrounding areas. Not sure if you&apos;re in
+                range? Give us a call — we&apos;ll let you know straight away.
               </p>
               <ul className="mt-5 space-y-2.5">
-                {["Accra Central & suburbs", "East Legon, Spintex, Madina", "Tema & Tema Industrial Area", "Greater Accra region"].map(
-                  (a) => (
-                    <li key={a} className="flex items-center gap-2.5 text-sm text-mist-200">
-                      <CheckIcon className="h-4 w-4 text-volt-300" /> {a}
-                    </li>
-                  ),
-                )}
+                {AREAS.map((a) => (
+                  <li key={a} className="flex items-center gap-2.5 text-sm text-mist-200">
+                    <CheckIcon className="h-4 w-4 shrink-0 text-volt-300" /> {a}
+                  </li>
+                ))}
               </ul>
             </div>
           </Reveal>
 
-          <Reveal delay={100}>
-            <div className="h-full rounded-2xl border border-white/10 bg-ink-900/60 p-8">
-              <ClockIcon className="h-7 w-7 text-forge-400" />
+          <Reveal delay={100} className="h-full">
+            <div className="card card-p8 h-full">
+              <span className="icon-chip-forge">
+                <ClockIcon className="h-7 w-7" />
+              </span>
               <h2 className="mt-4 font-display text-2xl font-extrabold text-white">Working hours</h2>
               <ul className="mt-4 divide-y divide-white/5">
                 {site.hours.map((h) => (

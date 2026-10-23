@@ -69,7 +69,7 @@ export function BuyNowButton({
       }}
       className={
         className ??
-        "inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-volt-400 to-volt-600 px-5 py-3.5 font-bold text-ink-950 shadow-[0_0_36px_-10px_rgba(14,165,233,0.9)] transition-transform hover:-translate-y-0.5"
+        "inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-volt-400 to-volt-600 px-5 py-3.5 font-bold text-ink-950 shadow-[0_0_36px_-10px_rgba(241,190,41,0.9)] transition-transform hover:-translate-y-0.5"
       }
       aria-label={`Buy ${product.name} now`}
     >

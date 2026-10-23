@@ -31,14 +31,68 @@ type PaystackResponse<T> = {
   data?: T;
 };
 
+export type PaystackMode = "live" | "test" | "none";
+
+function rawSecretKey(): string {
+  return process.env.PAYSTACK_SECRET_KEY?.trim() ?? "";
+}
+
+export function paystackMode(): PaystackMode {
+  const key = rawSecretKey();
+  if (!key) return "none";
+  if (key.startsWith("sk_live_")) return "live";
+  if (key.startsWith("sk_test_")) return "test";
+  return "none";
+}
+
+/**
+ * Test keys must never quietly process "payments" on the live site. They are
+ * only enabled in production when PAYSTACK_ALLOW_TEST_MODE=true is set
+ * explicitly (useful while the Paystack account is still being activated).
+ */
 export function paystackConfigured(): boolean {
-  return Boolean(process.env.PAYSTACK_SECRET_KEY?.trim());
+  const mode = paystackMode();
+  if (mode === "none") return false;
+  if (mode === "test" && process.env.NODE_ENV === "production") {
+    const allowed =
+      process.env.PAYSTACK_ALLOW_TEST_MODE?.trim().toLowerCase() === "true";
+    if (!allowed) {
+      console.warn(
+        "[paystack] A test secret key is configured in production. Online payments are disabled. " +
+          "Use the live key, or set PAYSTACK_ALLOW_TEST_MODE=true to test on purpose.",
+      );
+    }
+    return allowed;
+  }
+  return true;
 }
 
 function secretKey(): string {
-  const key = process.env.PAYSTACK_SECRET_KEY?.trim();
+  const key = rawSecretKey();
   if (!key) throw new Error("PAYSTACK_SECRET_KEY is not configured.");
   return key;
+}
+
+/**
+ * Prefer the canonical public URL so Paystack always returns customers to the
+ * real domain, even when the request reached a preview or internal hostname.
+ * Local development still comes back to localhost.
+ */
+export function paystackCallbackUrl(requestUrl: string): string {
+  let origin = "";
+  try {
+    origin = new URL(requestUrl).origin;
+  } catch {
+    origin = "";
+  }
+
+  const isLocal = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(origin);
+  const isPreview = process.env.VERCEL_ENV === "preview";
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "");
+  const base = isLocal || isPreview || !configured ? origin : configured;
+
+  if (!base) throw new Error("Could not determine the payment callback URL.");
+  return `${base}/payment/callback`;
 }
 
 export async function initializePaystackTransaction(input: {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClearCartOnSuccess } from "@/components/shop/ClearCartOnSuccess";
 import { CheckIcon, ShieldIcon, WhatsAppIcon } from "@/components/Icons";
-import { getOrderByReference, markOrderPaid } from "@/lib/db";
+import { getOrderByReference, markOrderFailed, markOrderPaid } from "@/lib/db";
 import { notifyOrderPaid } from "@/lib/notify";
 import { verifyPaystackTransaction } from "@/lib/paystack";
 import { formatGHS } from "@/lib/products";
@@ -25,6 +25,15 @@ const fulfilmentLabels: Record<string, string> = {
   "delivery-accra": "Delivery — Greater Accra",
   "delivery-nationwide": "Delivery — Nationwide",
   pickup: "Pickup from workshop",
+};
+
+const channelLabels: Record<string, string> = {
+  card: "Card",
+  bank: "Bank",
+  mobile_money: "Mobile Money",
+  bank_transfer: "Bank transfer",
+  ussd: "USSD",
+  qr: "QR",
 };
 
 export default async function PaymentCallbackPage({
@@ -71,6 +80,14 @@ export default async function PaymentCallbackPage({
         transaction.status === "failed"
           ? "This payment did not go through. No money should have left your account — please try again or order on WhatsApp."
           : "This payment was not completed. If you were charged, please contact us with your reference.";
+
+      if (transaction.status === "failed") {
+        try {
+          await markOrderFailed(reference);
+        } catch (err) {
+          console.error("[payment callback] could not mark order failed", err);
+        }
+      }
     } else {
       try {
         order = await getOrderByReference(reference);
@@ -118,6 +135,7 @@ export default async function PaymentCallbackPage({
   if (paid && order) {
     const total = formatGHS(order.amount / 100);
     const fulfilment = fulfilmentLabels[order.fulfilment] ?? order.fulfilment;
+    const payMethod = channelLabels[String(transaction?.channel ?? "").toLowerCase()] ?? "";
     const firstName = order.name.split(" ")[0] || order.name;
     const hasSolar = order.items.some((item) => item.category === "solar");
     const helpNumber = hasSolar ? site.solarEv.whatsapp : site.whatsapp;
@@ -156,6 +174,12 @@ export default async function PaymentCallbackPage({
                 <dt className="text-mist-400">Fulfilment</dt>
                 <dd className="text-right font-medium text-white">{fulfilment}</dd>
               </div>
+              {payMethod && (
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="text-mist-400">Paid with</dt>
+                  <dd className="text-right font-medium text-white">{payMethod}</dd>
+                </div>
+              )}
             </dl>
 
             <div className="mt-7 flex flex-wrap justify-center gap-3">
@@ -255,7 +279,7 @@ function ErrorPanel({ message, reference }: { message: string; reference: string
             href="/cart"
             className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3 font-semibold text-white transition-colors hover:border-forge-400/60"
           >
-            Back to cart
+            Try payment again
           </Link>
           <Link
             href="/shop"

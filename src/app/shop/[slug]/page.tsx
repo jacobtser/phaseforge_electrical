@@ -10,6 +10,7 @@ import { SolarEvContact } from "@/components/SolarEvContact";
 import { ArrowRightIcon, CheckIcon } from "@/components/Icons";
 import { categories, getProduct, products } from "@/lib/products";
 import { site } from "@/lib/site";
+import { paystackConfigured } from "@/lib/paystack";
 
 type Params = { slug: string };
 
@@ -46,6 +47,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
     .filter((p) => p.category === product.category && p.slug !== product.slug)
     .slice(0, 4);
   const image = product.image ?? null;
+  const onlinePayments = paystackConfigured();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -149,14 +151,14 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           <p className="mt-2 text-lg font-semibold text-volt-300">{product.keySpec}</p>
 
           <div className="mt-6">
-            <PurchasePanel product={product} />
+            <PurchasePanel product={product} onlinePayments={onlinePayments} />
           </div>
 
           {product.category === "solar" && (
             <SolarEvContact compact className="mt-6" />
           )}
 
-          <PaymentDetails compact className="mt-6" />
+          <PaymentDetails compact className="mt-6" onlinePayments={onlinePayments} />
 
           {/* Delivery / returns quick facts */}
           <div className="mt-6 rounded-2xl border border-white/10 bg-ink-950/60 p-6">

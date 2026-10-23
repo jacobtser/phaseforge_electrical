@@ -1,38 +1,52 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — deep engineering navy + electric "volt" blue + forge amber */
-  --color-ink-950: #04070e;
-  --color-ink-900: #070c17;
-  --color-ink-850: #0a1120;
-  --color-ink-800: #0e1626;
-  --color-ink-700: #16213a;
-  --color-ink-600: #223050;
-  --color-ink-500: #33456b;
+  /* ---------------------------------------------------------------------------
+     Brand palette — dark navy + gold + white + neutral grey.
+     Values sampled directly from Reference 1 of the PhaseForge specification
+     PDF (background #090F16, accent #F1BE29).
+     --------------------------------------------------------------------------- */
 
-  --color-volt-200: #bae6fd;
-  --color-volt-300: #7dd3fc;
-  --color-volt-400: #38bdf8;
-  --color-volt-500: #0ea5e9;
-  --color-volt-600: #0284c7;
-  --color-volt-700: #0369a1;
+  /* Dark navy — page background through to raised panels. */
+  --color-ink-950: #05090e;
+  --color-ink-900: #090f16;
+  --color-ink-850: #0b141d;
+  --color-ink-800: #101823;
+  --color-ink-700: #16202e;
+  --color-ink-600: #1f2b3c;
+  --color-ink-500: #2b3a4f;
 
-  --color-forge-300: #fcd34d;
-  --color-forge-400: #fbbf24;
-  --color-forge-500: #f59e0b;
-  --color-forge-600: #d97706;
+  /* Gold — primary accent and call-to-action colour. */
+  --color-volt-200: #fbeaa8;
+  --color-volt-300: #f8dd7a;
+  --color-volt-400: #f1be29;
+  --color-volt-500: #e0ad1f;
+  --color-volt-600: #bf9114;
+  --color-volt-700: #8f6c0d;
 
-  --color-mist-100: #eef4ff;
-  --color-mist-200: #d5e2f7;
-  --color-mist-400: #8ea3c8;
-  --color-mist-500: #6b7fa3;
+  /* Warm copper — secondary accent for Solar & EV messaging. */
+  --color-forge-200: #f0cfa8;
+  --color-forge-300: #e0ab74;
+  --color-forge-400: #c98544;
+  --color-forge-500: #a9662f;
+  --color-forge-600: #7d4a21;
+
+  /* Neutral grey — body copy and secondary text. */
+  --color-mist-100: #f8f9fa;
+  --color-mist-200: #e2e4e6;
+  --color-mist-300: #c8c6cb;
+  --color-mist-400: #9c9892;
+  --color-mist-500: #786f64;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --shadow-glow: 0 0 45px -10px rgba(14, 165, 233, 0.6);
-  --shadow-forge: 0 0 45px -10px rgba(245, 158, 11, 0.55);
+  --shadow-glow: 0 0 45px -10px rgba(241, 190, 41, 0.5);
+  --shadow-forge: 0 0 45px -10px rgba(201, 133, 68, 0.45);
+
+  /* Extra-small breakpoint for narrow phones (Tailwind's sm: is 640px). */
+  --breakpoint-xs: 26rem;
 }
 
 @layer base {
@@ -47,8 +61,8 @@
     color: var(--color-mist-100);
     font-family: var(--font-sans);
     background-image:
-      radial-gradient(900px 500px at 12% -8%, rgba(14, 165, 233, 0.16), transparent 60%),
-      radial-gradient(800px 520px at 92% 4%, rgba(245, 158, 11, 0.1), transparent 55%);
+      radial-gradient(900px 500px at 12% -8%, rgba(241, 190, 41, 0.1), transparent 60%),
+      radial-gradient(800px 520px at 92% 4%, rgba(201, 133, 68, 0.08), transparent 55%);
     background-attachment: fixed;
   }
 
@@ -59,7 +73,7 @@
 
   ::selection {
     background: var(--color-volt-400);
-    color: #03121f;
+    color: #0a0d02;
   }
 
   :focus-visible {
@@ -70,17 +84,283 @@
 
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+    linear-gradient(to right, rgba(241, 190, 41, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(241, 190, 41, 0.06) 1px, transparent 1px);
   background-size: 46px 46px;
 }
 
 @utility text-gradient {
-  background: linear-gradient(100deg, #7dd3fc 0%, #38bdf8 45%, #fbbf24 110%);
+  background: linear-gradient(100deg, #f8dd7a 0%, #f1be29 45%, #e0ab74 110%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
+/* ---------------------------------------------------------------------------
+   Design system
+   Shared building blocks so every public page uses the same spacing, colour
+   and emphasis rules. Use these instead of repeating raw utility strings.
+   --------------------------------------------------------------------------- */
+
+/* Page container — consistent gutters and max width everywhere. */
+@utility shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Vertical rhythm for page sections. */
+@utility section {
+  padding-block: 3.5rem;
+  @media (width >= 48rem) {
+    padding-block: 5rem;
+  }
+}
+
+/* Alternating band, used to break up long pages. */
+@utility section-alt {
+  background-color: color-mix(in srgb, var(--color-ink-900) 40%, transparent);
+  border-block: 1px solid rgb(255 255 255 / 0.05);
+}
+
+/* Uppercase kicker above a heading. */
+@utility eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-volt-400);
+}
+
+@utility eyebrow-forge {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-forge-400);
+}
+
+/* Page and section headings. */
+@utility page-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #fff;
+  font-size: 2.25rem;
+  @media (width >= 40rem) {
+    font-size: 3rem;
+  }
+}
+
+@utility section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #fff;
+  font-size: 1.875rem;
+  @media (width >= 40rem) {
+    font-size: 2.25rem;
+  }
+}
+
+/* Intro copy directly under a heading. */
+@utility lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-mist-300);
+}
+
+/* --- Buttons ------------------------------------------------------------- */
+
+/* `.btn` holds the shape; `.btn-md` / `.btn-sm` set the size knobs; the
+   `.btn-*` colour classes set the palette. They never conflict. */
+@utility btn {
+  --btn-py: 0.875rem;
+  --btn-px: 1.5rem;
+  --btn-fs: 0.9375rem;
+  --btn-border: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--btn-border);
+  padding: var(--btn-py) var(--btn-px);
+  font-size: var(--btn-fs);
+  font-weight: 700;
+  line-height: 1.25rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+  }
+}
+
+@utility btn-md {
+  --btn-py: 0.875rem;
+  --btn-px: 1.5rem;
+  --btn-fs: 0.9375rem;
+}
+
+@utility btn-sm {
+  --btn-py: 0.625rem;
+  --btn-px: 1rem;
+  --btn-fs: 0.875rem;
+}
+
+@utility btn-lg {
+  --btn-py: 1rem;
+  --btn-px: 1.75rem;
+  --btn-fs: 1rem;
+}
+
+@utility btn-primary {
+  background-image: linear-gradient(135deg, var(--color-volt-300), var(--color-volt-500));
+  color: #0a0d02;
+  box-shadow: 0 0 36px -10px rgb(241 190 41 / 0.75);
+  &:hover {
+    box-shadow: 0 0 44px -8px rgb(241 190 41 / 0.95);
+  }
+}
+
+@utility btn-secondary {
+  --btn-border: rgb(255 255 255 / 0.15);
+  color: #fff;
+  &:hover {
+    --btn-border: color-mix(in srgb, var(--color-volt-400) 60%, transparent);
+  }
+}
+
+@utility btn-forge {
+  --btn-border: color-mix(in srgb, var(--color-forge-400) 35%, transparent);
+  color: #fff;
+  &:hover {
+    --btn-border: color-mix(in srgb, var(--color-forge-400) 60%, transparent);
+  }
+}
+
+@utility btn-wa {
+  background-color: #25d366;
+  color: #052e16;
+  &:hover {
+    background-color: #31dd75;
+  }
+}
+
+/* --- Surfaces ------------------------------------------------------------ */
+
+/* Sizing knobs are custom properties, so `.card` + `.card-p7` + `.card-quiet`
+   can be combined in any order without one rule clobbering another. */
+@utility card {
+  --card-pad: 1.5rem;
+  --card-bg: color-mix(in srgb, var(--color-ink-900) 60%, transparent);
+  --card-border: rgb(255 255 255 / 0.1);
+  border-radius: 1rem;
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  padding: var(--card-pad);
+}
+
+@utility card-quiet {
+  --card-bg: color-mix(in srgb, var(--color-ink-950) 60%, transparent);
+}
+
+@utility card-p5 {
+  --card-pad: 1.25rem;
+}
+
+@utility card-p6 {
+  --card-pad: 1.5rem;
+}
+
+@utility card-p7 {
+  --card-pad: 1.75rem;
+}
+
+@utility card-p8 {
+  --card-pad: 2rem;
+}
+
+@utility card-hover {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+  &:hover {
+    transform: translateY(-4px);
+    --card-border: color-mix(in srgb, var(--color-volt-400) 50%, transparent);
+    --card-bg: color-mix(in srgb, var(--color-ink-850) 85%, transparent);
+  }
+}
+
+/* Rounded square that holds an icon. */
+@utility icon-chip {
+  display: grid;
+  place-items: center;
+  height: 3rem;
+  width: 3rem;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  background-color: color-mix(in srgb, var(--color-volt-500) 10%, transparent);
+  color: var(--color-volt-300);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-volt-400) 20%, transparent);
+}
+
+@utility icon-chip-forge {
+  background-color: color-mix(in srgb, var(--color-forge-500) 12%, transparent);
+  color: var(--color-forge-300);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-forge-400) 25%, transparent);
+}
+
+/* Accent text link with an underline that grows on hover. */
+@utility link-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 600;
+  color: var(--color-volt-300);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: color-mix(in srgb, var(--color-volt-400) 45%, transparent);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  &:hover {
+    color: var(--color-volt-200);
+    text-decoration-color: var(--color-volt-300);
+  }
+}
+
+/* Small pill used for badges and status. */
+@utility pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+}
+
 
 @keyframes pf-rise {
   from {
@@ -138,5 +418,13 @@
   }
   .marquee-track {
     animation: none;
+  }
+  .btn,
+  .card-hover {
+    transition: none;
+  }
+  .btn:hover,
+  .card-hover:hover {
+    transform: none;
   }
 }

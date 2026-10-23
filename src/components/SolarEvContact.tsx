@@ -11,7 +11,7 @@ export function SolarEvContact({
   className?: string;
 }) {
   const href = solarEvWaLink(
-    "Hello PhaseForge, I'd like to speak with your solar & EV specialist about a solar, inverter, battery or EV charger project.",
+    "Hello PhaseForge, I'd like to speak with your solar & backup power specialist about a solar, inverter or battery project.",
   );
 
   return (
@@ -29,13 +29,13 @@ export function SolarEvContact({
           compact ? "flex flex-wrap items-center" : "flex flex-col lg:flex-row lg:items-center",
         )}
       >
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-forge-500/15 text-forge-300 ring-1 ring-forge-400/30">
+        <span className="icon-chip icon-chip-forge">
           <SunIcon className="h-6 w-6" />
         </span>
 
         <div className="min-w-0 flex-1">
           <p className="text-xs font-semibold uppercase tracking-widest text-forge-300">
-            Solar &amp; EV specialist
+            Solar &amp; backup power specialist
           </p>
           <h2
             className={clsx(
@@ -43,27 +43,27 @@ export function SolarEvContact({
               compact ? "text-lg" : "text-2xl",
             )}
           >
-            Solar, inverter, battery &amp; EV charger enquiries
+            Solar, inverter &amp; battery enquiries
           </h2>
           <p className="mt-1.5 text-sm leading-relaxed text-mist-300">
-            Planning solar, adding backup power or installing an EV charger? Message our solar &amp;
-            EV specialist directly on WhatsApp.
+            Planning solar, adding backup power or replacing batteries? Message our specialist
+            directly on WhatsApp.
           </p>
         </div>
 
-        <div className="flex shrink-0 flex-wrap items-center gap-2.5">
+        <div className="flex w-full shrink-0 flex-col gap-2.5 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-bold text-[#052e16] transition-transform hover:-translate-y-0.5"
+            className="btn btn-wa btn-sm justify-center"
           >
             <WhatsAppIcon className="h-4.5 w-4.5" />
             WhatsApp {site.solarEv.label}
           </a>
           <Link
             href="/book"
-            className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-forge-400/60"
+            className="btn btn-forge btn-sm justify-center"
           >
             Book an assessment <ArrowRightIcon className="h-4 w-4" />
           </Link>

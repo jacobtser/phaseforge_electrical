@@ -4,15 +4,19 @@ import { site, waLink } from "@/lib/site";
 import { PaymentDetails } from "@/components/PaymentDetails";
 import { ArrowRightIcon, CheckIcon, ShieldIcon, WhatsAppIcon } from "@/components/Icons";
 import { Reveal } from "@/components/Reveal";
+import { PageHero } from "@/components/PageHero";
+import { paystackConfigured } from "@/lib/paystack";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Payment Information",
   description:
-    "Pay PhaseForge Electrical online by card or Mobile Money through Paystack, or by Mobile Money, bank transfer or cash after your order is confirmed.",
+    "Payment information for PhaseForge Electrical orders: Mobile Money, bank transfer, cash on delivery or pickup, and online card payments when available.",
   alternates: { canonical: "/payment" },
 };
 
-const STEPS = [
+const ONLINE_STEPS = [
   {
     title: "Choose your items or send a request",
     text: "Add items to your cart for instant online checkout, or send an order or quote request on WhatsApp.",
@@ -27,67 +31,100 @@ const STEPS = [
   },
 ];
 
+const MANUAL_STEPS = [
+  {
+    title: "Choose your items or send a request",
+    text: "Add items to your cart or send an order or quote request on WhatsApp.",
+  },
+  {
+    title: "We confirm stock and the total",
+    text: "Our team checks availability, confirms the final amount, and agrees delivery or pickup with you on WhatsApp.",
+  },
+  {
+    title: "Pay and receive your order",
+    text: "Pay by Mobile Money, bank transfer, or cash on delivery or pickup, then we prepare your order.",
+  },
+];
+
 export default function PaymentPage() {
+  const onlinePayments = paystackConfigured();
+  const steps = onlinePayments ? ONLINE_STEPS : MANUAL_STEPS;
+  const safetyItems = [
+    ...(onlinePayments
+      ? ["Online payments are processed by Paystack — we never see your card details."]
+      : []),
+    "Only pay after we confirm your order and final amount.",
+    "Always use the Mobile Money number shown on this page for manual payments.",
+    "Keep your payment receipt and order reference until delivery is complete.",
+    "Never send money to a number that has not been confirmed by our team.",
+  ];
+
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(60%_70%_at_50%_0%,#000_25%,transparent_100%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:py-20">
-          <Reveal className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-forge-400">
-              Payments
-            </p>
-            <h1 className="mt-3 font-display text-4xl font-extrabold text-white sm:text-5xl">
-              Simple, secure payments
-            </h1>
-            <p className="mt-5 text-lg leading-relaxed text-mist-300">
-              Pay online by card or Mobile Money through Paystack at cart checkout. Prefer a manual
-              transfer? We also accept Mobile Money, bank transfer and cash after we confirm your
-              WhatsApp order.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Payments"
+        title={onlinePayments ? "Simple, secure payments" : "Simple, confirmed payments"}
+        lede={
+          onlinePayments
+            ? "Pay online by card or Mobile Money through Paystack at cart checkout. Prefer a manual transfer? We also accept Mobile Money, bank transfer and cash after we confirm your WhatsApp order."
+            : "We confirm every order on WhatsApp first. Then pay by Mobile Money, bank transfer, or cash on delivery or pickup — whichever suits you."
+        }
+        actions={
+          <>
+            <Link href="/shop" className="btn btn-primary">
+              {onlinePayments ? "Shop and pay online" : "Shop products"}{" "}
+              <ArrowRightIcon className="h-4 w-4" />
+            </Link>
+            <a
+              href={waLink(
+                "Hello PhaseForge, I need help with a payment for my order.",
+                site.payments.mobileMoney.whatsapp,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-wa"
+            >
+              <WhatsAppIcon className="h-4 w-4" /> WhatsApp us
+            </a>
+          </>
+        }
+      />
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      <section className="shell section">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <Reveal>
-            <PaymentDetails showDetailsLink={false} />
+            <PaymentDetails showDetailsLink={false} onlinePayments={onlinePayments} />
           </Reveal>
 
           <Reveal delay={100}>
             <div className="space-y-5">
-              <div className="rounded-2xl border border-emerald-400/25 bg-emerald-500/10 p-6 sm:p-7">
-                <h2 className="flex items-center gap-2 font-display text-xl font-extrabold text-white">
-                  <ShieldIcon className="h-5 w-5 text-emerald-300" /> Pay online with Paystack
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-mist-300">
-                  Card and Mobile Money payments are handled securely by Paystack. You&apos;ll be
-                  redirected to Paystack&apos;s checkout and brought back to a payment confirmation
-                  page when the payment is complete.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <Link
-                    href="/shop"
-                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-volt-400 to-volt-600 px-4 py-2.5 text-sm font-bold text-ink-950"
-                  >
-                    Shop and pay online <ArrowRightIcon className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/cart"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:border-emerald-400/60"
-                  >
-                    Go to cart
-                  </Link>
+              {onlinePayments && (
+                <div className="rounded-2xl border border-emerald-400/25 bg-emerald-500/10 p-6 sm:p-7">
+                  <h2 className="flex items-center gap-2 font-display text-xl font-extrabold text-white">
+                    <ShieldIcon className="h-5 w-5 text-emerald-300" /> Pay online with Paystack
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-mist-300">
+                    Card and Mobile Money payments are handled securely by Paystack. You&apos;ll be
+                    redirected to Paystack&apos;s checkout and brought back to a payment confirmation
+                    page when the payment is complete.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <Link href="/shop" className="btn btn-primary btn-sm">
+                      Shop and pay online <ArrowRightIcon className="h-4 w-4" />
+                    </Link>
+                    <Link href="/cart" className="btn btn-secondary btn-sm">
+                      Go to cart
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div className="rounded-2xl border border-white/10 bg-ink-900/60 p-6 sm:p-7">
+              <div className="card card-p6 sm:card-p7">
                 <h2 className="font-display text-xl font-extrabold text-white">
                   How payment works
                 </h2>
                 <ol className="mt-5 space-y-4">
-                  {STEPS.map((step, i) => (
+                  {steps.map((step, i) => (
                     <li key={step.title} className="flex gap-3.5">
                       <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-volt-500/15 text-sm font-bold text-volt-300">
                         {i + 1}
@@ -101,18 +138,12 @@ export default function PaymentPage() {
                 </ol>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-ink-900/60 p-6">
+              <div className="card card-p6">
                 <h2 className="flex items-center gap-2 font-display text-lg font-extrabold text-white">
                   <ShieldIcon className="h-5 w-5 text-forge-400" /> Pay safely
                 </h2>
                 <ul className="mt-4 space-y-2.5 text-sm text-mist-300">
-                  {[
-                    "Online payments are processed by Paystack — we never see your card details.",
-                    "For manual payments, only pay after we confirm your order and final amount.",
-                    "Always use the Mobile Money number shown on this page for manual payments.",
-                    "Keep your payment receipt and order reference until delivery is complete.",
-                    "Never send money to a number that has not been confirmed by our team.",
-                  ].map((item) => (
+                  {safetyItems.map((item) => (
                     <li key={item} className="flex gap-2.5">
                       <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-forge-400" />
                       {item}
@@ -137,14 +168,11 @@ export default function PaymentPage() {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-bold text-[#052e16]"
+                    className="btn btn-wa btn-sm"
                   >
                     <WhatsAppIcon className="h-4 w-4" /> WhatsApp us
                   </a>
-                  <Link
-                    href="/shop"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:border-forge-400/60"
-                  >
+                  <Link href="/shop" className="btn btn-secondary btn-sm">
                     Back to shop <ArrowRightIcon className="h-4 w-4" />
                   </Link>
                 </div>

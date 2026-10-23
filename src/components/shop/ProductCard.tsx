@@ -11,7 +11,7 @@ export function ProductCard({ product, priority }: { product: Product; priority?
   const whatsappNumber =
     product.category === "solar" ? site.solarEv.whatsapp : site.whatsapp;
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900/60 transition-all hover:-translate-y-1 hover:border-volt-400/50 hover:bg-ink-850">
+    <article className="card card-hover group flex h-full flex-col overflow-hidden p-0">
       <Link
         href={`/shop/${product.slug}`}
         className="relative block aspect-[4/3] overflow-hidden bg-ink-950"
@@ -80,7 +80,7 @@ export function ProductCard({ product, priority }: { product: Product; priority?
         </div>
         <Link
           href={`/shop/${product.slug}`}
-          className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-volt-300 hover:underline"
+          className="link-accent mt-3 text-sm"
         >
           View details <ArrowRightIcon className="h-4 w-4" />
         </Link>

@@ -13,13 +13,10 @@ import {
   WhatsAppIcon,
 } from "./Icons";
 
-const CATEGORY_LABELS: Record<string, string> = {
-  residential: "Residential — home",
-  commercial: "Commercial — business",
-  power: "Power / Backup systems",
-  specialty: "Specialty / Inspection",
-  other: "Other / not sure yet",
-};
+const CATEGORY_OPTIONS = [
+  ...serviceGroups.map((group) => ({ value: group.id, label: group.title })),
+  { value: "other", label: "Other / not sure yet" },
+];
 
 const PROPERTY_TYPES = [
   "House / bungalow",
@@ -87,7 +84,7 @@ type Result = {
 };
 
 const inputBase =
-  "w-full rounded-xl border border-white/10 bg-ink-900/70 px-3.5 py-2.5 text-sm text-white placeholder:text-mist-500 transition-colors focus:border-volt-400/70 focus:bg-ink-900 focus:outline-none";
+  "w-full rounded-xl border border-white/10 bg-ink-900/70 px-3.5 py-2.5 text-sm text-white placeholder:text-mist-500 transition-colors focus:border-volt-400/70 focus:bg-ink-900 focus:outline-none [&>option]:bg-ink-900 [&>option]:text-white";
 const labelBase = "mb-1.5 block text-xs font-semibold uppercase tracking-wide text-mist-400";
 
 function todayISO() {
@@ -98,7 +95,7 @@ function todayISO() {
 
 export function BookingForm({
   mode = "full",
-  defaultCategory = "residential",
+  defaultCategory = serviceGroups[0].id,
   defaultService = "",
   lockedType,
 }: {
@@ -108,12 +105,15 @@ export function BookingForm({
   lockedType?: FormState["type"];
 }) {
   const isContact = mode === "contact";
+  const initialCategory = CATEGORY_OPTIONS.some((option) => option.value === defaultCategory)
+    ? defaultCategory
+    : serviceGroups[0].id;
   const [form, setForm] = useState<FormState>({
     type: lockedType ?? (isContact ? "contact" : "appointment"),
     name: "",
     email: "",
     phone: "",
-    serviceCategory: defaultCategory,
+    serviceCategory: initialCategory,
     service: defaultService,
     propertyType: "",
     address: "",
@@ -122,7 +122,7 @@ export function BookingForm({
     longitude: null,
     preferredDate: "",
     preferredTime: "",
-    urgency: "flexible",
+    urgency: initialCategory === "emergency" ? "emergency" : "flexible",
     budget: "",
     details: "",
     photos: [],
@@ -267,7 +267,7 @@ export function BookingForm({
                   className={clsx(
                     "rounded-xl border p-3.5 text-left transition-all",
                     active
-                      ? "border-volt-400/70 bg-volt-500/10 shadow-[0_0_24px_-10px_rgba(14,165,233,0.8)]"
+                      ? "border-volt-400/70 bg-volt-500/10 shadow-[0_0_24px_-10px_rgba(241,190,41,0.8)]"
                       : "border-white/10 bg-ink-900/60 hover:border-white/20",
                   )}
                   aria-pressed={active}
@@ -328,7 +328,7 @@ export function BookingForm({
               set("service", "");
             }}
           >
-            {Object.entries(CATEGORY_LABELS).map(([value, label]) => (
+            {CATEGORY_OPTIONS.map(({ value, label }) => (
               <option key={value} value={value}>
                 {label}
               </option>
@@ -600,7 +600,7 @@ export function BookingForm({
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-volt-400 to-volt-600 px-6 py-3 font-bold text-ink-950 shadow-[0_0_32px_-10px_rgba(14,165,233,0.9)] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+          className="btn btn-primary"
         >
           {submitting ? "Sending…" : isContact ? "Send message" : "Send request"}
           {!submitting && <ArrowRightIcon className="h-4 w-4" />}
@@ -667,7 +667,7 @@ function SuccessPanel({
 
   return (
     <div className="rounded-2xl border border-volt-400/30 bg-gradient-to-b from-volt-500/10 to-transparent p-6 sm:p-8">
-      <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-volt-400 to-volt-600 text-ink-950 shadow-[0_0_36px_-8px_rgba(14,165,233,0.9)]">
+      <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-volt-400 to-volt-600 text-ink-950 shadow-[0_0_36px_-8px_rgba(241,190,41,0.9)]">
         <CheckIcon className="h-7 w-7" strokeWidth={2.4} />
       </div>
       <h3 className="mt-5 text-2xl font-extrabold text-white">
@@ -700,7 +700,7 @@ function SuccessPanel({
           href={`${result.whatsapp.waLink || waFallbackText}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-2.5 font-semibold text-[#052e16] transition-transform hover:-translate-y-0.5"
+          className="btn btn-wa btn-sm"
         >
           <WhatsAppIcon className="h-5 w-5" />
           {waDelivered
@@ -712,7 +712,7 @@ function SuccessPanel({
         <button
           type="button"
           onClick={onReset}
-          className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-2.5 font-semibold text-mist-100 transition-colors hover:border-volt-400/60 hover:text-white"
+          className="btn btn-secondary btn-sm"
         >
           Submit another request
         </button>

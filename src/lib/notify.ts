@@ -53,7 +53,7 @@ export function ownerWhatsAppText(r: SubmissionRecord): string {
 function ownerHtml(r: SubmissionRecord): string {
   const gpsHtml =
     r.latitude != null && r.longitude != null
-      ? `${r.latitude.toFixed(6)}, ${r.longitude.toFixed(6)} <a href="https://maps.google.com/?q=${r.latitude},${r.longitude}" style="color:#38bdf8">Open in Maps</a>`
+      ? `${r.latitude.toFixed(6)}, ${r.longitude.toFixed(6)} <a href="https://maps.google.com/?q=${r.latitude},${r.longitude}" style="color:#f8dd7a">Open in Maps</a>`
       : null;
   const rows: [string, string, boolean?][] = [
     ["Reference", r.ref],
@@ -75,59 +75,59 @@ function ownerHtml(r: SubmissionRecord): string {
     ["How they heard about us", r.referral || "—"],
     ["Photos", r.photos && r.photos.length ? `${r.photos.length} attached` : "—"],
   ];
-  return `<!doctype html><html><body style="margin:0;background:#0a0f1c;font-family:Arial,Helvetica,sans-serif;color:#e5edff">
+  return `<!doctype html><html><body style="margin:0;background:#05090e;font-family:Arial,Helvetica,sans-serif;color:#e2e4e6">
   <div style="max-width:600px;margin:0 auto;padding:24px">
-    <div style="background:linear-gradient(135deg,#0ea5e9,#2563eb);border-radius:14px;padding:20px 24px">
+    <div style="background:linear-gradient(135deg,#f1be29,#bf9114);border-radius:14px;padding:20px 24px">
       <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85">PhaseForge</div>
       <div style="font-size:22px;font-weight:700;margin-top:4px">New ${typeLabel[r.type] ?? r.type}</div>
     </div>
-    <table style="width:100%;border-collapse:collapse;margin-top:18px;background:#0f172a;border-radius:12px;overflow:hidden">
+    <table style="width:100%;border-collapse:collapse;margin-top:18px;background:#0b141d;border-radius:12px;overflow:hidden">
       ${rows
         .map(
           ([k, v, isHtml], i) =>
-            `<tr style="background:${i % 2 ? "#0f172a" : "#111c33"}">
-              <td style="padding:10px 14px;color:#8ea3c8;font-size:13px;width:38%">${k}</td>
-              <td style="padding:10px 14px;color:#eaf1ff;font-size:14px">${isHtml ? v : escapeHtml(v)}</td>
+            `<tr style="background:${i % 2 ? "#0b141d" : "#101823"}">
+              <td style="padding:10px 14px;color:#9c9892;font-size:13px;width:38%">${k}</td>
+              <td style="padding:10px 14px;color:#f8f9fa;font-size:14px">${isHtml ? v : escapeHtml(v)}</td>
             </tr>`,
         )
         .join("")}
     </table>
-    <div style="margin-top:18px;padding:16px;background:#0f172a;border-radius:12px">
-      <div style="color:#8ea3c8;font-size:13px;margin-bottom:6px">Details</div>
+    <div style="margin-top:18px;padding:16px;background:#0b141d;border-radius:12px">
+      <div style="color:#9c9892;font-size:13px;margin-bottom:6px">Details</div>
       <div style="white-space:pre-wrap;font-size:14px;line-height:1.55">${escapeHtml(r.details)}</div>
     </div>
-    <p style="color:#8ea3c8;font-size:12px;margin-top:22px">Submitted ${new Date(r.createdAt).toUTCString()}</p>
+    <p style="color:#9c9892;font-size:12px;margin-top:22px">Submitted ${new Date(r.createdAt).toUTCString()}</p>
   </div></body></html>`;
 }
 
 function customerHtml(r: SubmissionRecord): string {
   const dateLine = [r.preferredDate, r.preferredTime].filter(Boolean).join(" ") || "To be confirmed";
-  return `<!doctype html><html><body style="margin:0;background:#f4f7fc;font-family:Arial,Helvetica,sans-serif;color:#0b1a33">
+  return `<!doctype html><html><body style="margin:0;background:#f8f9fa;font-family:Arial,Helvetica,sans-serif;color:#05090e">
   <div style="max-width:600px;margin:0 auto;padding:24px">
-    <div style="background:#0a0f1c;border-radius:14px 14px 0 0;padding:22px 24px;color:#fff">
-      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#38bdf8">PhaseForge Electrical</div>
+    <div style="background:#05090e;border-radius:14px 14px 0 0;padding:22px 24px;color:#fff">
+      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#f8dd7a">PhaseForge Electrical</div>
       <div style="font-size:22px;font-weight:700;margin-top:4px">Thanks, ${escapeHtml(r.name.split(" ")[0])} — we've got it.</div>
     </div>
-    <div style="background:#fff;border-radius:0 0 14px 14px;padding:24px;border:1px solid #e3ebf6;border-top:none">
+    <div style="background:#fff;border-radius:0 0 14px 14px;padding:24px;border:1px solid #e2e4e6;border-top:none">
       <p style="font-size:15px;line-height:1.6;margin-top:0">
         Your request has been received and logged under reference
-        <strong style="color:#0284c7">${r.ref}</strong>. A PhaseForge electrician will review it and get back to you
+        <strong style="color:#8f6c0d">${r.ref}</strong>. A PhaseForge electrician will review it and get back to you
         shortly — usually within a few hours during working hours.
       </p>
       <table style="width:100%;border-collapse:collapse;margin:18px 0;font-size:14px">
-        <tr><td style="padding:8px 0;color:#5b6b86;width:40%">Service</td><td>${escapeHtml([r.serviceCategory, r.service].filter(Boolean).join(" / ") || "General")}</td></tr>
-        <tr><td style="padding:8px 0;color:#5b6b86">Preferred time</td><td>${escapeHtml(dateLine)}</td></tr>
-        <tr><td style="padding:8px 0;color:#5b6b86">Urgency</td><td>${escapeHtml(r.urgency)}</td></tr>
-        <tr><td style="padding:8px 0;color:#5b6b86">Contact</td><td>${escapeHtml(r.phone)}</td></tr>
+        <tr><td style="padding:8px 0;color:#786f64;width:40%">Service</td><td>${escapeHtml([r.serviceCategory, r.service].filter(Boolean).join(" / ") || "General")}</td></tr>
+        <tr><td style="padding:8px 0;color:#786f64">Preferred time</td><td>${escapeHtml(dateLine)}</td></tr>
+        <tr><td style="padding:8px 0;color:#786f64">Urgency</td><td>${escapeHtml(r.urgency)}</td></tr>
+        <tr><td style="padding:8px 0;color:#786f64">Contact</td><td>${escapeHtml(r.phone)}</td></tr>
       </table>
-      <div style="margin:22px 0;padding:14px 16px;background:#eff6ff;border-radius:10px;font-size:14px">
+      <div style="margin:22px 0;padding:14px 16px;background:#fdf6e3;border-radius:10px;font-size:14px">
         Need us sooner, or is this an emergency? Call
-        <a href="tel:${site.phones[0].tel}" style="color:#0284c7;font-weight:700">${site.phones[0].label}</a>
+        <a href="tel:${site.phones[0].tel}" style="color:#8f6c0d;font-weight:700">${site.phones[0].label}</a>
         or
-        <a href="tel:${site.phones[1].tel}" style="color:#0284c7;font-weight:700">${site.phones[1].label}</a>.
+        <a href="tel:${site.phones[1].tel}" style="color:#8f6c0d;font-weight:700">${site.phones[1].label}</a>.
       </div>
-      <a href="${site.url}" style="display:inline-block;background:#0ea5e9;color:#03121f;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px">Visit our website</a>
-      <p style="color:#8595ad;font-size:12px;margin-top:24px">PhaseForge Electrical and Power Solutions · ${site.serviceArea} · ${site.email}</p>
+      <a href="${site.url}" style="display:inline-block;background:#f1be29;color:#0a0d02;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px">Visit our website</a>
+      <p style="color:#786f64;font-size:12px;margin-top:24px">${site.name} · ${site.serviceArea} · ${site.email}</p>
     </div>
   </div></body></html>`;
 }
@@ -165,8 +165,8 @@ function orderItemsHtml(order: OrderRecord): string {
   return order.items
     .map(
       (item) => `<tr>
-        <td style="padding:8px 10px;border-bottom:1px solid #e3ebf6">${escapeHtml(item.name)}<span style="color:#8595ad"> × ${item.qty}</span></td>
-        <td style="padding:8px 10px;border-bottom:1px solid #e3ebf6;text-align:right;white-space:nowrap">${formatGHS(item.lineTotalPesewas / 100)}</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #e2e4e6">${escapeHtml(item.name)}<span style="color:#786f64"> × ${item.qty}</span></td>
+        <td style="padding:8px 10px;border-bottom:1px solid #e2e4e6;text-align:right;white-space:nowrap">${formatGHS(item.lineTotalPesewas / 100)}</td>
       </tr>`,
     )
     .join("");
@@ -201,30 +201,30 @@ function orderOwnerHtml(order: OrderRecord): string {
     ["Fulfilment", fulfilmentLabel(order.fulfilment)],
     ["Delivery location", order.location || "—"],
   ];
-  return `<!doctype html><html><body style="margin:0;background:#0a0f1c;font-family:Arial,Helvetica,sans-serif;color:#e5edff">
+  return `<!doctype html><html><body style="margin:0;background:#05090e;font-family:Arial,Helvetica,sans-serif;color:#e2e4e6">
   <div style="max-width:600px;margin:0 auto;padding:24px">
     <div style="background:linear-gradient(135deg,#059669,#0d9488);border-radius:14px;padding:20px 24px">
       <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85">PhaseForge</div>
       <div style="font-size:22px;font-weight:700;margin-top:4px">Payment received — ${escapeHtml(total)}</div>
     </div>
-    <table style="width:100%;border-collapse:collapse;margin-top:18px;background:#0f172a;border-radius:12px;overflow:hidden">
+    <table style="width:100%;border-collapse:collapse;margin-top:18px;background:#0b141d;border-radius:12px;overflow:hidden">
       ${rows
         .map(
           ([k, v], i) =>
-            `<tr style="background:${i % 2 ? "#0f172a" : "#111c33"}">
-              <td style="padding:10px 14px;color:#8ea3c8;font-size:13px;width:38%">${k}</td>
-              <td style="padding:10px 14px;color:#eaf1ff;font-size:14px">${escapeHtml(v)}</td>
+            `<tr style="background:${i % 2 ? "#0b141d" : "#101823"}">
+              <td style="padding:10px 14px;color:#9c9892;font-size:13px;width:38%">${k}</td>
+              <td style="padding:10px 14px;color:#f8f9fa;font-size:14px">${escapeHtml(v)}</td>
             </tr>`,
         )
         .join("")}
     </table>
-    <div style="margin-top:18px;padding:16px;background:#0f172a;border-radius:12px">
-      <div style="color:#8ea3c8;font-size:13px;margin-bottom:10px">Items</div>
+    <div style="margin-top:18px;padding:16px;background:#0b141d;border-radius:12px">
+      <div style="color:#9c9892;font-size:13px;margin-bottom:10px">Items</div>
       <table style="width:100%;border-collapse:collapse;font-size:14px">
         ${order.items
           .map(
             (item) => `<tr>
-              <td style="padding:8px 0;border-bottom:1px solid #25324a">${escapeHtml(item.name)} <span style="color:#8ea3c8">× ${item.qty}</span></td>
+              <td style="padding:8px 0;border-bottom:1px solid #25324a">${escapeHtml(item.name)} <span style="color:#9c9892">× ${item.qty}</span></td>
               <td style="padding:8px 0;border-bottom:1px solid #25324a;text-align:right;white-space:nowrap">${formatGHS(item.lineTotalPesewas / 100)}</td>
             </tr>`,
           )
@@ -235,7 +235,7 @@ function orderOwnerHtml(order: OrderRecord): string {
         </tr>
       </table>
     </div>
-    <p style="color:#8ea3c8;font-size:12px;margin-top:22px">Paid ${new Date(order.paidAt ?? order.updatedAt).toUTCString()} · Paystack reference ${escapeHtml(order.reference)}</p>
+    <p style="color:#9c9892;font-size:12px;margin-top:22px">Paid ${new Date(order.paidAt ?? order.updatedAt).toUTCString()} · Paystack reference ${escapeHtml(order.reference)}</p>
   </div></body></html>`;
 }
 
@@ -265,16 +265,16 @@ function orderCustomerHtml(order: OrderRecord): string {
     order.fulfilment === "pickup"
       ? `Pickup from our workshop in ${site.location}`
       : fulfilmentLabel(order.fulfilment);
-  return `<!doctype html><html><body style="margin:0;background:#f4f7fc;font-family:Arial,Helvetica,sans-serif;color:#0b1a33">
+  return `<!doctype html><html><body style="margin:0;background:#f8f9fa;font-family:Arial,Helvetica,sans-serif;color:#05090e">
   <div style="max-width:600px;margin:0 auto;padding:24px">
-    <div style="background:#0a0f1c;border-radius:14px 14px 0 0;padding:22px 24px;color:#fff">
+    <div style="background:#05090e;border-radius:14px 14px 0 0;padding:22px 24px;color:#fff">
       <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#6ee7b7">PhaseForge Electrical</div>
       <div style="font-size:22px;font-weight:700;margin-top:4px">Payment received, ${escapeHtml(firstName)}.</div>
     </div>
-    <div style="background:#fff;border-radius:0 0 14px 14px;padding:24px;border:1px solid #e3ebf6;border-top:none">
+    <div style="background:#fff;border-radius:0 0 14px 14px;padding:24px;border:1px solid #e2e4e6;border-top:none">
       <p style="font-size:15px;line-height:1.6;margin-top:0">
         Thank you — we've received <strong>${escapeHtml(total)}</strong> for order
-        <strong style="color:#0284c7">${escapeHtml(order.reference)}</strong>.
+        <strong style="color:#8f6c0d">${escapeHtml(order.reference)}</strong>.
       </p>
       <table style="width:100%;border-collapse:collapse;margin:18px 0;font-size:14px">
         ${orderItemsHtml(order)}
@@ -284,21 +284,21 @@ function orderCustomerHtml(order: OrderRecord): string {
         </tr>
       </table>
       <table style="width:100%;border-collapse:collapse;margin:18px 0;font-size:14px">
-        <tr><td style="padding:8px 0;color:#5b6b86;width:40%">Fulfilment</td><td>${escapeHtml(fulfilment)}</td></tr>
-        <tr><td style="padding:8px 0;color:#5b6b86">Contact</td><td>${escapeHtml(order.phone)}</td></tr>
-        <tr><td style="padding:8px 0;color:#5b6b86">Email</td><td>${escapeHtml(order.email)}</td></tr>
+        <tr><td style="padding:8px 0;color:#786f64;width:40%">Fulfilment</td><td>${escapeHtml(fulfilment)}</td></tr>
+        <tr><td style="padding:8px 0;color:#786f64">Contact</td><td>${escapeHtml(order.phone)}</td></tr>
+        <tr><td style="padding:8px 0;color:#786f64">Email</td><td>${escapeHtml(order.email)}</td></tr>
       </table>
       <div style="margin:22px 0;padding:14px 16px;background:#ecfdf5;border-radius:10px;font-size:14px">
         We'll contact you shortly to arrange delivery or pickup. Keep this email as your receipt.
       </div>
-      <div style="margin:22px 0;padding:14px 16px;background:#eff6ff;border-radius:10px;font-size:14px">
+      <div style="margin:22px 0;padding:14px 16px;background:#fdf6e3;border-radius:10px;font-size:14px">
         Need help? Call
-        <a href="tel:${site.phones[0].tel}" style="color:#0284c7;font-weight:700">${site.phones[0].label}</a>
+        <a href="tel:${site.phones[0].tel}" style="color:#8f6c0d;font-weight:700">${site.phones[0].label}</a>
         or
-        <a href="tel:${site.phones[1].tel}" style="color:#0284c7;font-weight:700">${site.phones[1].label}</a>.
+        <a href="tel:${site.phones[1].tel}" style="color:#8f6c0d;font-weight:700">${site.phones[1].label}</a>.
       </div>
-      <a href="${site.url}" style="display:inline-block;background:#0ea5e9;color:#03121f;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px">Visit our website</a>
-      <p style="color:#8595ad;font-size:12px;margin-top:24px">PhaseForge Electrical and Power Solutions · ${site.serviceArea} · ${site.email}</p>
+      <a href="${site.url}" style="display:inline-block;background:#f1be29;color:#0a0d02;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px">Visit our website</a>
+      <p style="color:#786f64;font-size:12px;margin-top:24px">${site.name} · ${site.serviceArea} · ${site.email}</p>
     </div>
   </div></body></html>`;
 }

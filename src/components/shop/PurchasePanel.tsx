@@ -7,7 +7,13 @@ import { AddToCartButton, BuyNowButton } from "./CartButtons";
 import { formatGHS, productOrderMessage, type Product } from "@/lib/products";
 import { site, waLink } from "@/lib/site";
 
-export function PurchasePanel({ product }: { product: Product }) {
+export function PurchasePanel({
+  product,
+  onlinePayments = false,
+}: {
+  product: Product;
+  onlinePayments?: boolean;
+}) {
   const [qty, setQty] = useState(1);
   const total = product.price !== null ? product.price * qty : null;
   const isSolar = product.category === "solar";
@@ -82,8 +88,17 @@ export function PurchasePanel({ product }: { product: Product }) {
       )}
 
       <p className="mt-3 text-center text-xs text-mist-500">
-        Order requests are confirmed by our team on WhatsApp before payment — no online payment
-        required. Pay by Mobile Money to {site.payments.mobileMoney.label} after confirmation.
+        {onlinePayments ? (
+          <>
+            Add to cart and pay securely by card or Mobile Money at checkout, or send the order on
+            WhatsApp and we&apos;ll confirm stock first.
+          </>
+        ) : (
+          <>
+            Order requests are confirmed by our team on WhatsApp before payment. Pay by Mobile Money
+            to {site.payments.mobileMoney.label} after confirmation.
+          </>
+        )}
       </p>
 
       {/* Reassurance strip */}

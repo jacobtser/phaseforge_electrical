@@ -57,7 +57,7 @@ export function ShopCatalog({
   return (
     <div>
       {/* Search + filters */}
-      <div className="rounded-2xl border border-white/10 bg-ink-900/60 p-4 sm:p-5">
+      <div className="card card-p5">
         <div className="relative">
           <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-mist-400" />
           <input
@@ -100,7 +100,7 @@ export function ShopCatalog({
               setBrand("");
               setCollection("");
             }}
-            className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-volt-300 hover:underline"
+            className="link-accent mt-3 text-sm"
           >
             <CloseIcon className="h-3.5 w-3.5" /> Clear filters
           </button>
@@ -127,7 +127,7 @@ export function ShopCatalog({
               href={`https://wa.me/${whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-volt-300 hover:underline"
+              className="link-accent"
             >
               ask us on WhatsApp
             </a>{" "}

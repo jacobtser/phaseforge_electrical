@@ -1,7 +1,10 @@
 import { listKnowledgeEntries } from "./db";
 import { categories, formatGHS, getProduct, products, type Product } from "./products";
+import { paystackConfigured } from "./paystack";
 import { site } from "./site";
 import type { KnowledgeRecord } from "./types";
+
+const onlinePayments = paystackConfigured();
 
 /**
  * The assistant's grounding layer.
@@ -432,15 +435,17 @@ function ownerAnswer(): string {
   return `${site.name} is a locally owned and operated Ghanaian electrical contractor. It was founded in Accra and is run by its founding electrical team. We don't publish individual owner details on the website, so I don't want to guess a name. For formal ownership or company-registration information, contact ${site.email} or ${site.phones[0].label} and the team will help.`;
 }
 
-const companyAnswer = `${site.name} is a licensed electrical contractor and electrical supplies shop based in ${site.location}. We serve homeowners, landlords, restaurants, offices, warehouses and facilities across Accra and Tema, with nationwide delivery for shop orders. Our team has 10+ years of combined experience and has completed 1,500+ jobs. We handle residential and commercial electrical work, backup power, solar, EV charging, safety inspections and specialist jobs. Every job is tested and backed by our workmanship guarantee. You can read more at /about.`;
+const companyAnswer = `${site.name} is an electrical contractor and electrical supplies shop based in ${site.location}. We serve homeowners, landlords, restaurants, offices, warehouses and facilities across ${site.serviceArea}, with nationwide delivery for shop orders. We handle home electrical work, commercial and industrial work, solar and backup power, testing and safety, emergency assistance and projects and contracts. You can read more at /about.`;
 
-const locationAnswer = `We are based in Accra and work across Accra, Tema and surrounding areas. Shop orders can be delivered nationwide or collected from our workshop. The exact workshop pickup address is confirmed by the team when your order is ready — we do not publish a walk-in shop address. For directions or to check whether we cover your area, message ${site.phones[0].label}.`;
+const locationAnswer = `We are based in ${site.location} and work across ${site.serviceArea}. Shop orders can be delivered nationwide or collected from our workshop. The exact workshop pickup address is confirmed by the team when your order is ready — we do not publish a walk-in shop address. For directions or to check whether we cover your area, message ${site.phones[0].label}.`;
 
-const hoursAnswer = `Our normal hours are Monday–Friday 7:00 AM–7:00 PM and Saturday 8:00 AM–6:00 PM. Sunday is for emergency callouts only. We also run a 24/7 emergency line on ${site.phones[0].label} for faults, shocks, burning smells or power failures.`;
+const hoursAnswer = `Our normal hours are Monday–Friday 7:00 AM–7:00 PM and Saturday 8:00 AM–6:00 PM. Sunday is for the emergency line only. For urgent faults, shocks, burning smells or power failures, call the emergency line on ${site.emergencyPhone.label} to check availability.`;
 
 const deliveryAnswer = `We deliver across Ghana. Checkout offers Greater Accra delivery (same or next day), nationwide delivery (2–4 working days) and workshop pickup. The delivery fee is confirmed by our team after the order — we don't invent a fee online. For a specific address or a large/bulky item, message ${site.phones[0].label} and the team will confirm the best option.`;
 
-const paymentAnswer = `You can pay online by card or Mobile Money through Paystack at /cart. For a manual order, send Mobile Money to ${site.payments.mobileMoney.label}, use a bank transfer, or pay cash on delivery/pickup after the team confirms your order on WhatsApp. Always use your order reference and send the receipt to ${site.phones[0].label}. Never send card numbers, CVV, PINs or OTPs to anyone.`;
+const paymentAnswer = onlinePayments
+  ? `You can pay online by card or Mobile Money through Paystack at /cart. For a manual order, send Mobile Money to ${site.payments.mobileMoney.label}, use a bank transfer, or pay cash on delivery/pickup after the team confirms your order on WhatsApp. Always use your order reference and send the receipt to ${site.phones[0].label}. Never send card numbers, CVV, PINs or OTPs to anyone.`
+  : `We confirm every order on WhatsApp first. Then you can pay by Mobile Money to ${site.payments.mobileMoney.label}, bank transfer, or cash on delivery/pickup. Online card checkout is not available right now. Always use your order reference and send the receipt to ${site.phones[0].label} on WhatsApp.`;
 
 const returnsAnswer = `Sealed-box returns are accepted within 7 days. Installed, cut-to-length or special-order items are excluded. Product warranties depend on the item — typically 12–24 months, while some solar panels carry a 12-year product and 25-year performance warranty. Manufacturer terms apply after inspection. If something is faulty or damaged, message ${site.phones[0].label} with your order reference and photos, and the team will advise on the next step.`;
 
@@ -456,17 +461,19 @@ const solarAnswer = `We supply and install solar panels, inverters, batteries an
 
 const evAnswer = `We install EV chargers for homes and businesses, including the dedicated circuit, protective devices and a supply/load check. We don't list EV charger hardware prices online because the right unit depends on your vehicle and supply. Book a site assessment at /book, or call the solar and EV specialist line on ${site.solarEv.label} for a quote.`;
 
-const installationAnswer = `We handle electrical repairs, fault finding, rewiring, panel upgrades, lighting, generator and changeover installation, solar, EV chargers and safety inspections across Accra and Tema. Book a visit at /book or request a free, no-obligation quote at /contact. Labour is quoted after we understand the scope, so we don't publish a fixed callout fee. For an emergency, call ${site.phones[0].label} any time.`;
+const installationAnswer = `We handle electrical repairs, fault finding, rewiring, distribution-board work, lighting, generator and changeover installation, solar, backup power and testing and safety checks across ${site.serviceArea}. Book a visit at /book or request a free, no-obligation quote at /contact. Labour is quoted after we understand the scope, so we don't publish a fixed callout fee. For an urgent fault, call the emergency line on ${site.emergencyPhone.label} to check availability.`;
 
 const bulkAnswer = `Yes — we supply contractors, landlords, facilities teams, developers and businesses. For bulk or project pricing, send the item list and quantities to ${site.phones[0].label} or use /contact. We'll confirm stock, lead time and the best price before you pay.`;
 
 const stockAnswer = `Catalogue items are labelled In stock, Low stock or On request. "On request" means we can usually source it but cannot promise immediate dispatch. "Low stock" shows the remaining catalogue quantity. These are catalogue labels, not a live warehouse count, so confirm current stock on WhatsApp at ${site.phones[0].label} before paying — especially for low-stock, on-request or bulk orders.`;
 
-const orderAnswer = `For an order or payment issue, send your order reference and payment receipt to ${site.phones[0].label} on WhatsApp. If you paid online, the reference is on the payment confirmation page. The team can check the payment and update you. I can't change, cancel, refund or track an order from chat, and you should never send card numbers, CVV, PINs or OTPs.`;
+const orderAnswer = `For an order or payment issue, send your order reference and payment receipt to ${site.phones[0].label} on WhatsApp.${onlinePayments ? " If you paid online, the reference is on the payment confirmation page." : ""} The team can check the payment and update you. I can't change, cancel, refund or track an order from chat, and you should never send card numbers, CVV, PINs or OTPs.`;
 
-const securityAnswer = `Online card and Mobile Money payments are handled by Paystack, so we never see or store your card number, CVV or PIN. Only pay to the payment details confirmed by our team. If anyone sends you a different number or asks for an OTP, stop and verify with ${site.phones[0].label} first.`;
+const securityAnswer = onlinePayments
+  ? `Online card and Mobile Money payments are handled by Paystack, so we never see or store your card number, CVV or PIN. Only pay to the payment details confirmed by our team. If anyone sends you a different number or asks for an OTP, stop and verify with ${site.phones[0].label} first.`
+  : `We don't take card details on this website. Only pay to the Mobile Money number or bank details confirmed by our team. If anyone sends you a different number or asks for an OTP, stop and verify with ${site.phones[0].label} first.`;
 
-const emergencyAnswer = `That sounds urgent. Keep everyone away from the electrical equipment. If it is safe to do so, switch off the main breaker; do not touch damaged wiring or wet equipment. Call the emergency services if there is fire or someone has been injured, then call our 24/7 line on ${site.phones[0].label}. Do not attempt live electrical work yourself.`;
+const emergencyAnswer = `That sounds urgent. Keep everyone away from the electrical equipment. If it is safe to do so, switch off the main breaker; do not touch damaged wiring or wet equipment. Call the emergency services if there is fire or someone has been injured, then call our emergency line on ${site.emergencyPhone.label} to check availability. Do not attempt live electrical work yourself.`;
 
 const contactAnswer = `You can reach the team on WhatsApp or phone at ${site.phones[0].label}, or the alternative line ${site.phones[1].label}. Email is ${site.email}. For solar, inverter, battery, EV or payment questions, use ${site.solarEv.label}. You can also use /contact or /book. I'm the AI assistant, so for anything I can't resolve I'll hand you to a person.`;
 
@@ -476,13 +483,15 @@ const pricingAnswer = `Catalogue prices are shown in GHS on each product at /sho
 
 const brandsAnswer = `We stock genuine products from brands including Schneider Electric, ABB, Legrand, MK Electric, Chint, JA Solar, Victron Energy, Luminous, UNI-T and Knipex. Product warranties are manufacturer-backed; keep your receipt or order reference. If you're comparing a cheaper alternative, tell me the model and I'll help you check the specification rather than guessing from the brand alone.`;
 
-const bookingAnswer = `You can book an electrician at /book or request a quote at /contact. Tell us what the job is, where you are, and whether it is urgent. The team confirms the visit by phone or WhatsApp. For an emergency, call ${site.phones[0].label} instead of waiting for a booking confirmation.`;
+const bookingAnswer = `You can book an electrician at /book or request a quote at /contact. Tell us what the job is, where you are, and whether it is urgent. The team confirms the visit by phone or WhatsApp. For an urgent fault, call the emergency line on ${site.emergencyPhone.label} to check availability instead of waiting for a booking confirmation.`;
 
-const quoteAnswer = `Quotes are free and no-obligation. Use /contact or /book with a short description, your location and any photos, and the team will follow up. We don't publish fixed labour or callout prices because the scope, access and materials vary. For an urgent fault, call ${site.phones[0].label}.`;
+const quoteAnswer = `Quotes are free and no-obligation. Use /contact or /book with a short description, your location and any photos, and the team will follow up. We don't publish fixed labour or callout prices because the scope, access and materials vary. For an urgent fault, call the emergency line on ${site.emergencyPhone.label}.`;
 
-const warrantyAnswer = `Workmanship is backed by our guarantee, and product warranties are manufacturer-backed. The exact cover depends on the item — typically 12–24 months for hardware, with longer performance warranties on some solar panels. Keep your order reference and receipt. If something fails, message ${site.phones[0].label} with photos and the team will inspect it and explain the manufacturer process.`;
+const warrantyAnswer = `Product warranties are manufacturer-backed and the exact cover depends on the item — typically 12–24 months for hardware, with longer performance warranties on some solar panels. Keep your order reference and receipt. If something fails, message ${site.phones[0].label} with photos and the team will inspect it and explain the manufacturer process. Any workmanship cover for a job is confirmed with you when the work is quoted.`;
 
-const paymentMethodsAnswer = `We accept card and Mobile Money through Paystack online, manual Mobile Money to ${site.payments.mobileMoney.label}, bank transfer, and cash on delivery/pickup after the team confirms the order. For manual payments, use your order reference and send the receipt on WhatsApp to ${site.phones[0].label}.`;
+const paymentMethodsAnswer = onlinePayments
+  ? `We accept card and Mobile Money through Paystack online, manual Mobile Money to ${site.payments.mobileMoney.label}, bank transfer, and cash on delivery/pickup after the team confirms the order. For manual payments, use your order reference and send the receipt on WhatsApp to ${site.phones[0].label}.`
+  : `We accept Mobile Money to ${site.payments.mobileMoney.label}, bank transfer, and cash on delivery/pickup after the team confirms the order. Online card checkout is not available right now. Use your order reference and send the receipt on WhatsApp to ${site.phones[0].label}.`;
 
 export const builtInKnowledge: KnowledgeEntry[] = [
   {

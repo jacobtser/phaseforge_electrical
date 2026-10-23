@@ -29,15 +29,11 @@ export default async function ShopPage({
 
   return (
     <>
-      <section className="border-b border-white/5 bg-ink-900/40">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16">
-          <p className="text-sm font-semibold uppercase tracking-widest text-volt-400">
-            Electrical materials shop
-          </p>
-          <h1 className="mt-3 font-display text-3xl font-extrabold text-white sm:text-4xl">
-            Genuine parts, trade-trusted brands
-          </h1>
-          <p className="mt-4 max-w-2xl text-mist-300">
+      <section className="section-alt">
+        <div className="shell py-12 sm:py-16">
+          <p className="eyebrow">Electrical materials shop</p>
+          <h1 className="page-title mt-3">Genuine parts, trade-trusted brands</h1>
+          <p className="lead mt-4 max-w-2xl">
             Breakers, cable, lighting, solar and tools from Schneider, ABB, Legrand, MK and Chint.
             All prices in GHS. Order online or on WhatsApp — delivery across Greater Accra and
             nationwide, or pickup from our {site.location} workshop.
@@ -46,7 +42,7 @@ export default async function ShopPage({
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-10">
+      <section className="shell py-10">
         <ShopCatalog
           key={`${collection ?? ""}|${category ?? ""}|${brand ?? ""}|${q ?? ""}`}
           initialCollection={collection}

@@ -4,7 +4,16 @@ const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const phoneRe = /^[+()\-.\s\d]{7,20}$/;
 
 export const submissionTypes = ["appointment", "order", "quote", "contact"] as const;
-export const serviceCategories = ["residential", "commercial", "power", "specialty", "other"] as const;
+/** Keep in sync with the six approved groups in `src/lib/site.ts`, plus "other". */
+export const serviceCategories = [
+  "home-electrical",
+  "commercial-industrial",
+  "solar-backup",
+  "testing-safety",
+  "emergency",
+  "projects-contracts",
+  "other",
+] as const;
 export const urgencyLevels = ["emergency", "this-week", "flexible"] as const;
 
 export const submissionSchema = z

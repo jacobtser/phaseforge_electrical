@@ -239,4 +239,6 @@ export const iconByName = {
   building: BuildingIcon,
   battery: BatteryIcon,
   gauge: GaugeIcon,
+  bolt: BoltIcon,
+  briefcase: BriefcaseIcon,
 } as const;

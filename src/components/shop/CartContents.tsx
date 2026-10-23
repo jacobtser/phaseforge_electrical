@@ -29,8 +29,10 @@ const FULFILMENT_OPTIONS = [
 
 export function CartContents({
   paystackEnabled = false,
+  paystackTestMode = false,
 }: {
   paystackEnabled?: boolean;
+  paystackTestMode?: boolean;
 }) {
   const { ready, subtotal, clear, remove, setQty } = useCart();
   const lines = useCartLines();
@@ -364,6 +366,12 @@ export function CartContents({
         {/* Actions */}
         {paystackEnabled && (
           <div className="mt-6">
+            {paystackTestMode && (
+              <p className="mb-3 rounded-lg border border-amber-400/25 bg-amber-500/10 px-3 py-2 text-xs leading-relaxed text-amber-200">
+                Paystack test mode is active. Use a test card or test Mobile Money number — no real
+                money will be charged.
+              </p>
+            )}
             {canPayOnline ? (
               <>
                 <button

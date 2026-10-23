@@ -14,7 +14,7 @@ const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap"
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Trusted Electricians in Accra & Tema`,
+    default: `${site.name} — Electrical Services in Greater Accra`,
     template: `%s · ${site.shortName}`,
   },
   description: site.description,
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     "electrician Accra",
     "electrician Tema",
     "electrical contractor Ghana",
-    "panel upgrade Ghana",
+    "distribution board Ghana",
     "generator installation Accra",
-    "EV charger installation Ghana",
+    "solar and inverter installation Ghana",
     "emergency electrician",
     "PhaseForge Electrical",
   ],
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     type: "website",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Trusted Electricians in Accra & Tema`,
+    title: `${site.name} — Electrical Services in Greater Accra`,
     description: site.description,
     locale: "en_GH",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Trusted Electricians in Accra & Tema`,
+    title: `${site.name} — Electrical Services in Greater Accra`,
     description: site.description,
   },
   robots: { index: true, follow: true },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#04070e",
+  themeColor: "#05090e",
   width: "device-width",
   initialScale: 1,
 };
@@ -67,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     url: site.url,
     email: site.email,
     telephone: site.phones.map((p) => p.tel),
-    areaServed: ["Accra", "Tema", "Greater Accra"],
+    areaServed: ["Kasoa", "Tema", "Kpone", "East Legon", "Greater Accra"],
     address: { "@type": "PostalAddress", addressLocality: "Accra", addressCountry: "GH" },
     openingHours: ["Mo-Fr 07:00-19:00", "Sa 08:00-18:00"],
     priceRange: "GHS",

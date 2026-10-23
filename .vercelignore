@@ -1,0 +1,9 @@
+# Never upload local secrets or test data with a deployment.
+.secrets/
+.data/
+.env
+.env*.local
+
+# Local-only reference material.
+PhaseForge_Complete_Developer_Implementation_and_Testing_Specification.pdf
+*.tsbuildinfo

@@ -343,7 +343,7 @@ export function SupportChat() {
           aria-label="Open PhaseForge AI assistant"
           aria-controls="pf-assistant-panel"
           aria-expanded={open}
-          className="fixed bottom-24 right-4 z-50 flex items-center gap-2 rounded-full border border-volt-400/30 bg-ink-900/95 px-4 py-3 text-sm font-bold text-white shadow-[0_10px_35px_-8px_rgba(14,165,233,0.65)] backdrop-blur transition-transform hover:-translate-y-0.5 sm:right-5"
+          className="fixed bottom-24 right-4 z-50 flex items-center gap-2 rounded-full border border-volt-400/30 bg-ink-900/95 px-4 py-3 text-sm font-bold text-white shadow-[0_10px_35px_-8px_rgba(241,190,41,0.65)] backdrop-blur transition-transform hover:-translate-y-0.5 sm:right-5"
         >
           <SparkIcon className="h-5 w-5 text-volt-300" /> Ask AI
         </button>

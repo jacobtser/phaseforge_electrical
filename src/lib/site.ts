@@ -1,19 +1,23 @@
 export const site = {
-  name: "PhaseForge Electrical and Power Solutions",
+  name: "PhaseForge Electrical & Power",
   shortName: "PhaseForge",
-  tagline: "Reliable power, expertly forged.",
+  tagline: "Power done right, every single time.",
   description:
-    "PhaseForge Electrical and Power Solutions delivers licensed residential, commercial and backup-power electrical work across Accra and Tema. Fast, safe, code-compliant and done right the first time.",
-  domain: "phaseforgeelectrical.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://phaseforgeelectrical.com",
-  email: "info@phaseforgeelectrical.com",
+    "PhaseForge Electrical & Power delivers residential, commercial and backup-power electrical work across Greater Accra. Safety-first, code-compliant and done right the first time.",
+  domain: "phaseforge-electrical.com",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+    "https://phaseforge-electrical.com",
+  email: "info@phaseforge-electrical.com",
   phones: [
     { label: "+233 55 281 3116", tel: "+233552813116" },
     { label: "+233 24 590 9523", tel: "+233245909523" },
   ],
+  /** Emergency line — publish as "call to check availability" unless 24/7 is genuinely staffed. */
+  emergencyPhone: { label: "+233 24 722 7789", tel: "+233247227789" },
   whatsapp: process.env.NEXT_PUBLIC_OWNER_WHATSAPP || "233552813116",
   whatsappAlt: "233245909523",
-  /** Solar & EV enquiries have their own WhatsApp line. */
+  /** Solar & backup-power enquiries have their own WhatsApp line. */
   solarEv: {
     whatsapp: process.env.NEXT_PUBLIC_SOLAR_WHATSAPP || "233592760553",
     label: "+233 59 276 0553",
@@ -32,18 +36,14 @@ export const site = {
       "Cash on delivery / pickup",
     ],
   },
-  location: "Accra & Tema, Ghana",
-  serviceArea: "Accra and Tema environs",
-  emergency: "24/7 emergency callouts",
+  location: "Greater Accra, Ghana",
+  serviceArea: "Kasoa, Tema, Kpone, East Legon and wider Greater Accra",
+  /** Emergency availability wording — not a 24/7 guarantee. */
+  emergency: "Emergency line — call to check availability",
   hours: [
     { day: "Monday – Friday", time: "7:00 AM – 7:00 PM" },
     { day: "Saturday", time: "8:00 AM – 6:00 PM" },
-    { day: "Sunday", time: "24/7 emergency callouts" },
-  ],
-  stats: [
-    { value: "10+", label: "Years combined experience" },
-    { value: "1,500+", label: "Jobs completed" },
-    { value: "24/7", label: "Emergency response" },
+    { day: "Sunday", time: "Closed — emergency line only" },
   ],
 } as const;
 
@@ -52,77 +52,106 @@ export type ServiceGroup = {
   title: string;
   short: string;
   blurb: string;
-  icon: "home" | "building" | "battery" | "gauge";
+  icon: "home" | "building" | "battery" | "gauge" | "bolt" | "briefcase";
   items: string[];
 };
 
+/** The six approved PhaseForge service categories from the specification. */
 export const serviceGroups: ServiceGroup[] = [
   {
-    id: "residential",
-    title: "Residential Electrical",
+    id: "home-electrical",
+    title: "Home Electrical Services",
     short: "Homes",
     blurb:
-      "Everything a home needs to stay safe and powered — from quick fixes to full rewires and EV charging.",
+      "House wiring and rewiring, fault diagnosis, socket, switch and lighting work, distribution boards, repairs, inspections and maintenance.",
     icon: "home",
     items: [
-      "Electrical repairs and troubleshooting",
-      "Panel upgrades and service upgrades",
-      "Full home rewiring",
-      "Lighting installation and design (indoor & outdoor)",
-      "Ceiling fan, outlet and switch installation",
-      "Smoke and carbon monoxide detector installation",
-      "EV charger installation",
-      "Generator installation and transfer switch setup",
-      "Whole-home surge protection",
+      "House wiring and rewiring",
+      "Fault diagnosis and repairs",
+      "Sockets, switches and lighting",
+      "Distribution board work",
+      "Periodic inspection and maintenance",
+      "New build and renovation wiring",
     ],
   },
   {
-    id: "commercial",
-    title: "Commercial Electrical",
+    id: "commercial-industrial",
+    title: "Commercial & Industrial",
     short: "Business",
     blurb:
-      "Reliable, compliant power for shops, offices, warehouses and multi-tenant buildings.",
+      "Shops, offices and commercial premises — distribution and wiring, maintenance and three-phase work where qualified.",
     icon: "building",
     items: [
-      "Tenant improvements and build-outs",
-      "Electrical panel and service upgrades",
-      "LED lighting upgrades and retrofits",
-      "Power distribution and wiring",
-      "Emergency lighting and exit signs",
-      "Data and low-voltage cabling",
-      "Preventive maintenance programs",
+      "Shops, offices and commercial premises",
+      "Distribution and wiring",
+      "Planned maintenance",
+      "Three-phase work (where qualified)",
+      "Control panels and industrial faults",
+      "Tenant fit-outs and alterations",
     ],
   },
   {
-    id: "power",
-    title: "Power Solutions",
-    short: "Backup",
+    id: "solar-backup",
+    title: "Solar & Backup Power",
+    short: "Solar & backup",
     blurb:
-      "Keep the lights on. We design and install backup systems so outages never stop you.",
+      "Solar, inverter, battery and generator systems — planned, installed and maintained so outages never stop you.",
     icon: "battery",
     items: [
-      "Backup generator systems",
-      "Transfer switch installation",
-      "Battery backup and UPS systems",
-      "Surge protection solutions",
-      "Power quality improvements",
-      "Energy-efficient system upgrades",
+      "Site assessment and system planning",
+      "Solar / inverter / battery installation",
+      "Generator and changeover systems",
+      "Backup-power troubleshooting",
+      "Battery and inverter maintenance",
+      "Load and consumption review",
     ],
   },
   {
-    id: "specialty",
-    title: "Specialty Services",
-    short: "Expert",
+    id: "testing-safety",
+    title: "Testing & Safety",
+    short: "Testing",
     blurb:
-      "Specialist work that needs a licensed, detail-obsessed electrician.",
+      "Electrical condition assessments, protective-device checks, earthing and bonding checks, with written findings.",
     icon: "gauge",
     items: [
-      "Electrical safety inspections",
-      "Pre-purchase home electrical inspections",
-      "Code compliance upgrades",
-      "Outdoor and landscape lighting",
-      "Hot tub, pool and spa wiring",
-      "Dedicated circuits for workshops and heavy equipment",
+      "Electrical condition assessments",
+      "Protective-device checks",
+      "Earthing and bonding checks",
+      "Insulation resistance testing",
+      "Written findings report",
+      "Remedial recommendations",
+    ],
+  },
+  {
+    id: "emergency",
+    title: "Emergency Assistance",
+    short: "Emergency",
+    blurb:
+      "Urgent electrical-fault enquiries, safe isolation guidance and dispatch subject to availability.",
+    icon: "bolt",
+    items: [
+      "Urgent fault enquiries",
+      "Safe isolation guidance",
+      "Dispatch subject to availability",
+      "Suspected network or upstream faults",
+      "Water ingress and fire damage",
+      "Keep away from sparking or live equipment",
+    ],
+  },
+  {
+    id: "projects-contracts",
+    title: "Projects & Contracts",
+    short: "Projects",
+    blurb:
+      "New builds, renovations, multi-unit properties, bulk materials supply, contractor coordination and maintenance agreements.",
+    icon: "briefcase",
+    items: [
+      "New builds and renovations",
+      "Multi-unit and estate properties",
+      "Bulk materials supply",
+      "Contractor coordination",
+      "Scheduled maintenance agreements",
+      "Phased project wiring",
     ],
   },
 ];
@@ -130,6 +159,16 @@ export const serviceGroups: ServiceGroup[] = [
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/shop", label: "Shop" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+/** Header navigation — includes the Projects section called for in the specification. */
+export const headerNav = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/services#projects-contracts", label: "Projects" },
   { href: "/shop", label: "Shop" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

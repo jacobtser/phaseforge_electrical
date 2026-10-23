@@ -21,13 +21,13 @@ export function ProductArt({
     >
       <defs>
         <linearGradient id="pa-glow" x1="0" y1="0" x2="160" y2="120" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#38bdf8" stopOpacity="0.16" />
-          <stop offset="1" stopColor="#fbbf24" stopOpacity="0.10" />
+          <stop stopColor="#f1be29" stopOpacity="0.16" />
+          <stop offset="1" stopColor="#c98544" stopOpacity="0.10" />
         </linearGradient>
       </defs>
       <rect width="160" height="120" rx="14" fill="url(#pa-glow)" />
       <g
-        stroke="#7dd3fc"
+        stroke="#f8dd7a"
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -46,7 +46,7 @@ const shapes: Record<ProductArt, React.ReactNode> = {
       <rect x="55" y="24" width="50" height="72" rx="6" />
       <path d="M66 40h28M80 52v18" />
       <path d="M72 84h16" strokeWidth="5" />
-      <circle cx="80" cy="34" r="3" fill="#7dd3fc" stroke="none" />
+      <circle cx="80" cy="34" r="3" fill="#f8dd7a" stroke="none" />
     </>
   ),
   rcd: (
@@ -119,7 +119,7 @@ const shapes: Record<ProductArt, React.ReactNode> = {
     <>
       <rect x="44" y="28" width="72" height="64" rx="6" />
       <path d="M56 44h28" />
-      <circle cx="100" cy="44" r="4" fill="#7dd3fc" stroke="none" />
+      <circle cx="100" cy="44" r="4" fill="#f8dd7a" stroke="none" />
       <path d="M74 58 62 78h12l-4 14 22-24H78l6-10" />
     </>
   ),
@@ -136,7 +136,7 @@ const shapes: Record<ProductArt, React.ReactNode> = {
       <rect x="50" y="28" width="60" height="64" rx="6" />
       <path d="M60 44h40" />
       <path d="M62 82V66l10-8 8 10 10-14 8 12" />
-      <circle cx="62" cy="36" r="3" fill="#7dd3fc" stroke="none" />
+      <circle cx="62" cy="36" r="3" fill="#f8dd7a" stroke="none" />
     </>
   ),
   dboard: (
@@ -176,8 +176,8 @@ const shapes: Record<ProductArt, React.ReactNode> = {
     <>
       <rect x="48" y="28" width="64" height="64" rx="6" />
       <path d="M64 78V52l32-14" strokeWidth="4" />
-      <circle cx="64" cy="80" r="4" fill="#7dd3fc" stroke="none" />
-      <circle cx="98" cy="40" r="4" fill="#7dd3fc" stroke="none" />
+      <circle cx="64" cy="80" r="4" fill="#f8dd7a" stroke="none" />
+      <circle cx="98" cy="40" r="4" fill="#f8dd7a" stroke="none" />
       <path d="M58 40h12" />
     </>
   ),
