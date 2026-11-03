@@ -11,16 +11,12 @@ import {
   WhatsAppIcon,
   iconByName,
 } from "@/components/Icons";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main>
-        {/* Hero — direct format from example */}
-        <section className="relative bg-ink-950 overflow-hidden">
+      {/* Hero — direct format from example */}
+      <section className="relative bg-ink-950 overflow-hidden">
           <div className="shell pt-16 pb-12 sm:pt-24 sm:pb-16">
             <div className="max-w-3xl">
               <p className="text-volt-300 font-bold tracking-widest text-sm uppercase">Reliable. Professional. Local.</p>
@@ -106,8 +102,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }
