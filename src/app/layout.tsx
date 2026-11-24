@@ -7,6 +7,7 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { SupportChat } from "@/components/SupportChat";
 import { CartProvider } from "@/lib/cart";
 import { site } from "@/lib/site";
+import { jsonLdString } from "@/lib/security";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap" });
@@ -37,17 +38,16 @@ export const metadata: Metadata = {
     title: `${site.name} — Electrical Services in Greater Accra`,
     description: site.description,
     locale: "en_GH",
+    images: [{ url: "/logo.jpg", width: 1280, height: 1280, alt: site.name }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: `${site.name} — Electrical Services in Greater Accra`,
     description: site.description,
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
     apple: "/logo.jpg",
   },
 };
@@ -91,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SupportChat />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
         />
       </body>
     </html>

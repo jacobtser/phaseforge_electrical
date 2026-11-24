@@ -16,17 +16,6 @@ import { ACCEPTED_IMAGE_TYPES, MAX_UPLOAD_BYTES } from "./upload-limits";
 
 const UPLOAD_DIR = path.join(process.cwd(), ".data", "uploads");
 
-const MIME_EXT: Record<string, string> = {
-  "image/jpeg": "jpg",
-  "image/jpg": "jpg",
-  "image/png": "png",
-  "image/webp": "webp",
-  "image/gif": "gif",
-  "image/avif": "avif",
-  "image/heic": "heic",
-  "image/heif": "heif",
-};
-
 const EXT_MIME: Record<string, string> = {
   jpg: "image/jpeg",
   jpeg: "image/jpeg",
@@ -76,6 +65,22 @@ async function uploadToCloudinary(
   return typeof data.secure_url === "string" ? data.secure_url : null;
 }
 
+/** Identifies an image by its magic bytes; returns the stored extension or null. */
+function sniffImageExt(b: Buffer): string | null {
+  if (b.length < 12) return null;
+  if (b[0] === 0xff && b[1] === 0xd8 && b[2] === 0xff) return "jpg";
+  if (b.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return "png";
+  const ascii = (start: number, end: number) => b.toString("latin1", start, end);
+  if (ascii(0, 6) === "GIF87a" || ascii(0, 6) === "GIF89a") return "gif";
+  if (ascii(0, 4) === "RIFF" && ascii(8, 12) === "WEBP") return "webp";
+  if (ascii(4, 8) === "ftyp") {
+    const brand = ascii(8, 12);
+    if (brand === "avif" || brand === "avis") return "avif";
+    if (["heic", "heix", "hevc", "hevx", "mif1", "msf1"].includes(brand)) return "heic";
+  }
+  return null;
+}
+
 /** Validates and stores a single uploaded photo. */
 export async function savePhoto(file: File): Promise<UploadOutcome> {
   const label = file.name || "photo";
@@ -93,6 +98,13 @@ export async function savePhoto(file: File): Promise<UploadOutcome> {
     return fail(label, `"${label}" is larger than ${mb} MB.`);
   }
 
+  // Trust the bytes, not the client-declared type or filename.
+  const buffer = Buffer.from(await file.arrayBuffer());
+  const ext = sniffImageExt(buffer);
+  if (!ext) {
+    return fail(label, `"${label}" isn't a supported image — use JPG, PNG, WebP, GIF, AVIF or HEIC.`);
+  }
+
   const cloud = cloudinaryConfig();
   if (cloud) {
     try {
@@ -104,9 +116,6 @@ export async function savePhoto(file: File): Promise<UploadOutcome> {
     }
   }
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  const guessed = MIME_EXT[type] ?? path.extname(label).slice(1).toLowerCase();
-  const ext = EXT_MIME[guessed] ? guessed : "jpg";
   const filename = `${crypto.randomUUID()}.${ext}`;
 
   try {

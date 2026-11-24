@@ -50,7 +50,7 @@ const REFERRAL_OPTIONS = [
 const TYPE_CARDS = [
   { value: "appointment", label: "Book a visit", hint: "Schedule an on-site assessment", icon: CalendarIcon },
   { value: "order", label: "Order a service", hint: "Request a job to be carried out", icon: ClipboardIcon },
-  { value: "quote", label: "Free quote", hint: "Get a price estimate first", icon: SearchIcon },
+  { value: "quote", label: "Get a quote", hint: "Get a price estimate first", icon: SearchIcon },
 ] as const;
 
 type FormState = {
@@ -97,11 +97,13 @@ export function BookingForm({
   mode = "full",
   defaultCategory = serviceGroups[0].id,
   defaultService = "",
+  defaultType,
   lockedType,
 }: {
   mode?: "full" | "contact";
   defaultCategory?: string;
   defaultService?: string;
+  defaultType?: FormState["type"];
   lockedType?: FormState["type"];
 }) {
   const isContact = mode === "contact";
@@ -109,7 +111,7 @@ export function BookingForm({
     ? defaultCategory
     : serviceGroups[0].id;
   const [form, setForm] = useState<FormState>({
-    type: lockedType ?? (isContact ? "contact" : "appointment"),
+    type: lockedType ?? (isContact ? "contact" : defaultType ?? "appointment"),
     name: "",
     email: "",
     phone: "",

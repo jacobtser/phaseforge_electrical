@@ -51,7 +51,7 @@ export function Footer() {
             {serviceGroups.map((g) => (
               <li key={g.id}>
                 <Link
-                  href={`/services#${g.id}`}
+                  href={`/services/${g.id}`}
                   className="text-mist-400 transition-colors hover:text-volt-300"
                 >
                   {g.title}

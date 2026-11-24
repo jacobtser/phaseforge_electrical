@@ -2,6 +2,9 @@ import { z } from "zod";
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const phoneRe = /^[+()\-.\s\d]{7,20}$/;
+/** Local-disk uploads (/api/uploads/<uuid>.<ext>) or Cloudinary delivery URLs. */
+const photoUrlRe =
+  /^(?:\/api\/uploads\/[a-f0-9-]{36}\.(?:jpg|jpeg|png|webp|gif|avif|heic|heif)|https:\/\/res\.cloudinary\.com\/[A-Za-z0-9_-]+\/image\/upload\/[A-Za-z0-9_./,:-]+)$/i;
 
 export const submissionTypes = ["appointment", "order", "quote", "contact"] as const;
 /** Keep in sync with the six approved groups in `src/lib/site.ts`, plus "other". */
@@ -47,7 +50,13 @@ export const submissionSchema = z
     urgency: z.enum(urgencyLevels).default("flexible"),
     budget: z.string().trim().max(60).optional().or(z.literal("")),
     details: z.string().trim().min(10, "Tell us a little more (10+ characters).").max(2000),
-    photos: z.array(z.string()).max(5).nullable().optional(),
+    // Only URLs produced by our own /api/upload endpoint are accepted, so a
+    // crafted request can't plant arbitrary links in the admin dashboard.
+    photos: z
+      .array(z.string().max(500).regex(photoUrlRe, "Invalid photo reference."))
+      .max(5)
+      .nullable()
+      .optional(),
     referral: z.string().trim().max(80).optional().or(z.literal("")),
     consent: z.boolean().refine((v) => v === true, "Please accept so we can contact you."),
     // basic anti-spam honeypot: must be empty

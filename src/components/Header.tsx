@@ -14,6 +14,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // The most specific nav entry matching the current path wins, so
+  // /services/projects-contracts highlights "Projects", not "Services".
+  const activeHref = headerNav
+    .filter((item) =>
+      item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`),
+    )
+    .sort((a, b) => b.href.length - a.href.length)[0]?.href;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -63,10 +71,7 @@ export function Header() {
 
           <nav className="hidden items-center gap-1 lg:flex">
             {headerNav.map((item) => {
-              const active =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href.split("#")[0]);
+              const active = item.href === activeHref;
               return (
                 <Link
                   key={item.href}
@@ -120,10 +125,7 @@ export function Header() {
         <div className="border-b border-white/10 bg-ink-900/97 backdrop-blur-xl lg:hidden">
           <nav className="shell grid gap-1 py-3">
             {headerNav.map((item) => {
-              const active =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href.split("#")[0]);
+              const active = item.href === activeHref;
               return (
                 <Link
                   key={item.href}

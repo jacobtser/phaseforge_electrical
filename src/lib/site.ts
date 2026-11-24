@@ -54,7 +54,15 @@ export type ServiceGroup = {
   blurb: string;
   icon: "home" | "building" | "battery" | "gauge" | "bolt" | "briefcase";
   items: string[];
+  /** Typical reasons a customer asks for this service. */
+  reasons: string[];
+  /** What the team needs from the customer to prepare a quote. */
+  quoteNeeds: string[];
 };
+
+export function getServiceGroup(id: string): ServiceGroup | undefined {
+  return serviceGroups.find((g) => g.id === id);
+}
 
 /** The six approved PhaseForge service categories from the specification. */
 export const serviceGroups: ServiceGroup[] = [
@@ -73,6 +81,18 @@ export const serviceGroups: ServiceGroup[] = [
       "Periodic inspection and maintenance",
       "New build and renovation wiring",
     ],
+    reasons: [
+      "Sockets, switches or lights not working",
+      "Breakers or RCDs tripping repeatedly",
+      "Moving in, renovating or extending a home",
+      "Old or damaged wiring you want checked",
+    ],
+    quoteNeeds: [
+      "Your area or address in Greater Accra",
+      "What is happening, and since when",
+      "Photos of the board, socket or fitting (optional)",
+      "A preferred day and time for a visit",
+    ],
   },
   {
     id: "commercial-industrial",
@@ -88,6 +108,18 @@ export const serviceGroups: ServiceGroup[] = [
       "Three-phase work (where qualified)",
       "Control panels and industrial faults",
       "Tenant fit-outs and alterations",
+    ],
+    reasons: [
+      "Fitting out or altering a shop or office",
+      "Faults affecting trading or equipment",
+      "Planned maintenance for a commercial site",
+      "Three-phase supply or distribution changes",
+    ],
+    quoteNeeds: [
+      "Type of premises and rough floor area",
+      "The equipment or areas involved",
+      "Any existing drawings or board schedules",
+      "Times when work can be done with least disruption",
     ],
   },
   {
@@ -105,6 +137,18 @@ export const serviceGroups: ServiceGroup[] = [
       "Battery and inverter maintenance",
       "Load and consumption review",
     ],
+    reasons: [
+      "Frequent outages disrupting home or business",
+      "Planning solar, inverter or battery backup",
+      "An existing system that is underperforming",
+      "Adding a generator or changeover",
+    ],
+    quoteNeeds: [
+      "The appliances you want to keep running",
+      "Recent electricity bills or usage, if available",
+      "Roof or installation space details",
+      "Any existing inverter, battery or generator",
+    ],
   },
   {
     id: "testing-safety",
@@ -120,6 +164,18 @@ export const serviceGroups: ServiceGroup[] = [
       "Insulation resistance testing",
       "Written findings report",
       "Remedial recommendations",
+    ],
+    reasons: [
+      "Buying, selling or letting a property",
+      "Shocks, burning smells or warm fittings",
+      "Checking earthing after building work",
+      "A written record of the installation's condition",
+    ],
+    quoteNeeds: [
+      "Property type and number of circuits or boards",
+      "Why the test is needed",
+      "Any previous reports or certificates",
+      "Access arrangements on the day",
     ],
   },
   {
@@ -137,6 +193,18 @@ export const serviceGroups: ServiceGroup[] = [
       "Water ingress and fire damage",
       "Keep away from sparking or live equipment",
     ],
+    reasons: [
+      "Sparking, burning smell or smoke from equipment",
+      "Total loss of power affecting the whole property",
+      "Water getting into electrical fittings",
+      "Damaged cables after an accident or storm",
+    ],
+    quoteNeeds: [
+      "Your exact location and a safe call-back number",
+      "What you can see, hear or smell — from a safe distance",
+      "Whether neighbours also have no power",
+      "Whether anyone is at risk right now",
+    ],
   },
   {
     id: "projects-contracts",
@@ -153,6 +221,18 @@ export const serviceGroups: ServiceGroup[] = [
       "Scheduled maintenance agreements",
       "Phased project wiring",
     ],
+    reasons: [
+      "New builds and major renovations",
+      "Multi-unit or estate properties",
+      "Bulk materials for a project",
+      "Ongoing maintenance for several sites",
+    ],
+    quoteNeeds: [
+      "Drawings, plans or a scope of work",
+      "Project location and timeline",
+      "Number of units or sites",
+      "Who the main contractor or site contact is",
+    ],
   },
 ];
 
@@ -168,7 +248,7 @@ export const nav = [
 export const headerNav = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/services#projects-contracts", label: "Projects" },
+  { href: "/services/projects-contracts", label: "Projects" },
   { href: "/shop", label: "Shop" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

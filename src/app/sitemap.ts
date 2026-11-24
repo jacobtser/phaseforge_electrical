@@ -1,9 +1,18 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/lib/site";
+import { serviceGroups, site } from "@/lib/site";
 import { products } from "@/lib/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/services", "/shop", "/about", "/contact", "/book", "/payment"];
+  const routes = [
+    "",
+    "/services",
+    ...serviceGroups.map((g) => `/services/${g.id}`),
+    "/shop",
+    "/about",
+    "/contact",
+    "/book",
+    "/payment",
+  ];
   const now = new Date();
   const pages = routes.map((r) => ({
     url: `${site.url}${r}`,

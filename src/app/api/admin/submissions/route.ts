@@ -1,11 +1,15 @@
 import { NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
+import { isSameOrigin } from "@/lib/security";
 import { deleteSubmission, getStats, listSubmissions, updateStatus } from "@/lib/db";
 import { submissionStatuses, type SubmissionStatus } from "@/lib/types";
 
 export const runtime = "nodejs";
 
-async function guard() {
+async function guard(req: Request) {
+  if (!isSameOrigin(req)) {
+    return NextResponse.json({ ok: false, message: "Forbidden" }, { status: 403 });
+  }
   const session = await getSession();
   if (!session) {
     return NextResponse.json({ ok: false, message: "Unauthorized" }, { status: 401 });
@@ -14,7 +18,7 @@ async function guard() {
 }
 
 export async function GET(req: Request) {
-  const denied = await guard();
+  const denied = await guard(req);
   if (denied) return denied;
 
   const url = new URL(req.url);
@@ -26,7 +30,7 @@ export async function GET(req: Request) {
 }
 
 export async function PATCH(req: Request) {
-  const denied = await guard();
+  const denied = await guard(req);
   if (denied) return denied;
 
   const body = (await req.json().catch(() => ({}))) as { id?: string; status?: string };
@@ -41,7 +45,7 @@ export async function PATCH(req: Request) {
 }
 
 export async function DELETE(req: Request) {
-  const denied = await guard();
+  const denied = await guard(req);
   if (denied) return denied;
 
   const url = new URL(req.url);

@@ -22,9 +22,9 @@ const iconMap = {
 } as const;
 
 const TRUST = [
-  { icon: ShieldIcon, title: "Genuine stock only", text: "Boxed, branded items with full manufacturer warranty." },
-  { icon: BoltIcon, title: "Fast Accra delivery", text: "Same/next-day delivery in Greater Accra, 2–4 days nationwide." },
-  { icon: StarIcon, title: "Trade-trusted brands", text: "Schneider, ABB, Legrand, MK, Chint and more — the brands we install ourselves." },
+  { icon: StarIcon, title: "Recognised brands", text: "Schneider, ABB, Legrand, MK, Chint and more." },
+  { icon: BoltIcon, title: "Delivery or pickup", text: "Greater Accra delivery, nationwide courier or workshop pickup." },
+  { icon: ShieldIcon, title: "Warranty shown per item", text: "Each product page lists the manufacturer warranty that applies." },
 ];
 
 export function ShopSection() {
@@ -40,7 +40,7 @@ export function ShopSection() {
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
             <p className="eyebrow">Electrical materials shop</p>
-            <h2 className="section-title mt-3">Genuine parts, ready when you need them</h2>
+            <h2 className="section-title mt-3">Electrical materials, priced in GHS</h2>
             <p className="lead mt-4 text-base sm:text-lg">
               Breakers, cable, lighting, solar and tools from Schneider, ABB, Legrand, MK and
               Chint — priced in GHS, delivered across Greater Accra and nationwide.

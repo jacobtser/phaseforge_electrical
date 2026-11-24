@@ -8,46 +8,51 @@ import { PageHero } from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "Book a Visit or Order a Service",
   description:
-    "Book an electrical appointment, order a service or request a quote from PhaseForge Electrical & Power in Greater Accra. Confirmation by email and WhatsApp.",
+    "Book an electrical appointment, order a service or request a quote from PhaseForge Electrical & Power in Greater Accra.",
   alternates: { canonical: "/book" },
 };
 
 const REASSURANCE = [
-  { icon: CheckIcon, title: "Free quotes", text: "No-obligation estimates for scheduled work." },
-  { icon: ClockIcon, title: "Quick response", text: "We confirm and reply within hours." },
+  { icon: CheckIcon, title: "Clear quotes", text: "You approve the price before any work starts." },
+  { icon: ClockIcon, title: "Prompt replies", text: "We respond during working hours with next steps." },
   { icon: ShieldIcon, title: "Safety first", text: "Work carried out to recognised electrical practice." },
 ];
 
-const NEXT_STEPS = [
-  "We log your request with a reference number.",
-  "Our team is alerted by email and WhatsApp instantly.",
-  "You get an emailed confirmation.",
-  "We contact you to confirm details and timing.",
-];
+function nextSteps(): string[] {
+  return [
+    "We log your request with a reference number.",
+    "Our team is alerted straight away.",
+    // Only promise an email when the email service is actually configured.
+    ...(process.env.RESEND_API_KEY ? ["You get an emailed copy of your request."] : []),
+    "We contact you to confirm details, price and timing.",
+  ];
+}
 
 export default async function BookPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string; service?: string }>;
+  searchParams: Promise<{ category?: string; service?: string; type?: string }>;
 }) {
   const params = await searchParams;
   const category = serviceGroups.find((group) => group.id === params.category)?.id;
   const service =
     category && typeof params.service === "string" ? params.service.slice(0, 120) : undefined;
+  const type = (["appointment", "order", "quote"] as const).find((t) => t === params.type);
+  const NEXT_STEPS = nextSteps();
 
   return (
     <>
       <PageHero
         eyebrow="Book online"
         title="Book a visit or order a service"
-        lede="Tell us what you need and we’ll be in touch fast. Book an appointment, order a job or request a free quote — it takes under a minute."
+        lede="Tell us what you need and we’ll be in touch. Book an appointment, order a job or request a quote — it takes about a minute."
       />
 
       <section className="shell section">
         <div className="grid gap-10 lg:grid-cols-[1.35fr_0.65fr]">
           <Reveal>
             <div className="card card-p6 sm:card-p8">
-              <BookingForm mode="full" defaultCategory={category} defaultService={service} />
+              <BookingForm mode="full" defaultCategory={category} defaultService={service} defaultType={type} />
             </div>
           </Reveal>
 

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getSession } from "@/lib/auth";
+import { isSameOrigin } from "@/lib/security";
 import {
   answerKnowledgeGap,
   createKnowledgeEntry,
@@ -12,7 +13,10 @@ import { firstError } from "@/lib/validation";
 
 export const runtime = "nodejs";
 
-async function guard() {
+async function guard(req: Request) {
+  if (!isSameOrigin(req)) {
+    return NextResponse.json({ ok: false, message: "Forbidden" }, { status: 403 });
+  }
   const session = await getSession();
   if (!session) {
     return NextResponse.json({ ok: false, message: "Unauthorized" }, { status: 401 });
@@ -49,7 +53,7 @@ function parseKeywords(value: string | string[] | undefined): string[] | undefin
 }
 
 export async function POST(req: Request) {
-  const denied = await guard();
+  const denied = await guard(req);
   if (denied) return denied;
 
   const body = await req.json().catch(() => null);
@@ -70,7 +74,7 @@ export async function POST(req: Request) {
 }
 
 export async function PATCH(req: Request) {
-  const denied = await guard();
+  const denied = await guard(req);
   if (denied) return denied;
 
   const body = await req.json().catch(() => null);
@@ -126,7 +130,7 @@ export async function PATCH(req: Request) {
 }
 
 export async function DELETE(req: Request) {
-  const denied = await guard();
+  const denied = await guard(req);
   if (denied) return denied;
 
   const id = new URL(req.url).searchParams.get("id");

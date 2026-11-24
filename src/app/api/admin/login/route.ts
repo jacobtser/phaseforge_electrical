@@ -1,18 +1,33 @@
 import { NextResponse } from "next/server";
 import { createSession, isAuthConfigured, verifyCredentials } from "@/lib/auth";
+import { clientIp, createRateLimiter, isSameOrigin } from "@/lib/security";
 
 export const runtime = "nodejs";
 
+/* Brute-force guard: 10 login attempts per 15 minutes per IP. */
+const rateLimited = createRateLimiter(15 * 60_000, 10);
+
 export async function POST(req: Request) {
-  let body: { username?: string; password?: string };
+  if (!isSameOrigin(req)) {
+    return NextResponse.json({ ok: false, message: "Forbidden." }, { status: 403 });
+  }
+
+  if (rateLimited(clientIp(req))) {
+    return NextResponse.json(
+      { ok: false, message: "Too many login attempts. Please wait 15 minutes and try again." },
+      { status: 429 },
+    );
+  }
+
+  let body: { username?: unknown; password?: unknown };
   try {
     body = await req.json();
   } catch {
     return NextResponse.json({ ok: false, message: "Invalid request." }, { status: 400 });
   }
 
-  const username = (body.username ?? "").trim();
-  const password = body.password ?? "";
+  const username = typeof body.username === "string" ? body.username.trim().slice(0, 100) : "";
+  const password = typeof body.password === "string" ? body.password.slice(0, 200) : "";
 
   if (!process.env.ADMIN_PASSWORD || !isAuthConfigured()) {
     return NextResponse.json(

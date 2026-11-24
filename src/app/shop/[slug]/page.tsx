@@ -10,6 +10,7 @@ import { SolarEvContact } from "@/components/SolarEvContact";
 import { ArrowRightIcon, CheckIcon } from "@/components/Icons";
 import { categories, getProduct, products } from "@/lib/products";
 import { site } from "@/lib/site";
+import { jsonLdString } from "@/lib/security";
 import { paystackConfigured } from "@/lib/paystack";
 
 type Params = { slug: string };
@@ -218,7 +219,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
       />
     </div>
   );
