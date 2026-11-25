@@ -2,48 +2,48 @@
 
 @theme {
   /* ---------------------------------------------------------------------------
-     Brand palette — dark navy + gold + white + neutral grey.
-     Values sampled directly from Reference 1 of the PhaseForge specification
-     PDF (background #090F16, accent #F1BE29).
+     Brand palette — dark navy + electric blue + sky blue + cool grey.
+     Originally gold (spec Reference 1); switched to an all-blue look at the
+     owner's request (Nov 2026).
      --------------------------------------------------------------------------- */
 
   /* Dark navy — page background through to raised panels. */
-  --color-ink-950: #05090e;
-  --color-ink-900: #090f16;
-  --color-ink-850: #0b141d;
-  --color-ink-800: #101823;
-  --color-ink-700: #16202e;
-  --color-ink-600: #1f2b3c;
-  --color-ink-500: #2b3a4f;
+  --color-ink-950: #040a14;
+  --color-ink-900: #08111f;
+  --color-ink-850: #0b1628;
+  --color-ink-800: #0f1c31;
+  --color-ink-700: #15253f;
+  --color-ink-600: #1d3050;
+  --color-ink-500: #2a4066;
 
-  /* Gold — primary accent and call-to-action colour. */
-  --color-volt-200: #fbeaa8;
-  --color-volt-300: #f8dd7a;
-  --color-volt-400: #f1be29;
-  --color-volt-500: #e0ad1f;
-  --color-volt-600: #bf9114;
-  --color-volt-700: #8f6c0d;
+  /* Electric blue — primary accent and call-to-action colour. */
+  --color-volt-200: #cfe6ff;
+  --color-volt-300: #8cc4ff;
+  --color-volt-400: #3b9bff;
+  --color-volt-500: #1f7fff;
+  --color-volt-600: #1264d6;
+  --color-volt-700: #0b4aa3;
 
-  /* Warm copper — secondary accent for Solar & EV messaging. */
-  --color-forge-200: #f0cfa8;
-  --color-forge-300: #e0ab74;
-  --color-forge-400: #c98544;
-  --color-forge-500: #a9662f;
-  --color-forge-600: #7d4a21;
+  /* Sky blue — secondary accent for Solar & EV messaging. */
+  --color-forge-200: #c4f1ff;
+  --color-forge-300: #7fdcff;
+  --color-forge-400: #2ec5f5;
+  --color-forge-500: #0aa0d6;
+  --color-forge-600: #0b6f99;
 
-  /* Neutral grey — body copy and secondary text. */
-  --color-mist-100: #f8f9fa;
-  --color-mist-200: #e2e4e6;
-  --color-mist-300: #c8c6cb;
-  --color-mist-400: #9c9892;
-  --color-mist-500: #786f64;
+  /* Cool blue-grey — body copy and secondary text. */
+  --color-mist-100: #f5f8fc;
+  --color-mist-200: #e1e8f0;
+  --color-mist-300: #c3cedb;
+  --color-mist-400: #91a0b3;
+  --color-mist-500: #6b7a90;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --shadow-glow: 0 0 45px -10px rgba(241, 190, 41, 0.5);
-  --shadow-forge: 0 0 45px -10px rgba(201, 133, 68, 0.45);
+  --shadow-glow: 0 0 45px -10px rgba(59, 155, 255, 0.5);
+  --shadow-forge: 0 0 45px -10px rgba(46, 197, 245, 0.45);
 
   /* Extra-small breakpoint for narrow phones (Tailwind's sm: is 640px). */
   --breakpoint-xs: 26rem;
@@ -61,8 +61,8 @@
     color: var(--color-mist-100);
     font-family: var(--font-sans);
     background-image:
-      radial-gradient(900px 500px at 12% -8%, rgba(241, 190, 41, 0.1), transparent 60%),
-      radial-gradient(800px 520px at 92% 4%, rgba(201, 133, 68, 0.08), transparent 55%);
+      radial-gradient(900px 500px at 12% -8%, rgba(59, 155, 255, 0.1), transparent 60%),
+      radial-gradient(800px 520px at 92% 4%, rgba(46, 197, 245, 0.08), transparent 55%);
     background-attachment: fixed;
   }
 
@@ -73,7 +73,7 @@
 
   ::selection {
     background: var(--color-volt-400);
-    color: #0a0d02;
+    color: #031024;
   }
 
   :focus-visible {
@@ -84,13 +84,13 @@
 
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, rgba(241, 190, 41, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(241, 190, 41, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(59, 155, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 155, 255, 0.06) 1px, transparent 1px);
   background-size: 46px 46px;
 }
 
 @utility text-gradient {
-  background: linear-gradient(100deg, #f8dd7a 0%, #f1be29 45%, #e0ab74 110%);
+  background: linear-gradient(100deg, #8cc4ff 0%, #3b9bff 45%, #7fdcff 110%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -236,10 +236,10 @@
 
 @utility btn-primary {
   background-image: linear-gradient(135deg, var(--color-volt-300), var(--color-volt-500));
-  color: #0a0d02;
-  box-shadow: 0 0 36px -10px rgb(241 190 41 / 0.75);
+  color: #031024;
+  box-shadow: 0 0 36px -10px rgb(59 155 255 / 0.75);
   &:hover {
-    box-shadow: 0 0 44px -8px rgb(241 190 41 / 0.95);
+    box-shadow: 0 0 44px -8px rgb(59 155 255 / 0.95);
   }
 }
 
@@ -375,13 +375,13 @@
 
 @keyframes pf-pulse-ring {
   0% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.55);
+    box-shadow: 0 0 0 0 rgba(59, 155, 255, 0.55);
   }
   70% {
-    box-shadow: 0 0 0 12px rgba(245, 158, 11, 0);
+    box-shadow: 0 0 0 12px rgba(59, 155, 255, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    box-shadow: 0 0 0 0 rgba(59, 155, 255, 0);
   }
 }
 

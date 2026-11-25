@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { SupportChat } from "@/components/SupportChat";
 import { CartProvider } from "@/lib/cart";
+import { ProductImagesProvider } from "@/components/shop/ProductImages";
 import { site } from "@/lib/site";
 import { jsonLdString } from "@/lib/security";
 
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05090e",
+  themeColor: "#040a14",
   width: "device-width",
   initialScale: 1,
 };
@@ -83,9 +84,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <CartProvider>
+          <ProductImagesProvider>
           <Header />
           <main id="main">{children}</main>
           <Footer />
+          </ProductImagesProvider>
         </CartProvider>
         <WhatsAppFloat />
         <SupportChat />

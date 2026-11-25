@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useCart, useCartLines } from "@/lib/cart";
 import { formatGHS } from "@/lib/products";
 import { site, waLink } from "@/lib/site";
-import { ProductArt } from "@/components/shop/ProductArt";
+import { ProductImage } from "@/components/shop/ProductImages";
 import { QuantityStepper } from "@/components/shop/QuantityStepper";
 import { StockBadge } from "@/components/shop/StockBadge";
 import { PaymentDetails } from "@/components/PaymentDetails";
@@ -183,12 +183,7 @@ export function CartContents({
                 aria-hidden="true"
                 tabIndex={-1}
               >
-                {product.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={product.image} alt="" className="h-full w-full object-cover" />
-                ) : (
-                  <ProductArt art={product.art} />
-                )}
+                <ProductImage product={product} />
               </Link>
 
               <div className="min-w-0 flex-1">
