@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { InstallAppButton } from "./AppInstall";
 import { site, serviceGroups, nav, solarEvWaLink } from "@/lib/site";
 import { MailIcon, MapPinIcon, PhoneIcon, SunIcon, WhatsAppIcon } from "./Icons";
 
@@ -96,6 +97,9 @@ export function Footer() {
               >
                 Payment information
               </Link>
+            </li>
+            <li>
+              <InstallAppButton className="font-semibold text-volt-300 transition-colors hover:text-volt-200" />
             </li>
             <li>
               <Link

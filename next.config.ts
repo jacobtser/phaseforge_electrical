@@ -52,6 +52,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // The app's service worker must never be cached, so updates roll out
+        // the next time the app is opened.
+        source: "/sw.js",
+        headers: [
+          { key: "Content-Type", value: "application/javascript; charset=utf-8" },
+          { key: "Cache-Control", value: "no-cache, no-store, must-revalidate" },
+          { key: "Service-Worker-Allowed", value: "/" },
+        ],
+      },
+      {
         // Admin pages and APIs carry customer data: never cache them anywhere.
         source: "/(admin|api/admin)(.*)",
         headers: [

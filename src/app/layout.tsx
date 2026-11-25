@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { SupportChat } from "@/components/SupportChat";
+import { AppInstall } from "@/components/AppInstall";
 import { CartProvider } from "@/lib/cart";
 import { ProductImagesProvider } from "@/components/shop/ProductImages";
 import { site } from "@/lib/site";
@@ -48,9 +49,13 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
-  icons: {
-    apple: "/logo.jpg",
+  // Installed-app behaviour on iPhone/iPad (home-screen icon comes from app/apple-icon.png).
+  appleWebApp: {
+    capable: true,
+    title: site.shortName,
+    statusBarStyle: "black",
   },
+  formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
@@ -76,6 +81,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+      <head>
+        {/* Catch the browser's install prompt before React loads, so the
+            install popup can always offer one-tap install. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__pfInstallPrompt=e;});",
+          }}
+        />
+      </head>
       <body className="min-h-dvh antialiased">
         <a
           href="#main"
@@ -92,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </CartProvider>
         <WhatsAppFloat />
         <SupportChat />
+        <AppInstall />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
