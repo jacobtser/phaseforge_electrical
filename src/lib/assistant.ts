@@ -108,7 +108,7 @@ ${ownershipLine}
 - Alternative phone: ${site.phones[1].label} (${site.phones[1].tel})
 - Emergency line: ${site.emergencyPhone.label} (${site.emergencyPhone.tel}) — call to check availability.
 - Solar, backup-power and payment specialist line: ${site.solarEv.label} (${site.solarEv.whatsapp})
-- Email: ${site.email}
+- Email: ${site.email ?? "no public email address — use WhatsApp or phone"}
 - Website pages: /shop (products), /cart (checkout), /payment (payment help), /book (book a visit), /contact (quote/contact).
 - Delivery options at checkout: Greater Accra (same/next day) and nationwide (2–4 working days). Pickup is available from the workshop; the exact pickup address is confirmed by the team. Delivery fees are confirmed by the team; do not invent a fee.
 - Payment: ${paymentFact}

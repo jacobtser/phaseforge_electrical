@@ -456,9 +456,11 @@ export function CartContents({
               {site.phones[0].label}
             </a>
           </li>
-          <li className="flex items-center gap-2.5">
-            <MailIcon className="h-4 w-4 shrink-0 text-mist-400" /> {site.email}
-          </li>
+          {site.email && (
+            <li className="flex items-center gap-2.5">
+              <MailIcon className="h-4 w-4 shrink-0 text-mist-400" /> {site.email}
+            </li>
+          )}
         </ul>
       </aside>
     </div>

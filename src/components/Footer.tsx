@@ -24,6 +24,7 @@ export function Footer() {
             >
               <WhatsAppIcon className="h-5 w-5" />
             </a>
+            {site.email && (
             <a
               href={`mailto:${site.email}`}
               className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 text-mist-200 transition-colors hover:border-volt-400/60 hover:text-volt-300"
@@ -31,6 +32,7 @@ export function Footer() {
             >
               <MailIcon className="h-5 w-5" />
             </a>
+            )}
             <a
               href={`tel:${site.phones[0].tel}`}
               className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm text-mist-200 transition-colors hover:border-volt-400/60 hover:text-volt-300"
@@ -144,12 +146,14 @@ export function Footer() {
                 Solar &amp; EV: {site.solarEv.label}
               </a>
             </li>
-            <li className="flex gap-2.5">
-              <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-400" />
-              <a href={`mailto:${site.email}`} className="transition-colors hover:text-volt-300">
-                {site.email}
-              </a>
-            </li>
+            {site.email && (
+              <li className="flex gap-2.5">
+                <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-400" />
+                <a href={`mailto:${site.email}`} className="transition-colors hover:text-volt-300">
+                  {site.email}
+                </a>
+              </li>
+            )}
             <li className="flex gap-2.5">
               <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-400" />
               {site.location}

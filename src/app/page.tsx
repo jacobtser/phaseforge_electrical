@@ -241,17 +241,19 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <div className="flex gap-3">
-                <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-volt-400" />
-                <div>
-                  <dt className="font-bold text-white">Email</dt>
-                  <dd>
-                    <a href={`mailto:${site.email}`} className="break-all text-mist-300 hover:text-volt-300">
-                      {site.email}
-                    </a>
-                  </dd>
+              {site.email && (
+                <div className="flex gap-3">
+                  <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-volt-400" />
+                  <div>
+                    <dt className="font-bold text-white">Email</dt>
+                    <dd>
+                      <a href={`mailto:${site.email}`} className="break-all text-mist-300 hover:text-volt-300">
+                        {site.email}
+                      </a>
+                    </dd>
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="flex gap-3 sm:col-span-2">
                 <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-volt-400" />
                 <div>

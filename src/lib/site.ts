@@ -1,14 +1,21 @@
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") ||
+  "https://phaseforge-electrical.vercel.app";
+
 export const site = {
   name: "PhaseForge Electrical & Power",
   shortName: "PhaseForge",
   tagline: "Power done right, every single time.",
   description:
     "PhaseForge Electrical & Power delivers residential, commercial and backup-power electrical work across Greater Accra. Safety-first, code-compliant and done right the first time.",
-  domain: "phaseforge-electrical.com",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "https://phaseforge-electrical.com",
-  email: "info@phaseforge-electrical.com",
+  url: siteUrl,
+  /** Bare host shown in the footer, e.g. "phaseforge-electrical.vercel.app". */
+  domain: siteUrl.replace(/^https?:\/\//, ""),
+  /**
+   * Public contact email. Hidden everywhere until NEXT_PUBLIC_CONTACT_EMAIL is
+   * set to a mailbox the business actually owns.
+   */
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || null,
   phones: [
     { label: "+233 55 281 3116", tel: "+233552813116" },
     { label: "+233 24 590 9523", tel: "+233245909523" },

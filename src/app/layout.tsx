@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: site.name,
     description: site.description,
     url: site.url,
-    email: site.email,
+    ...(site.email ? { email: site.email } : {}),
     telephone: site.phones.map((p) => p.tel),
     areaServed: ["Kasoa", "Tema", "Kpone", "East Legon", "Greater Accra"],
     address: { "@type": "PostalAddress", addressLocality: "Accra", addressCountry: "GH" },

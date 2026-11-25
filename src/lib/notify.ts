@@ -127,7 +127,7 @@ function customerHtml(r: SubmissionRecord): string {
         <a href="tel:${site.phones[1].tel}" style="color:#0b4aa3;font-weight:700">${site.phones[1].label}</a>.
       </div>
       <a href="${site.url}" style="display:inline-block;background:#3b9bff;color:#031024;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px">Visit our website</a>
-      <p style="color:#6b7a90;font-size:12px;margin-top:24px">${site.name} · ${site.serviceArea} · ${site.email}</p>
+      <p style="color:#6b7a90;font-size:12px;margin-top:24px">${site.name} · ${site.serviceArea}${site.email ? ` · ${site.email}` : ""}</p>
     </div>
   </div></body></html>`;
 }
@@ -298,7 +298,7 @@ function orderCustomerHtml(order: OrderRecord): string {
         <a href="tel:${site.phones[1].tel}" style="color:#0b4aa3;font-weight:700">${site.phones[1].label}</a>.
       </div>
       <a href="${site.url}" style="display:inline-block;background:#3b9bff;color:#031024;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px">Visit our website</a>
-      <p style="color:#6b7a90;font-size:12px;margin-top:24px">${site.name} · ${site.serviceArea} · ${site.email}</p>
+      <p style="color:#6b7a90;font-size:12px;margin-top:24px">${site.name} · ${site.serviceArea}${site.email ? ` · ${site.email}` : ""}</p>
     </div>
   </div></body></html>`;
 }
@@ -319,7 +319,7 @@ export async function notifyOrderPaid(order: OrderRecord): Promise<void> {
     }),
     sendMail({
       to: order.email,
-      replyTo: ownerEmail(),
+      replyTo: ownerEmail() ?? undefined,
       subject: `Payment received — ${order.reference}`,
       html: orderCustomerHtml(order),
       text: orderCustomerText(order),
@@ -356,7 +356,7 @@ export async function dispatchNotifications(r: SubmissionRecord): Promise<Dispat
     }),
     sendMail({
       to: r.email,
-      replyTo: ownerEmail(),
+      replyTo: ownerEmail() ?? undefined,
       subject: `We received your request — ${r.ref}`,
       html: customerHtml(r),
     }),

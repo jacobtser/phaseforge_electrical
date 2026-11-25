@@ -1,7 +1,8 @@
 import { site } from "./site";
 
 export type MailInput = {
-  to: string | string[];
+  /** null = no recipient configured; the send is skipped. */
+  to: string | string[] | null;
   subject: string;
   html: string;
   replyTo?: string;
@@ -19,11 +20,14 @@ const FROM =
   process.env.EMAIL_FROM ||
   `PhaseForge Electrical <onboarding@resend.dev>`;
 
-export function ownerEmail(): string {
-  return process.env.OWNER_EMAIL || site.email;
+export function ownerEmail(): string | null {
+  return process.env.OWNER_EMAIL?.trim() || site.email;
 }
 
 export async function sendMail(input: MailInput): Promise<MailResult> {
+  if (!input.to || (Array.isArray(input.to) && input.to.length === 0)) {
+    return { ok: false, skipped: true, channel: "none", detail: "no recipient configured" };
+  }
   const key = process.env.RESEND_API_KEY;
   if (!key) {
     return { ok: false, skipped: true, channel: "none", detail: "RESEND_API_KEY not set" };
@@ -37,7 +41,7 @@ export async function sendMail(input: MailInput): Promise<MailResult> {
       subject: input.subject,
       html: input.html,
       text: input.text,
-      replyTo: input.replyTo,
+      replyTo: input.replyTo || undefined,
     });
     if (error) return { ok: false, channel: "resend", detail: error.message };
     return { ok: true, channel: "resend" };
