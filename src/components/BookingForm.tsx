@@ -269,7 +269,7 @@ export function BookingForm({
                   className={clsx(
                     "rounded-xl border p-3.5 text-left transition-all",
                     active
-                      ? "border-volt-400/70 bg-volt-500/10 shadow-[0_0_24px_-10px_rgba(59, 155, 255,0.8)]"
+                      ? "border-volt-400/70 bg-volt-500/10 shadow-[0_0_24px_-10px_rgba(59,155,255,0.8)]"
                       : "border-white/10 bg-ink-900/60 hover:border-white/20",
                   )}
                   aria-pressed={active}
@@ -669,7 +669,7 @@ function SuccessPanel({
 
   return (
     <div className="rounded-2xl border border-volt-400/30 bg-gradient-to-b from-volt-500/10 to-transparent p-6 sm:p-8">
-      <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-volt-400 to-volt-600 text-ink-950 shadow-[0_0_36px_-8px_rgba(59, 155, 255,0.9)]">
+      <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-volt-400 to-volt-600 text-ink-950 shadow-[0_0_36px_-8px_rgba(59,155,255,0.9)]">
         <CheckIcon className="h-7 w-7" strokeWidth={2.4} />
       </div>
       <h3 className="mt-5 text-2xl font-extrabold text-white">

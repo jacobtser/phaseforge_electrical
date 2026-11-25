@@ -7,8 +7,8 @@ import clsx from "clsx";
  */
 
 const BLUE = "#3b9bff";
-const LINE = "rgba(225, 232, 240,0.5)";
-const FAINT = "rgba(225, 232, 240,0.16)";
+const LINE = "rgba(225,232,240,0.5)";
+const FAINT = "rgba(225,232,240,0.16)";
 
 const breakers = Array.from({ length: 8 }, (_, i) => i);
 const tripped = new Set([2]);
@@ -27,11 +27,11 @@ export function HeroArt({ className }: { className?: string }) {
           <stop offset="1" stopColor="#0b1628" />
         </linearGradient>
         <radialGradient id="hero-glow" cx="0.5" cy="0.4" r="0.55">
-          <stop offset="0" stopColor="rgba(59, 155, 255,0.22)" />
-          <stop offset="1" stopColor="rgba(59, 155, 255,0)" />
+          <stop offset="0" stopColor="rgba(59,155,255,0.22)" />
+          <stop offset="1" stopColor="rgba(59,155,255,0)" />
         </radialGradient>
         <pattern id="hero-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-          <path d="M22 0 H0 V22" fill="none" stroke="rgba(59, 155, 255,0.06)" strokeWidth="1" />
+          <path d="M22 0 H0 V22" fill="none" stroke="rgba(59,155,255,0.06)" strokeWidth="1" />
         </pattern>
       </defs>
 
@@ -84,7 +84,7 @@ export function HeroArt({ className }: { className?: string }) {
             x={121 + i * 66}
             y="301"
             textAnchor="middle"
-            fill="rgba(225, 232, 240,0.6)"
+            fill="rgba(225,232,240,0.6)"
             fontFamily="ui-monospace, monospace"
             fontSize="9"
             letterSpacing="1"

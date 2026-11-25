@@ -10,8 +10,8 @@ import type { ServiceGroup } from "@/lib/site";
 
 const GOLD = "#3b9bff";
 const GOLD_SOFT = "#8cc4ff";
-const LINE = "rgba(225, 232, 240,0.55)";
-const FAINT = "rgba(225, 232, 240,0.18)";
+const LINE = "rgba(225,232,240,0.55)";
+const FAINT = "rgba(225,232,240,0.18)";
 
 function Scene({ id }: { id: ServiceGroup["id"] }) {
   switch (id) {
@@ -48,7 +48,7 @@ function Scene({ id }: { id: ServiceGroup["id"] }) {
                 height="12"
                 rx="2"
                 stroke={r === 1 && c === 1 ? GOLD : FAINT}
-                fill={r === 1 && c === 1 ? "rgba(59, 155, 255,0.25)" : "none"}
+                fill={r === 1 && c === 1 ? "rgba(59,155,255,0.25)" : "none"}
                 strokeWidth="1.8"
               />
             )),
@@ -168,11 +168,11 @@ export function ServiceArt({
     >
       <defs>
         <pattern id={pid} width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M20 0 H0 V20" fill="none" stroke="rgba(59, 155, 255,0.07)" strokeWidth="1" />
+          <path d="M20 0 H0 V20" fill="none" stroke="rgba(59,155,255,0.07)" strokeWidth="1" />
         </pattern>
         <radialGradient id={`${pid}-glow`} cx="0.5" cy="0.45" r="0.6">
-          <stop offset="0" stopColor="rgba(59, 155, 255,0.16)" />
-          <stop offset="1" stopColor="rgba(59, 155, 255,0)" />
+          <stop offset="0" stopColor="rgba(59,155,255,0.16)" />
+          <stop offset="1" stopColor="rgba(59,155,255,0)" />
         </radialGradient>
       </defs>
       <rect width="320" height="180" fill="#0b1628" />
