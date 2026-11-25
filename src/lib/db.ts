@@ -28,6 +28,7 @@ declare global {
   var __pfTableReady: boolean | undefined;
   var __pfOrdersTableReady: boolean | undefined;
   var __pfKnowledgeTableReady: boolean | undefined;
+  var __pfProductImagesTableReady: boolean | undefined;
 }
 
 async function getSql(): Promise<Sql | null> {
@@ -863,5 +864,99 @@ export async function dismissKnowledgeGap(id: string): Promise<boolean> {
   gap.status = "dismissed";
   gap.lastSeenAt = new Date().toISOString();
   await writeGapStore(rows);
+  return true;
+}
+
+/* ----------------------------- Product photos ----------------------------- */
+/* Maps a product slug to the photo shown in the shop (uploaded or generated). */
+
+export type ProductImageRecord = {
+  slug: string;
+  url: string;
+  source: "upload" | "ai";
+  updatedAt: string;
+};
+
+const PRODUCT_IMAGES_FILE = path.join(DATA_DIR, "product-images.json");
+
+async function ensureProductImagesTable(sql: Sql) {
+  if (globalThis.__pfProductImagesTableReady) return;
+  await sql`
+    CREATE TABLE IF NOT EXISTS product_images (
+      slug text PRIMARY KEY,
+      url text NOT NULL,
+      source text NOT NULL DEFAULT 'upload',
+      updated_at timestamptz NOT NULL DEFAULT now()
+    )
+  `;
+  globalThis.__pfProductImagesTableReady = true;
+}
+
+async function readProductImageStore(): Promise<ProductImageRecord[]> {
+  try {
+    return JSON.parse(await fs.readFile(PRODUCT_IMAGES_FILE, "utf8")) as ProductImageRecord[];
+  } catch {
+    return [];
+  }
+}
+
+async function writeProductImageStore(rows: ProductImageRecord[]) {
+  await fs.mkdir(DATA_DIR, { recursive: true });
+  await fs.writeFile(PRODUCT_IMAGES_FILE, JSON.stringify(rows, null, 2), "utf8");
+}
+
+function rowToProductImage(r: Record<string, unknown>): ProductImageRecord {
+  return {
+    slug: String(r.slug),
+    url: String(r.url),
+    source: r.source === "ai" ? "ai" : "upload",
+    updatedAt: new Date(r.updated_at as string).toISOString(),
+  };
+}
+
+export async function listProductImages(): Promise<ProductImageRecord[]> {
+  const sql = await getSql();
+  if (sql) {
+    await ensureProductImagesTable(sql);
+    const rows = await sql`SELECT * FROM product_images`;
+    return rows.map((r) => rowToProductImage(r as Record<string, unknown>));
+  }
+  return readProductImageStore();
+}
+
+export async function setProductImage(
+  slug: string,
+  url: string,
+  source: "upload" | "ai",
+): Promise<ProductImageRecord> {
+  const record: ProductImageRecord = { slug, url, source, updatedAt: new Date().toISOString() };
+  const sql = await getSql();
+  if (sql) {
+    await ensureProductImagesTable(sql);
+    await sql`
+      INSERT INTO product_images (slug, url, source, updated_at)
+      VALUES (${slug}, ${url}, ${source}, now())
+      ON CONFLICT (slug) DO UPDATE
+      SET url = EXCLUDED.url, source = EXCLUDED.source, updated_at = now()
+    `;
+    return record;
+  }
+  const rows = (await readProductImageStore()).filter((row) => row.slug !== slug);
+  rows.push(record);
+  await writeProductImageStore(rows);
+  return record;
+}
+
+export async function deleteProductImage(slug: string): Promise<boolean> {
+  const sql = await getSql();
+  if (sql) {
+    await ensureProductImagesTable(sql);
+    const rows = await sql`DELETE FROM product_images WHERE slug = ${slug} RETURNING slug`;
+    return rows.length > 0;
+  }
+  const rows = await readProductImageStore();
+  const next = rows.filter((row) => row.slug !== slug);
+  if (next.length === rows.length) return false;
+  await writeProductImageStore(next);
   return true;
 }

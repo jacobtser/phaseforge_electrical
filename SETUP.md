@@ -98,12 +98,17 @@ Studio key if the assistant falls back too often.
 - **Resend email:** add `RESEND_API_KEY`, `EMAIL_FROM`, and `OWNER_EMAIL`, then
   verify the sending domain in Resend.
 - **Cloudinary uploads:** add `CLOUDINARY_CLOUD_NAME` and
-  `CLOUDINARY_UPLOAD_PRESET` so quote photos persist on Vercel.
+  `CLOUDINARY_UPLOAD_PRESET` (an unsigned preset) so quote photos and product
+  photos from `/admin/photos` persist on Vercel.
+- **AI product photos:** `/admin/photos` can generate photos with Gemini.
+  Image models need billing enabled on the Google AI Studio project.
 - **Meta WhatsApp:** add `WHATSAPP_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID`, and an
   approved `WHATSAPP_TEMPLATE_NAME` (`phaseforge_owner_alert`, body
   `PhaseForge alert: {{1}}`). SMS remains the primary owner alert channel.
-- **Custom domain:** point `phaseforge-electrical.com` at the Vercel project and
-  set `NEXT_PUBLIC_SITE_URL` to the custom domain, then redeploy.
+- **Custom domain:** no domain is registered yet (`phaseforge-electrical.com`
+  and `phaseforgeelectrical.com` were both unregistered in Nov 2026). Once one
+  is bought, add it to the Vercel project, set `NEXT_PUBLIC_SITE_URL` to it,
+  and redeploy.
 
 ## 6. Owner verification before launch
 
@@ -115,8 +120,10 @@ claims"):
 
 - **Business name:** "PhaseForge Electrical & Power".
 - **Slogan:** "POWER DONE RIGHT, every single time."
-- **Email:** `info@phaseforge-electrical.com` (note the hyphen). Confirm the
-  mailbox exists and is monitored.
+- **Email:** the public email is hidden until `NEXT_PUBLIC_CONTACT_EMAIL` is
+  set. Only set it to a mailbox that exists and is monitored (the old
+  `info@phaseforge-electrical.com` was on an unregistered domain). Owner
+  alert emails go to `OWNER_EMAIL`.
 - **Emergency line:** `+233 24 722 7789`. The site labels it "call to check
   availability" rather than promising 24/7 cover. If a genuine 24/7 rota is
   staffed, the wording in `src/lib/site.ts` (`emergency`, `hours`) can be

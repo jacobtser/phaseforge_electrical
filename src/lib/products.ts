@@ -1912,7 +1912,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Compatible with busduct systems..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "mcb-6a-1p-ccurve-6-ka",
@@ -1934,7 +1934,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 6A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-6a-2p-ccurve-6-ka",
@@ -1956,7 +1956,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 6A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-6a-3p-ccurve-6-ka",
@@ -1978,7 +1978,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 6A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-10a-1p-ccurve-6-ka",
@@ -2000,7 +2000,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 10A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-10a-2p-ccurve-6-ka",
@@ -2022,7 +2022,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 10A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-10a-3p-ccurve-6-ka",
@@ -2044,7 +2044,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 10A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-16a-1p-ccurve-6-ka",
@@ -2066,7 +2066,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 16A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-16a-2p-ccurve-6-ka",
@@ -2088,7 +2088,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 16A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-16a-3p-ccurve-6-ka",
@@ -2110,7 +2110,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 16A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-20a-1p-ccurve-6-ka",
@@ -2132,7 +2132,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 20A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-20a-2p-ccurve-6-ka",
@@ -2154,7 +2154,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 20A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-20a-3p-ccurve-6-ka",
@@ -2176,7 +2176,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 20A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-25a-1p-ccurve-6-ka",
@@ -2198,7 +2198,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 25A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-25a-2p-ccurve-6-ka",
@@ -2220,7 +2220,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 25A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-25a-3p-ccurve-6-ka",
@@ -2242,7 +2242,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 25A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-32a-1p-ccurve-6-ka",
@@ -2264,7 +2264,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 32A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-32a-2p-ccurve-6-ka",
@@ -2286,7 +2286,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 32A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-32a-3p-ccurve-6-ka",
@@ -2308,7 +2308,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 32A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-40a-1p-ccurve-6-ka",
@@ -2330,7 +2330,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 40A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-40a-2p-ccurve-6-ka",
@@ -2352,7 +2352,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 40A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-40a-3p-ccurve-6-ka",
@@ -2374,7 +2374,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 40A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-50a-1p-ccurve-6-ka",
@@ -2396,7 +2396,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 50A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-50a-2p-ccurve-6-ka",
@@ -2418,7 +2418,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 50A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-50a-3p-ccurve-6-ka",
@@ -2440,7 +2440,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 50A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-63a-1p-ccurve-6-ka",
@@ -2462,7 +2462,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 63A, 1P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-63a-2p-ccurve-6-ka",
@@ -2484,7 +2484,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 63A, 2P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mcb-63a-3p-ccurve-6-ka",
@@ -2506,7 +2506,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 63A, 3P, C-curve, 6 kA or 10 kA, 230/400 V. Domestic/commercial protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-80a-3p4p",
@@ -2528,7 +2528,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 80A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-100a-3p4p",
@@ -2550,7 +2550,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 100A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-125a-3p4p",
@@ -2572,7 +2572,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 125A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-160a-3p4p",
@@ -2594,7 +2594,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 160A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-200a-3p4p",
@@ -2616,7 +2616,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 200A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-250a-3p4p",
@@ -2638,7 +2638,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 250A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-320a-3p4p",
@@ -2660,7 +2660,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 320A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-400a-3p4p",
@@ -2682,7 +2682,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 400A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mccb-630a-3p4p",
@@ -2704,7 +2704,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 630A frame, thermal-magnetic or electronic trip, adjustable, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "rccb-254063a-30-ma-2p4p",
@@ -2725,7 +2725,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Residual current, Type AC/A, domestic/commercial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "rcd",
   },
   {
     slug: "rccb-100300-ma-for-fire-protection",
@@ -2744,7 +2744,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Higher residual for fire risk reduction..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "rcd",
   },
   {
     slug: "rcbo-663a-1pn-2p",
@@ -2764,7 +2764,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Combined MCB+RCD, space saving..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "rcd",
   },
   {
     slug: "afdd-1040a",
@@ -2784,7 +2784,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Arc fault detection, fire safety..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "spd-type-12-type-2-2080-ka",
@@ -2805,7 +2805,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Surge protection, poles, Uc..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "hrc-fuse-nh00nh3-various-a",
@@ -2824,7 +2824,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. gG/aM characteristics..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "fuse-holder-10x38-nh",
@@ -2843,7 +2843,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. DIN rail or bolted..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "isolator-40630a-3p4p",
@@ -2862,7 +2862,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Load break / switch-disconnector..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "changeover-switch-manual-40400a",
@@ -2882,7 +2882,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. On-load or off-load, open transition..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "changer",
   },
   {
     slug: "ats-automatic-transfer-switch-40630a",
@@ -2903,7 +2903,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Controller, interlocking, commercial/industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "changer",
   },
   {
     slug: "soft-starter-75250-kw",
@@ -2923,7 +2923,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 3-phase motor starting, bypass option..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "stardelta-starter-complete",
@@ -2945,7 +2945,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Timer, contactors, overload, enclosure..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "contactor-9150a-ac3",
@@ -2965,7 +2965,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Coil 230 V / 400 V, auxiliaries..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "thermal-overload-01150a",
@@ -2984,7 +2984,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Direct mount or separate..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "mpcb-motor-protection-breaker",
@@ -3004,7 +3004,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Adjustable current, magnetic..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "power-factor-capacitor-550-kvar",
@@ -3024,7 +3024,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Dry or oil, 400 V..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "apfc-controller-612-step",
@@ -3044,7 +3044,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. CT input, automatic switching..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "active-harmonic-filter",
@@ -3064,7 +3064,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. A rating, 3-phase..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "1gang-1way-switch-10a20a",
@@ -3085,7 +3085,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "1gang-2way-switch-10a20a",
@@ -3106,7 +3106,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "1gang-intermediate-switch-10a20a",
@@ -3127,7 +3127,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "2gang-1way-switch-10a20a",
@@ -3148,7 +3148,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "2gang-2way-switch-10a20a",
@@ -3169,7 +3169,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "2gang-intermediate-switch-10a20a",
@@ -3190,7 +3190,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "3gang-1way-switch-10a20a",
@@ -3211,7 +3211,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "3gang-2way-switch-10a20a",
@@ -3232,7 +3232,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "3gang-intermediate-switch-10a20a",
@@ -3253,7 +3253,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "4gang-1way-switch-10a20a",
@@ -3274,7 +3274,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "4gang-2way-switch-10a20a",
@@ -3295,7 +3295,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "4gang-intermediate-switch-10a20a",
@@ -3316,7 +3316,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial plate switch, white/ivory/metallic finishes, grid or moulded..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "1gang-13a-switched-socket",
@@ -3337,7 +3337,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. BS 1363, shuttered, optional neon/USB..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "2gang-13a-switched-socket",
@@ -3358,7 +3358,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. BS 1363, shuttered, optional neon/USB..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "13a-unswitched-socket",
@@ -3377,7 +3377,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. BS 1363 shuttered..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "13a-socket-with-usba-usbc",
@@ -3396,7 +3396,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Combined power + charging..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "45a-cooker-switch-socket",
@@ -3416,7 +3416,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Neon, DP switch..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "45a-cooker-control-unit",
@@ -3435,7 +3435,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. With or without socket..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "fan-regulator-5step-electronic",
@@ -3454,7 +3454,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Ceiling fan control..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "dimmer-switch-leadingtrailing-edge",
@@ -3473,7 +3473,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. LED compatible options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "pull-cord-switch-6a10a",
@@ -3493,7 +3493,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Bathroom, ceiling mounted..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "ceiling-switch-surface-switch",
@@ -3512,7 +3512,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. High level switching..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "bell-push-flush-surface",
@@ -3531,7 +3531,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Illuminated options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "telephone-data-socket-rj45",
@@ -3551,7 +3551,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Single/double, Cat6..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "tv-satellite-socket",
@@ -3570,7 +3570,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Coaxial outlet..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "shaver-socket-dual-voltage",
@@ -3589,7 +3589,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Bathroom IP44..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "weatherproof-ip66-switch-12gang",
@@ -3609,7 +3609,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Outdoor, sealed..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "weatherproof-ip66-13a-socket",
@@ -3629,7 +3629,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Outdoor, hinged lid..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "floor-socket-underfloor-box",
@@ -3649,7 +3649,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Pop-up or flush, power+data..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "modular-grid-switch-system",
@@ -3669,7 +3669,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Grid plates, interchangeable modules..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "hotel-key-card-switch",
@@ -3689,7 +3689,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Energy saving, commercial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "door-bell-transformer-812-v",
@@ -3708,7 +3708,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Bell circuit supply..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "ceiling-rose-with-terminals",
@@ -3728,7 +3728,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Loop-in, 3-plate..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "batten-lamp-holder-e27b22",
@@ -3747,7 +3747,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Straight or angled..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "pendant-lamp-holder-set",
@@ -3768,7 +3768,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Flex, ceiling rose, holder..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "patress-box-1gang-2gang-162535-mm",
@@ -3787,7 +3787,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Dry lining or solid wall..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "dry-lining-box-cavity-box",
@@ -3806,7 +3806,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Plasterboard mounting..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "surface-metal-clad-switchsocket",
@@ -3825,7 +3825,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Industrial domestic look..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "industrial-plug-16a-3pe-ip44ip67",
@@ -3845,7 +3845,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 230/400 V, panel or trailing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "industrial-plug-32a-3pe-5p-ip44ip67",
@@ -3864,7 +3864,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Higher current industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "industrial-plug-63a-125a",
@@ -3884,7 +3884,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. High power, IP67..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "industrial-socket-surface-panel-16125a",
@@ -3903,7 +3903,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Matching plugs..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "pendant-socket-trailing-socket-industrial",
@@ -3922,7 +3922,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. With cable..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "cable-gland-brass-metric-m16m63",
@@ -3942,7 +3942,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. IP68, various thread..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-gland-nylon-pvc",
@@ -3963,7 +3963,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Metric &amp; PG, indoor/outdoor..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "explosion-proof-gland-barrier-gland",
@@ -3983,7 +3983,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Zone 1/2, Ex d / Ex e..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "explosion-proof-switch-socket",
@@ -4003,7 +4003,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Zone rated, industrial hazardous..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "explosion-proof-lighting-fixture",
@@ -4023,7 +4023,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. LED, Zone 1/2..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "explosion-proof-junction-box",
@@ -4042,7 +4042,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Ex e / Ex d..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "heavy-duty-contactor-150800a",
@@ -4062,7 +4062,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. AC3, coil options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "vacuum-contactor",
@@ -4081,7 +4081,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. MV or heavy LV..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "motor-control-centre-mcc-section",
@@ -4100,7 +4100,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Withdraw able or fixed..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "busbar-chamber-trunking-1005000a",
@@ -4119,7 +4119,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Sandwich or air insulated..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cast-resin-transformer-502500-kva",
@@ -4139,7 +4139,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Dry type, indoor..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "oil-filled-distribution-transformer",
@@ -4158,7 +4158,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 11/0.4 kV etc..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "ring-main-unit-rmu-112233-kv",
@@ -4177,7 +4177,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. SF6 or solid insulated..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "hv-switchgear-cubicle",
@@ -4196,7 +4196,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 11–33 kV..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "current-transformer-1005-to-30005",
@@ -4216,7 +4216,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Accuracy class, burden..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "voltage-transformer-11-kv-110-v",
@@ -4235,7 +4235,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Single/three phase..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "protection-relay-numerical",
@@ -4256,7 +4256,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Overcurrent, earth fault, differential..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "auxiliary-relay-timer-multifunction",
@@ -4275,7 +4275,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Industrial control..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "push-button-station-metal-ip65",
@@ -4295,7 +4295,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Start/Stop/E-Stop, multiple buttons..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "emergency-stop-mushroom-latch",
@@ -4315,7 +4315,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Twist release, NC contacts..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "indicator-light-led-22-mm-30-mm",
@@ -4335,7 +4335,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Multiple colours, 24/230 V..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "selector-switch-23-position",
@@ -4354,7 +4354,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Maintained/momentary..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "cam-switch-rotary-switch",
@@ -4374,7 +4374,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Multi-pole, off-load/on-load..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "limit-switch-heavy-duty-rollerlever",
@@ -4394,7 +4394,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. IP67, industrial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "proximity-sensor-m8m12m18m30",
@@ -4415,7 +4415,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Inductive, NPN/PNP, NO/NC..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "photoelectric-sensor-throughbeamreflective",
@@ -4434,7 +4434,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Various sensing distances..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "level-sensor-float-switch-industrial",
@@ -4454,7 +4454,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Cable or rigid, multiple points..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "pressure-switch-transmitter-010-bar",
@@ -4474,7 +4474,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Adjustable, 4–20 mA option..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "temperature-sensor-pt100-thermocouple",
@@ -4493,7 +4493,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. With transmitter options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "pid-temperature-controller-48x48-96x96",
@@ -4512,7 +4512,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. SSR/relay output..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "ssr-solid-state-relay-10100a",
@@ -4532,7 +4532,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. AC/DC control, zero cross..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "vfd-075160-kw-400-v",
@@ -4552,7 +4552,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Vector control, EMC filter options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "soft-starter-15400-kw",
@@ -4572,7 +4572,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Inside delta, bypass..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "servo-drive-motor-set",
@@ -4593,7 +4593,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Torque, speed, encoder..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "plc-compact-modular",
@@ -4614,7 +4614,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. DI/DO, AI/AO, communication..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "hmi-touch-panel-415-inch",
@@ -4635,7 +4635,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Ethernet, serial, IP65 front..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "industrial-ethernet-switch-managedunmanaged",
@@ -4655,7 +4655,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 5–24 port, DIN rail..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "protocol-converter-gateway",
@@ -4676,7 +4676,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Modbus, Profibus, Ethernet/IP..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "panel-pc-industrial-computer",
@@ -4696,7 +4696,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Touch, fanless options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "enclosure-steel-ip55ip66-200x200-to-1200x800",
@@ -4717,7 +4717,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Wall/floor, gland plates, mounting plate..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "polyester-grp-enclosure-ip66",
@@ -4736,7 +4736,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Corrosion resistant..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "stainless-steel-enclosure-ip66",
@@ -4755,7 +4755,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Food / marine / chemical..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "din-rail-terminal-blocks-2595-mm",
@@ -4775,7 +4775,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Screw or spring, multi-level..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "earth-terminal-neutral-bar",
@@ -4794,7 +4794,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Various ways..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "cable-duct-wiring-duct-slotted",
@@ -4813,7 +4813,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 25x25 to 100x100 mm..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "spiral-wrap-expandable-sleeving",
@@ -4832,7 +4832,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Cable management..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-mounts-bases",
@@ -4851,7 +4851,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Screw or adhesive..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "identification-markers-ferrules-printable",
@@ -4870,7 +4870,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Heat shrink or clip-on..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "anticondensation-heater-10100-w",
@@ -4889,7 +4889,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Panel / enclosure..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "thermostat-for-enclosure-060-c",
@@ -4908,7 +4908,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. NO/NC..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "filter-fan-exhaust-grille-ip54",
@@ -4927,7 +4927,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Various CFM..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "led-panel-light-for-enclosure",
@@ -4946,7 +4946,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Door switch option..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "led-downlight-520-w-cutout-various",
@@ -4967,7 +4967,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Recessed, CCT options, dimmable..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "led-high-bay-100200-w",
@@ -4987,7 +4987,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. UFO or linear, 120–150 lm/W..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "led-low-bay-50100-w",
@@ -5006,7 +5006,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Warehouse / workshop..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "led-linear-batten-1860-w",
@@ -5026,7 +5026,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 1.2 m / 1.5 m, IP20/IP65..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "led-waterproof-triproof-2060-w",
@@ -5046,7 +5046,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. IP65, for wet areas..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "led-street-light-30150-w",
@@ -5066,7 +5066,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Photocell option, photocell..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "led-floodlight-20500-w",
@@ -5086,7 +5086,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. IP65/66, bracket..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "led-bulkhead-ip65",
@@ -5106,7 +5106,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Round/oval, emergency option..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "emergency-conversion-kit",
@@ -5125,7 +5125,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. For existing luminaires..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "exit-sign-maintained-nonmaintained",
@@ -5145,7 +5145,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. LED, 3 h..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "central-battery-system-2448-v",
@@ -5165,7 +5165,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Autonomy, monitoring..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "track-spotlight-track",
@@ -5184,7 +5184,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 1-phase / 3-phase track..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "led-strip-1224-v-driver-profile",
@@ -5204,7 +5204,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. IP20/IP65, various CCT..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "led-driver-10200-w-constant-current",
@@ -5223,7 +5223,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Dimmable options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "photocell-switch-1020-a",
@@ -5242,7 +5242,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Dusk to dawn..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "occupancy-motion-sensor-ceiling",
@@ -5262,7 +5262,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. PIR/Microwave, 1–10 V or relay..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "daylight-sensor-photocell-dimming",
@@ -5281,7 +5281,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Constant light control..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "explosion-proof-led-linear-wellglass",
@@ -5300,7 +5300,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Zone 1/2..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "clean-room-led-panel",
@@ -5320,7 +5320,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. IP54/65, sealed..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "hospital-medical-examination-light",
@@ -5340,7 +5340,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. High CRI, adjustable..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "digital-multimeter-true-rms-cat-iv",
@@ -5360,7 +5360,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 6000–60000 counts, logging options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "clamp-meter-4006001000-a-acdc",
@@ -5381,7 +5381,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. True RMS, inrush, power..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "insulation-tester-501000-v-5-kv-10-kv",
@@ -5402,7 +5402,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. PI, DAR, ramp..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "earth-tester-34-pole-clamp-method",
@@ -5421,7 +5421,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Soil resistivity..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "loop-psc-tester",
@@ -5442,7 +5442,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Ze, Zs, PFC..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "rcd-tester",
@@ -5462,7 +5462,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Trip time, trip current..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "installation-tester-multifunction",
@@ -5482,7 +5482,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Combined tests, reporting..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "thermal-camera-160x120-to-640x480",
@@ -5501,7 +5501,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electrical inspection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "power-quality-analyser",
@@ -5522,7 +5522,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Harmonics, transients, logging..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "cable-locator-generator",
@@ -5541,7 +5541,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Live/dead cable tracing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "fault-locator-tdr-bridge",
@@ -5560,7 +5560,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Cable fault distance..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "phase-rotation-meter",
@@ -5579,7 +5579,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Contact and non-contact..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "noncontact-voltage-detector-hv",
@@ -5598,7 +5598,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Up to 500 kV options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "torque-screwdriver-wrench-set",
@@ -5617,7 +5617,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Nm range for terminals..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "hydraulic-crimper-16400-mm",
@@ -5637,7 +5637,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Battery or manual, dies..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "cable-cutter-ratchet-hydraulic",
@@ -5656,7 +5656,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Cu/Al up to 400 mm²..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "wire-stripper-automatic-precision",
@@ -5675,7 +5675,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 0.05–10 mm²..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "vde-pliers-set-1000-v",
@@ -5696,7 +5696,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Combination, long nose, side cutters..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "vde-screwdriver-set-slim",
@@ -5715,7 +5715,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. SL/PH/PZ/TX..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "insulated-spanner-socket-set",
@@ -5734,7 +5734,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 1000 V rated..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "fish-tape-2050-m-steel-fibreglass",
@@ -5753,7 +5753,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. With leaders..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "conduit-bender-202532-mm",
@@ -5772,7 +5772,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Hand or hydraulic..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "conduit-threader-manual-power",
@@ -5791,7 +5791,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. BSP/NPT..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "knockout-punch-set",
@@ -5810,7 +5810,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. For enclosures..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "heat-gun-digital-2000-w",
@@ -5829,7 +5829,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Variable temperature..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "soldering-station-digital",
@@ -5848,7 +5848,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Temperature controlled..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "label-printer-industrial",
@@ -5868,7 +5868,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Heat shrink, wrap around..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "laser-distance-meter",
@@ -5887,7 +5887,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. For installation measurement..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "victron-multiplus-500-va-5000-va-various-v",
@@ -5908,7 +5908,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Inverter/charger, PowerAssist, VE.Bus..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-multiplusii-3kva-15kva",
@@ -5928,7 +5928,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. ESS ready, external CT option..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-quattro-3kva-15kva",
@@ -5947,7 +5947,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Dual AC inputs..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-quattroii",
@@ -5966,7 +5966,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Updated platform..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-easysolarii-gx",
@@ -5985,7 +5985,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. All-in-one with GX..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-phoenix-inverter-2503000-va",
@@ -6005,7 +6005,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Pure sine, VE.Direct..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-multi-rs-solar-486000",
@@ -6025,7 +6025,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. High PV input, dual tracker..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-inverter-rs-486000",
@@ -6044,7 +6044,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. High frequency..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-smartsolar-mppt-full-range-7510-to-250100",
@@ -6065,7 +6065,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Bluetooth, VE.Direct, ultra-fast MPPT..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "victron-smartsolar-mppt-rs-450100-amp-450200",
@@ -6084,7 +6084,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. High voltage PV..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "victron-bluesolar-mppt",
@@ -6104,7 +6104,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Non-Bluetooth, dongle ready..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "victron-lithium-superpack-128-v-amp-256-v",
@@ -6123,7 +6123,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Integrated BMS..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "battery",
   },
   {
     slug: "victron-lithium-ng",
@@ -6142,7 +6142,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Next gen LiFePO4..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "battery",
   },
   {
     slug: "victron-agm-gel-leadcarbon-ranges",
@@ -6161,7 +6161,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Deep cycle..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "battery",
   },
   {
     slug: "victron-bmv712-smart-smartshunt",
@@ -6180,7 +6180,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Battery monitoring..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "victron-lynx-distributor-power-in-shunt",
@@ -6199,7 +6199,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. DC bus system..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "victron-cerbo-gx-cerbos-ekrano-gx",
@@ -6219,7 +6219,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. System monitoring, VRM..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "victron-gx-touch-50-70",
@@ -6238,7 +6238,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Display for Cerbo..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "victron-globallink-520",
@@ -6257,7 +6257,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 4G VRM connectivity..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "victron-oriontr-smart-orion-xs-dcdc",
@@ -6276,7 +6276,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Isolated/non-isolated chargers..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-phoenix-blue-smart-skylla-chargers",
@@ -6295,7 +6295,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. IP22/IP43/IP65/IP67..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "victron-cyrix-argofet-argodiode",
@@ -6315,7 +6315,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Battery combiners &amp; isolators..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "victron-batteryprotect-1224-v",
@@ -6334,7 +6334,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Over-discharge protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "battery",
   },
   {
     slug: "victron-vedirect-bluetooth-dongle-cables",
@@ -6372,7 +6372,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Wireless sensing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "cable-tie-nylon-100-mm-various-widths",
@@ -6393,7 +6393,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-150-mm-various-widths",
@@ -6414,7 +6414,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-200-mm-various-widths",
@@ -6435,7 +6435,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-250-mm-various-widths",
@@ -6456,7 +6456,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-300-mm-various-widths",
@@ -6477,7 +6477,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-370-mm-various-widths",
@@ -6498,7 +6498,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-400-mm-various-widths",
@@ -6519,7 +6519,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-450-mm-various-widths",
@@ -6540,7 +6540,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-500-mm-various-widths",
@@ -6561,7 +6561,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-550-mm-various-widths",
@@ -6582,7 +6582,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-750-mm-various-widths",
@@ -6603,7 +6603,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tie-nylon-1000-mm-various-widths",
@@ -6624,7 +6624,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Natural/black, UV stabilised options, 2.5–12 mm width..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "insulation-tape-pvc-blackcolours-19-mm-x-2033-m",
@@ -6643,7 +6643,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electrical grade..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "selfamalgamating-tape",
@@ -6662,7 +6662,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Waterproof joints..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "heat-shrink-tube-21-31-various-diameters",
@@ -6682,7 +6682,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Adhesive lined options, colours..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "heat-shrink-end-cap",
@@ -6701,7 +6701,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Cable sealing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "cable-marker-clipon-printable",
@@ -6722,7 +6722,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 0–9, A–Z, custom..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "ferrule-assortment-0516-mm",
@@ -6741,7 +6741,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Insulated bootlace..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "crimp-terminal-ringspadebullet-assortment",
@@ -6760,7 +6760,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Red/blue/yellow..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "copper-lug-15400-mm-various-stud",
@@ -6779,7 +6779,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Tin plated..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "bimetal-lug-alcu",
@@ -6798,7 +6798,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. For aluminium conductors..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "mechanical-connector-shearbolt",
@@ -6817,7 +6817,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 16–300 mm²..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "resin-joint-kit-lv",
@@ -6836,7 +6836,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Straight / branch..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "heat-shrink-joint-kit-lvmv",
@@ -6855,7 +6855,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. With or without connector..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "cold-shrink-joint-termination",
@@ -6874,7 +6874,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. MV applications..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "mv-termination-indooroutdoor",
@@ -6893,7 +6893,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 11/33 kV..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "earth-rod-58-410-ft-copper-bonded",
@@ -6913,7 +6913,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Threaded, couplings..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "earth-rod-solid-copper",
@@ -6932,7 +6932,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Various diameters..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "chemical-electrode-backfill",
@@ -6951,7 +6951,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Low resistance earthing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "earth-pit-concrete-plastic",
@@ -6970,7 +6970,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Inspection chamber..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "earth-clamp-rod-to-tape-cable",
@@ -7008,7 +7008,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Earthing / lightning..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "lightning-air-terminal-spike",
@@ -7028,7 +7028,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Multiple points, base..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "down-conductor-fixings-clips",
@@ -7066,7 +7066,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Discharge recording..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "equipotential-bonding-bar-620-way",
@@ -7086,7 +7086,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Copper, insulated mounts..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "warning-signs-electrical-hv-danger",
@@ -7105,7 +7105,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Rigid or adhesive..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "lockout-kit-padlocks-hasps-tags",
@@ -7124,7 +7124,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. LOTO safety..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "insulated-gloves-class-00-to-class-4",
@@ -7143,7 +7143,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. With leather protectors..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "arc-flash-face-shield-balaclava",
@@ -7162,7 +7162,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. cal/cm² rated..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "voltage-detector-stick-136-kv-higher",
@@ -7181,7 +7181,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Contact / non-contact..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "temporary-earthing-set-portable",
@@ -7200,7 +7200,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Clamps + cables + bag..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "fire-extinguisher-co2-25-kg",
@@ -7219,7 +7219,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electrical fires..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "fire-blanket-12x12-m",
@@ -7238,7 +7238,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electrical / kitchen..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "first-aid-kit-electrical-burns",
@@ -7257,7 +7257,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Site box..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "safety-helmet-chin-strap",
@@ -7276,7 +7276,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Colour options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "safety-glasses-goggles",
@@ -7296,7 +7296,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Clear / tinted, anti-fog..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "hivis-vest-coverall",
@@ -7315,7 +7315,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. For site..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "knee-pads-safety-boots-electrical-hazard",
@@ -7334,7 +7334,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. EH rated soles..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "cable-pulling-lubricant-gel-liquid",
@@ -7353,7 +7353,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Long pulls..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "cable-sock-pulling-grip",
@@ -7372,7 +7372,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Various diameters..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "cable-roller-straight-corner",
@@ -7391,7 +7391,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Installation aid..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "duct-rods-fish-sticks-550-m",
@@ -7410,7 +7410,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Fibreglass..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "silicone-sealant-electrical-neutral-cure",
@@ -7429,7 +7429,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Outdoor sealing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "contact-cleaner-spray",
@@ -7448,7 +7448,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Switch / connector..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "corrosion-inhibitor-deoxidising-compound",
@@ -7467,7 +7467,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Joints..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "transformer-oil-inhibited",
@@ -7486,7 +7486,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Drum quantities..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "insulating-varnish-spray",
@@ -7505,7 +7505,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Coil / board..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "pcb-cleaning-solvent",
@@ -7524,7 +7524,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electronics..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "desoldering-braid-pump",
@@ -7543,7 +7543,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Repair..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "solder-wire-6040-leadfree",
@@ -7581,7 +7581,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Soldering..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "heat-sink-compound",
@@ -7600,7 +7600,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Thermal interface..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "isopropyl-alcohol-ipa-99",
@@ -7619,7 +7619,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Cleaning..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "compressed-air-duster",
@@ -7638,7 +7638,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electronics..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "antistatic-wrist-strap-mat",
@@ -7657,7 +7657,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. ESD protection..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "esd-bags-boxes",
@@ -7676,7 +7676,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Component storage..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "breadboard-prototype-board",
@@ -7695,7 +7695,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electronics development..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "dupont-jumper-wires-mm-mf-ff",
@@ -7733,7 +7733,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Various ways..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "terminal-block-screw-212-way",
@@ -7752,7 +7752,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 5 mm / 7.5 mm pitch..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "relay-module-1248-channel-5-v-12-v-24-v",
@@ -7771,7 +7771,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Arduino / PLC interface..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "dcdc-buck-boost-module",
@@ -7790,7 +7790,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Adjustable voltage..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "linear-switching-power-supply-51224-v",
@@ -7809,7 +7809,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. DIN rail or enclosed..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "battery-holder-aaaaa9v",
@@ -7828,7 +7828,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. With leads..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "battery",
   },
   {
     slug: "coin-cell-holder-cr2032",
@@ -7847,7 +7847,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. PCB or wire..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "battery",
   },
   {
     slug: "fuse-holder-panel-inline-pcb",
@@ -7866,7 +7866,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. 5x20 / 6.3x32 mm..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "glass-ceramic-fuse-5x20-assortment",
@@ -7885,7 +7885,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Fast/slow blow..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "resettable-ptc-fuse",
@@ -7904,7 +7904,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Various hold currents..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "mcb",
   },
   {
     slug: "varistor-mov-720-mm",
@@ -7923,7 +7923,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Surge absorption..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "tvs-diode",
@@ -7942,7 +7942,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. ESD / transient..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "ntc-ptc-thermistor",
@@ -7961,7 +7961,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Inrush / temperature..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "capacitor-electrolytic-ceramic-film-assortment",
@@ -7980,7 +7980,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electronics..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "resistor-14-w-5-w-assortment",
@@ -7999,7 +7999,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Carbon / metal film..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "led-35-mm-resistor-kits",
@@ -8018,7 +8018,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Indicators..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "toggle-rocker-slide-switch",
@@ -8037,7 +8037,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. SPST/SPDT/DPDT..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "microswitch-limit-lever",
@@ -8056,7 +8056,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. NO/NC..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "rotary-encoder-with-switch",
@@ -8075,7 +8075,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. User interface..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "potentiometer-linear-log",
@@ -8094,7 +8094,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Panel / PCB..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "buzzer-active-passive-512-v",
@@ -8113,7 +8113,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Alarms..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "piezo-speaker",
@@ -8132,7 +8132,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Audio..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "dc-motor-312-v-driver",
@@ -8151,7 +8151,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Hobby / small automation..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "stepper-motor-28byj-nema-17-driver",
@@ -8170,7 +8170,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Positioning..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "servo-motor-9g-mg996-controller",
@@ -8189,7 +8189,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. RC / robotics..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "arduino-esp32-raspberry-pi-compatible-modules",
@@ -8210,7 +8210,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Sensors, shields, displays..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "oled-lcd-display-09624-inch",
@@ -8229,7 +8229,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. I2C / SPI..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "temperature-humidity-sensor-dht-sht",
@@ -8248,7 +8248,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Environmental..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "pir-motion-module",
@@ -8267,7 +8267,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Security / automation..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "ultrasonic-distance-sensor-hcsr04",
@@ -8286,7 +8286,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Ranging..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "current-sensor-acs712-ina219",
@@ -8305,7 +8305,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Monitoring..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "voltage-sensor-module",
@@ -8324,7 +8324,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Divider..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "relay-driver-optocoupler-board",
@@ -8343,7 +8343,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Isolation..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "logic-level-converter-335-v",
@@ -8362,7 +8362,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Interfacing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "usb-to-ttl-rs485-converter",
@@ -8381,7 +8381,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Programming / bus..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "breadboard-power-supply-module-335-v",
@@ -8400,7 +8400,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Prototyping..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "prototype-pcb-stripboard-perfboard",
@@ -8419,7 +8419,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Various sizes..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "enclosure-plastic-for-electronics",
@@ -8439,7 +8439,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Flanged, IP rated options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "cable-gland-small-for-enclosures-m12m20",
@@ -8458,7 +8458,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Electronics boxes..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "rubber-feet-mounting-hardware-assortment",
@@ -8477,7 +8477,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Assembly..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "standoff-spacer-m3m4-brass-nylon",
@@ -8496,7 +8496,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. PCB mounting..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "machine-screw-nut-washer-assortment-m3m6",
@@ -8515,7 +8515,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Assembly..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "double-sided-foam-tape-velcro",
@@ -8534,7 +8534,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Mounting..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-clip-adhesive-screw",
@@ -8553,7 +8553,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Domestic/commercial..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "conduit-saddle-spacer-spacer-bar",
@@ -8572,7 +8572,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Installation..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "wall-plug-rawlplug-assortment",
@@ -8591,7 +8591,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Fixings..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "screw-assortment-drywall-wood-selftapping",
@@ -8610,7 +8610,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Installation..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-cleat-single-trefoil",
@@ -8629,7 +8629,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Short circuit rated..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-tray-clamp-hold-down",
@@ -8648,7 +8648,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Fixing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "unistrut-channel-accessories",
@@ -8667,7 +8667,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Support systems..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "threaded-rod-m6m12-couplers",
@@ -8686,7 +8686,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Suspension..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "spring-nut-channel-nut",
@@ -8705,7 +8705,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Unistrut..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "beam-clamp-girder-clip",
@@ -8724,7 +8724,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Structural fixing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "pipe-clamp-clevis",
@@ -8743,7 +8743,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Conduit support..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "expansion-bolt-anchor",
@@ -8762,7 +8762,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Concrete fixing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "chemical-anchor-capsule-resin",
@@ -8781,7 +8781,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Heavy fixing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "fire-stopping-compound-pillow-seal",
@@ -8800,7 +8800,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Penetration seals..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "intumescent-mastic-sealant",
@@ -8819,7 +8819,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Fire rated..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "toolbox",
   },
   {
     slug: "cable-transits-multicable-seal",
@@ -8857,7 +8857,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Outdoor..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "socket",
   },
   {
     slug: "junction-box-waterproof-ip67-various-sizes",
@@ -8876,7 +8876,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Outdoor/underground..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "dboard",
   },
   {
     slug: "underground-cable-warning-tape",
@@ -8895,7 +8895,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Detectable options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "cable-protection-tile-cover",
@@ -8914,7 +8914,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Buried cables..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "duct-subduct-for-fibre-cable",
@@ -8952,7 +8952,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Access chambers..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "manhole-cover-electrical-telecom",
@@ -8971,7 +8971,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Load rated..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "conduit",
   },
   {
     slug: "street-light-column-outreach",
@@ -8991,7 +8991,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Galvanised, various heights..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "lantern-luminaire-for-street-column",
@@ -9011,7 +9011,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. LED, photocell..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "cutout-fuse-box-for-street-light",
@@ -9030,7 +9030,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Isolation..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "floodlight",
   },
   {
     slug: "time-switch-digital-astronomical",
@@ -9049,7 +9049,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Lighting control..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "switch",
   },
   {
     slug: "contactor-for-lighting-2063a",
@@ -9068,7 +9068,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Quiet operation options..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "lighting-control-module-dali-110-v",
@@ -9087,7 +9087,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Commercial systems..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "batten",
   },
   {
     slug: "presence-detector-high-bay",
@@ -9106,7 +9106,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Warehouse..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "corridor-function-sensor",
@@ -9125,7 +9125,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Energy saving..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "emergency-test-key-switch",
@@ -9144,7 +9144,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Monthly test..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "selftest-emergency-driver",
@@ -9163,7 +9163,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Automatic testing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "central-monitoring-system-for-emergency-lighting",
@@ -9182,7 +9182,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Addressable..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "ups-for-emergency-lighting",
@@ -9201,7 +9201,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Central battery alternative..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "inverter-for-emergency-conversion",
@@ -9220,7 +9220,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Maintained luminaires..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "battery-pack-nicd-nimh-lifepo4-for-emergency",
@@ -9239,7 +9239,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Replacement cells..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "exit-sign-legend-kit-diffuser",
@@ -9258,7 +9258,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Spare parts..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "photoluminescent-exit-sign-tape",
@@ -9277,7 +9277,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Non-electrical..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "safety-way-guidance-system",
@@ -9296,7 +9296,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Low location lighting..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "exit",
   },
   {
     slug: "ev-charging-station-ac-722-kw",
@@ -9316,7 +9316,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Type 2, tethered/socket..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "ev-dc-fast-charger-30150-kw",
@@ -9335,7 +9335,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. CCS / CHAdeMO..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "inverter",
   },
   {
     slug: "ev-charging-cable-type-1-type-2",
@@ -9374,7 +9374,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Dynamic balancing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "smart-energy-meter-with-ct-for-ev-solar",
@@ -9393,7 +9393,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Import/export..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "mid-approved-energy-meter",
@@ -9412,7 +9412,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Billing..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "ct-clamp-open-core-50600-a",
@@ -9431,7 +9431,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Monitoring..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "rogowski-coil-flexible-ct",
@@ -9450,7 +9450,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Large conductors..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "power-analyser-portable",
@@ -9469,7 +9469,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Energy surveys..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "data-logger-multichannel",
@@ -9490,7 +9490,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Voltage, current, temp..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
   {
     slug: "scada-rtu-module",
@@ -9509,7 +9509,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Remote monitoring..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "iot-gateway-4g-lora-wifi",
@@ -9528,7 +9528,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Sensor networks..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "smart-relay-wifi-contactor",
@@ -9547,7 +9547,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. App control..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "controller",
   },
   {
     slug: "energy-monitoring-app-compatible-meter",
@@ -9566,7 +9566,7 @@ export const products: Product[] = [
     description: "Product from PhaseForge Expanded Catalogue. Cloud dashboard..",
     notes: "Confirm current price and stock. See DOCX catalogue for full details.",
     warranty: "Manufacturer defect cover",
-    art: "cable",
+    art: "meter",
   },
 
 ];

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ProductArt } from "@/components/shop/ProductArt";
+import { ProductImage } from "@/components/shop/ProductImages";
 import { StockBadge } from "@/components/shop/StockBadge";
 import { PurchasePanel } from "@/components/shop/PurchasePanel";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -47,7 +47,6 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
   const related = products
     .filter((p) => p.category === product.category && p.slug !== product.slug)
     .slice(0, 4);
-  const image = product.image ?? null;
   const onlinePayments = paystackConfigured();
 
   const jsonLd = {
@@ -100,14 +99,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <div>
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-ink-900/60">
             <div className="aspect-[4/3] bg-ink-950">
-              {image ? (
-                // eslint-disable-next-line @next/next/no-img-element -- product photos drop in from /public/products
-                <img src={image} alt={product.name} className="h-full w-full object-cover" />
-              ) : (
-                <div className="h-full w-full p-8">
-                  <ProductArt art={product.art} />
-                </div>
-              )}
+              <ProductImage product={product} alt={product.name} eager artClassName="p-8" />
             </div>
           </div>
 

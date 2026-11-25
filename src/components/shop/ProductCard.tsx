@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { ArrowRightIcon, WhatsAppIcon } from "@/components/Icons";
-import { ProductArt } from "./ProductArt";
+import { ProductImage } from "./ProductImages";
 import { StockBadge } from "./StockBadge";
 import { AddToCartButton } from "./CartButtons";
 import { formatGHS, productOrderMessage, type Product } from "@/lib/products";
 import { site, waLink } from "@/lib/site";
 
 export function ProductCard({ product, priority }: { product: Product; priority?: boolean }) {
-  const image = product.image ?? null;
   const whatsappNumber =
     product.category === "solar" ? site.solarEv.whatsapp : site.whatsapp;
   return (
@@ -18,19 +17,7 @@ export function ProductCard({ product, priority }: { product: Product; priority?
         tabIndex={-1}
         aria-hidden="true"
       >
-        {image ? (
-          // eslint-disable-next-line @next/next/no-img-element -- product photos drop in from /public/products
-          <img
-            src={image}
-            alt=""
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading={priority ? "eager" : "lazy"}
-          />
-        ) : (
-          <div className="h-full w-full p-4 transition-transform duration-500 group-hover:scale-105">
-            <ProductArt art={product.art} />
-          </div>
-        )}
+        <ProductImage product={product} eager={priority} zoom artClassName="p-4" />
         <span className="absolute left-3 top-3 rounded-lg bg-ink-950/80 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-mist-200 backdrop-blur">
           {product.brand}
         </span>

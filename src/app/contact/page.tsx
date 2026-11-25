@@ -58,14 +58,16 @@ export default function ContactPage() {
                 </a>
               </ContactCard>
 
-              <ContactCard icon={MailIcon} title="Email">
-                <a
-                  href={`mailto:${site.email}`}
-                  className="text-mist-200 transition-colors hover:text-volt-300"
-                >
-                  {site.email}
-                </a>
-              </ContactCard>
+              {site.email && (
+                <ContactCard icon={MailIcon} title="Email">
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="text-mist-200 transition-colors hover:text-volt-300"
+                  >
+                    {site.email}
+                  </a>
+                </ContactCard>
+              )}
 
               <ContactCard icon={MapPinIcon} title="Service area">
                 <span className="text-mist-200">{site.serviceArea}</span>

@@ -8,10 +8,10 @@ import type { ServiceGroup } from "@/lib/site";
  * Swap a card to a photo by rendering an <img> in its place.
  */
 
-const GOLD = "#f1be29";
-const GOLD_SOFT = "#f8dd7a";
-const LINE = "rgba(226,228,230,0.55)";
-const FAINT = "rgba(226,228,230,0.18)";
+const GOLD = "#3b9bff";
+const GOLD_SOFT = "#8cc4ff";
+const LINE = "rgba(225,232,240,0.55)";
+const FAINT = "rgba(225,232,240,0.18)";
 
 function Scene({ id }: { id: ServiceGroup["id"] }) {
   switch (id) {
@@ -48,7 +48,7 @@ function Scene({ id }: { id: ServiceGroup["id"] }) {
                 height="12"
                 rx="2"
                 stroke={r === 1 && c === 1 ? GOLD : FAINT}
-                fill={r === 1 && c === 1 ? "rgba(241,190,41,0.25)" : "none"}
+                fill={r === 1 && c === 1 ? "rgba(59,155,255,0.25)" : "none"}
                 strokeWidth="1.8"
               />
             )),
@@ -138,7 +138,7 @@ function Scene({ id }: { id: ServiceGroup["id"] }) {
             [210, 116],
             [210, 80],
           ].map(([x, y]) => (
-            <circle key={`${x}-${y}`} cx={x} cy={y} r="4.5" fill="#090f16" stroke={GOLD} strokeWidth="2" />
+            <circle key={`${x}-${y}`} cx={x} cy={y} r="4.5" fill="#08111f" stroke={GOLD} strokeWidth="2" />
           ))}
           {/* Ruler */}
           <path d="M62 166 H258" stroke={GOLD_SOFT} strokeWidth="2" />
@@ -168,14 +168,14 @@ export function ServiceArt({
     >
       <defs>
         <pattern id={pid} width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M20 0 H0 V20" fill="none" stroke="rgba(241,190,41,0.07)" strokeWidth="1" />
+          <path d="M20 0 H0 V20" fill="none" stroke="rgba(59,155,255,0.07)" strokeWidth="1" />
         </pattern>
         <radialGradient id={`${pid}-glow`} cx="0.5" cy="0.45" r="0.6">
-          <stop offset="0" stopColor="rgba(241,190,41,0.16)" />
-          <stop offset="1" stopColor="rgba(241,190,41,0)" />
+          <stop offset="0" stopColor="rgba(59,155,255,0.16)" />
+          <stop offset="1" stopColor="rgba(59,155,255,0)" />
         </radialGradient>
       </defs>
-      <rect width="320" height="180" fill="#0b141d" />
+      <rect width="320" height="180" fill="#0b1628" />
       <rect width="320" height="180" fill={`url(#${pid})`} />
       <rect width="320" height="180" fill={`url(#${pid}-glow)`} />
       <Scene id={id} />

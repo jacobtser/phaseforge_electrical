@@ -101,7 +101,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="rounded-3xl border border-white/10 bg-ink-900/70 p-4 shadow-[0_40px_120px_-40px_rgba(241,190,41,0.35)] sm:p-6">
+            <div className="rounded-3xl border border-white/10 bg-ink-900/70 p-4 shadow-[0_40px_120px_-40px_rgba(59,155,255,0.35)] sm:p-6">
               <HeroArt />
             </div>
             <div className="absolute -left-2 top-8 hidden rounded-xl border border-white/10 bg-ink-950/95 px-4 py-3 text-sm shadow-xl backdrop-blur sm:block lg:-left-8">
@@ -241,17 +241,19 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <div className="flex gap-3">
-                <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-volt-400" />
-                <div>
-                  <dt className="font-bold text-white">Email</dt>
-                  <dd>
-                    <a href={`mailto:${site.email}`} className="break-all text-mist-300 hover:text-volt-300">
-                      {site.email}
-                    </a>
-                  </dd>
+              {site.email && (
+                <div className="flex gap-3">
+                  <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-volt-400" />
+                  <div>
+                    <dt className="font-bold text-white">Email</dt>
+                    <dd>
+                      <a href={`mailto:${site.email}`} className="break-all text-mist-300 hover:text-volt-300">
+                        {site.email}
+                      </a>
+                    </dd>
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="flex gap-3 sm:col-span-2">
                 <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-volt-400" />
                 <div>

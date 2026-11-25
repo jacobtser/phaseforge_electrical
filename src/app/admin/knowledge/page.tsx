@@ -42,6 +42,12 @@ export default async function AdminKnowledgePage() {
           >
             Shop orders
           </Link>
+          <Link
+            href="/admin/photos"
+            className="rounded-lg border border-white/10 px-3.5 py-2 text-sm font-medium text-mist-100 transition-colors hover:border-volt-400/50"
+          >
+            Product photos
+          </Link>
           <LogoutButton />
         </div>
       </div>

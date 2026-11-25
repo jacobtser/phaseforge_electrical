@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { InstallAppButton } from "./AppInstall";
 import { site, serviceGroups, nav, solarEvWaLink } from "@/lib/site";
 import { MailIcon, MapPinIcon, PhoneIcon, SunIcon, WhatsAppIcon } from "./Icons";
 
@@ -24,6 +25,7 @@ export function Footer() {
             >
               <WhatsAppIcon className="h-5 w-5" />
             </a>
+            {site.email && (
             <a
               href={`mailto:${site.email}`}
               className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 text-mist-200 transition-colors hover:border-volt-400/60 hover:text-volt-300"
@@ -31,6 +33,7 @@ export function Footer() {
             >
               <MailIcon className="h-5 w-5" />
             </a>
+            )}
             <a
               href={`tel:${site.phones[0].tel}`}
               className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm text-mist-200 transition-colors hover:border-volt-400/60 hover:text-volt-300"
@@ -96,6 +99,9 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <InstallAppButton className="font-semibold text-volt-300 transition-colors hover:text-volt-200" />
+            </li>
+            <li>
               <Link
                 href="/admin/login"
                 className="text-mist-500 transition-colors hover:text-mist-300"
@@ -144,12 +150,14 @@ export function Footer() {
                 Solar &amp; EV: {site.solarEv.label}
               </a>
             </li>
-            <li className="flex gap-2.5">
-              <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-400" />
-              <a href={`mailto:${site.email}`} className="transition-colors hover:text-volt-300">
-                {site.email}
-              </a>
-            </li>
+            {site.email && (
+              <li className="flex gap-2.5">
+                <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-400" />
+                <a href={`mailto:${site.email}`} className="transition-colors hover:text-volt-300">
+                  {site.email}
+                </a>
+              </li>
+            )}
             <li className="flex gap-2.5">
               <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-volt-400" />
               {site.location}

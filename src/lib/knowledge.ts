@@ -475,7 +475,7 @@ const securityAnswer = onlinePayments
 
 const emergencyAnswer = `That sounds urgent. Keep everyone away from the electrical equipment. If it is safe to do so, switch off the main breaker; do not touch damaged wiring or wet equipment. Call the emergency services if there is fire or someone has been injured, then call our emergency line on ${site.emergencyPhone.label} to check availability. Do not attempt live electrical work yourself.`;
 
-const contactAnswer = `You can reach the team on WhatsApp or phone at ${site.phones[0].label}, or the alternative line ${site.phones[1].label}. Email is ${site.email}. For solar, inverter, battery, EV or payment questions, use ${site.solarEv.label}. You can also use /contact or /book. I'm the AI assistant, so for anything I can't resolve I'll hand you to a person.`;
+const contactAnswer = `You can reach the team on WhatsApp or phone at ${site.phones[0].label}, or the alternative line ${site.phones[1].label}.${site.email ? ` Email is ${site.email}.` : ""} For solar, inverter, battery, EV or payment questions, use ${site.solarEv.label}. You can also use /contact or /book. I'm the AI assistant, so for anything I can't resolve I'll hand you to a person.`;
 
 const assistantAnswer = `I'm the ${site.shortName} AI assistant. I can help with product prices and stock labels, delivery, payments, bookings, order questions and general electrical guidance. I learn from the questions customers ask: when I can't answer, the team reviews the question and adds the answer so I can help the next customer. For anything urgent or account-specific, a person is available on ${site.phones[0].label}.`;
 
